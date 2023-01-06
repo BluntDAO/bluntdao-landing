@@ -1,0 +1,151 @@
+.container {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  /* max-width: 2000px; */
+  background: var(--main-background-color);
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 4rem;
+  margin: auto;
+  max-width: 1500px;
+}
+.grid {
+  display: flex;
+  color: white;
+}
+.content {
+  width: 55%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+.content a,
+.logoConatiner p {
+  background: #e5080b;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 24px;
+  width: 8em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  cursor: pointer;
+}
+.logoConatiner p {
+  width: 12em;
+  margin: 1em auto 0;
+}
+.content a:hover,
+.logoConatiner p:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+.logoConatiner {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.logos {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 20px;
+}
+.logos a {
+  display: flex;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.logos a:hover {
+  transform: scale(1.05);
+}
+.logos a img {
+  width: 100%;
+}
+.separateRough {
+  background-image: url("../../assets/imgs/seperate.png");
+  background-color: #f5f0ea;
+  height: 160px;
+  background-position-y: 0;
+  background-size: contain;
+  background-repeat: round no-repeat;
+}
+.separateRoughFlibbed {
+  background-image: url("../../assets/imgs/seperate.png");
+  background-color: #f5f0ea;
+  height: 160px;
+  background-position-y: 0;
+  background-size: contain;
+  background-repeat: round no-repeat;
+  transform: rotate(180deg);
+}
+
+.content h2 {
+  font-family: "Futura Bold Oblique", arial;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.content p {
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 150%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .logoConatiner p {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .section {
+    padding: 5rem 1rem;
+  }
+}
+@media screen and (max-width: 668px) {
+  .grid {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+  }
+  .logoConatiner {
+    width: 100%;
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .content p {
+    font-size: 0.8rem;
+  }
+  .content h2 {
+    font-size: 1.5rem;
+  }
+  .content a,
+  .logoConatiner p {
+    font-size: 1rem;
+  }
+  .logoConatiner p {
+    margin-top: 2rem;
+  }
+}

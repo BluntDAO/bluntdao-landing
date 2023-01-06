@@ -1,0 +1,120 @@
+.discord:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 1em; */
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 4em; */
+  color: white;
+}
+
+.heading {
+  width: 100%;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Futura Bold Oblique", arial;
+  font-weight: 700;
+}
+.subHeading {
+  font-size: 1.25em;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.FQAs {
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  text-align: left;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Discord section */
+.joinDiscord {
+  margin-top: 6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.discord {
+  display: flex;
+  border-radius: 50px;
+  text-align: center;
+  background-color: var(--main-color);
+  color: #fff;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 10.625em;
+  height: 3.625em;
+}
+.head1,
+.head2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.head2 {
+  font-weight: 500;
+}
+@media screen and (max-width: 1200px) {
+  .heading {
+    /* font-size: calc(1rem + 2vmin); */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    /* padding: 0 1rem; */
+  }
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .head1,
+  .head2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 2rem 1rem 0;
+  }
+  .FQAs {
+    font-size: 1.1rem;
+  }
+  .head1,
+  .head2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .head1,
+  .head2 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,166 @@
+.selectContainer {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+}
+
+.selectContainer.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 1em 1em;
+  flex-direction: column;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  max-width: 28em;
+  background: var(--default);
+  display: flex;
+  align-items: center;
+  padding: 2em;
+  justify-content: flex-start;
+  flex-direction: column;
+  grid-gap: 1em;
+  gap: 1em;
+  border-radius: 1em;
+  box-shadow: 0px 4.6387px 18.5548px rgb(207 207 207 / 25%);
+  animation: show 300ms alternate;
+}
+
+@keyframes show {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1em;
+  color: #000;
+}
+.heading > svg {
+  margin: 1em 0;
+}
+.heading h3 {
+  margin-bottom: 0.5em;
+}
+
+.heading p {
+  font-size: 0.75rem;
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading p svg {
+  margin-left: 4px;
+}
+.iconContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.closeIcon {
+  padding: 0.25em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 300ms;
+  fill: var(--icon-color);
+}
+
+.closeIcon:hover {
+  background: var(--main-lightest);
+}
+
+.wrapper {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.typeCard {
+  background: #d9d9d9;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 1.5em;
+  height: 9em;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.typeCard.active {
+  border-color: var(--main-color);
+}
+.wrapper .typeCard:hover {
+  border-color: var(--main-color);
+}
+.typeCard p {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-top: auto;
+}
+.typeCard img {
+  margin: auto;
+}
+
+.btn {
+  padding: 1.2em 1em;
+  border-radius: 50px;
+  text-align: center;
+  width: 10em;
+  background-color: var(--main-color);
+  font-size: 1rem;
+  color: var(--default);
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .heading h4 {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heading h4 {
+    font-size: 0.75rem;
+  }
+  .wrapper {
+    gap: 10px;
+  }
+  .btn {
+    margin-top: 1em;
+  }
+}

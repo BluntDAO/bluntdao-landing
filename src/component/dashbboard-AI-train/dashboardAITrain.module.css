@@ -1,0 +1,120 @@
+.container {
+  border-radius: 6.32666px;
+  padding: 2em 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--default);
+}
+.container .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  row-gap: 1rem;
+}
+.container .header svg {
+  margin-right: 0.5em;
+  width: 1.625rem;
+}
+.container .header p {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-family: "Helvetica 65 Medium", sans-serif;
+}
+.container .header div {
+  font-size: 1.125rem;
+  max-width: 760px;
+  font-family: "Helvetica 45 Light", sans-serif;
+}
+.container .wrapper {
+  margin-top: 3rem;
+  background: #1a1d1f;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-family: "Helvetica 65 Medium", sans-serif;
+}
+.descriptpion {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-family: "Helvetica 45 Light", sans-serif;
+  line-height: 153%;
+}
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.grid > div {
+  width: 70%;
+  text-align: left;
+}
+.grid svg {
+  width: 100px;
+  height: 100px;
+  border: 4.46218px solid var(--main-color);
+  border-radius: 50%;
+  padding: 1rem;
+  margin: auto;
+}
+.grid svg path {
+  fill: var(--main-color);
+}
+.line {
+  background: rgba(255, 255, 255, 0.2);
+  height: 1px;
+  width: 100%;
+  margin: 2rem 0;
+}
+.btn {
+  margin: auto;
+  font-size: 1.5rem;
+  font-family: "Helvetica 65 Medium", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.btn:hover {
+  color: var(--main-color);
+}
+@media screen and (max-width: 480px) {
+  .grid {
+    flex-direction: column-reverse;
+  }
+  .grid svg {
+    margin-bottom: 2rem;
+  }
+  .grid > div {
+    width: 100%;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+  .descriptpion {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+  }
+  .container .wrapper {
+    padding: 2rem 1rem;
+  }
+  .container .header p {
+    font-size: 1.5rem;
+  }
+  .container .header div {
+    font-size: 1rem;
+  }
+}

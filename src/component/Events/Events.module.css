@@ -1,0 +1,121 @@
+.header,
+.subheader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.header {
+  color: #e5080b;
+  font-size: 3rem;
+  font-family: "Futura Bold Oblique", arial;
+}
+
+.subheader {
+  color: #000000;
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  font-family: "Futura", arial;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 4rem;
+  margin: auto;
+  max-width: 1500px;
+}
+
+/* Covner */
+.coverItem {
+  min-height: 670px;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.status {
+  margin-top: 120px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e5080b;
+  font-family: "Futura", arial;
+  font-weight: 700;
+}
+.title {
+  margin-top: 1.3rem;
+  margin-bottom: 1.8rem;
+  color: #ffffff;
+  font-size: 3rem;
+  max-width: 14em;
+  text-align: left;
+  font-family: "Futura", arial;
+  font-weight: 700;
+}
+.detail {
+  color: #ffffff;
+  letter-spacing: 0.18px;
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+  text-align: left;
+  flex-wrap: wrap;
+}
+.coverItem a {
+  font-weight: 500;
+  font-size: 16px;
+  background: #e5080b;
+  border-radius: 79px;
+  width: 15.9em;
+  height: 3.68em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.3em;
+  transition: all 0.3s ease-in-out;
+}
+.coverItem a:hover {
+  transform: scale(1.05);
+}
+.disabled {
+  pointer-events: none;
+  cursor: initial;
+  background-color: #cccccc !important;
+  margin-bottom: 120px;
+}
+.disabled:hover {
+  transform: unset;
+}
+.seprator {
+  width: 3px;
+  background: #d9d9d9;
+  margin: 0 1rem;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 5rem 1rem;
+  }
+  .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .subheader {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 5rem 0rem !important;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}

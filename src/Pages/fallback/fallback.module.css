@@ -1,0 +1,117 @@
+.container {
+  font-family: "Futura", arial;
+  font-weight: 400;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding-top: 7.5em;
+  height: 100vh;
+  overflow-y: hidden;
+  background: #f5f0ea;
+}
+
+.container h1 {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 1.5vw 0;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 40px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.go-back svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  transition: 0.4s;
+}
+
+.go-back:hover {
+  background-color: var(--main-color);
+  color: rgb(255, 255, 255);
+}
+.go-back:hover svg {
+  transform: translate(-6px, 0px);
+}
+.go-back:hover svg path {
+  stroke: rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
+}
+
+.go-back {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  margin-right: 20px;
+  color: var(--main-color);
+  font-size: 14px;
+  border: 1px solid var(--main-color);
+  transition: 0.4s;
+  font-weight: 500;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.home:hover {
+  background: none;
+  color: var(--main-color);
+}
+.home:hover svg path {
+  fill: var(--main-color);
+}
+
+.home {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 14px;
+  transition: 0.4s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--main-color);
+  font-weight: 500;
+  border-radius: 100px;
+}
+
+.not-found img {
+  max-width: 100%;
+  max-height: 16rem;
+}
+.home svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  transition: 0.4s;
+  margin-bottom: 3px;
+  background: none;
+}
+
+@media screen and (max-width: 768px) {
+  .not-found img {
+    max-width: 90%;
+    margin-bottom: 1em;
+  }
+}

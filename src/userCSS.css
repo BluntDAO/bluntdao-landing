@@ -1,0 +1,58 @@
+:root {
+  --default: #ffffff;
+
+  --main-color: #d70411;
+  --main-hovered: #bd0410;
+  --main-lightest: #f3faff;
+  --btn-close: #eef5f9;
+  --outline: #e5e8eb;
+  --icon-color: rgb(18, 18, 18);
+  --card-trait: #f4f5f6;
+  --text-placeholder: #b2b7c2;
+  --text-dark-900: #0f1d40;
+
+  --shadow-light: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-dark: 3px 3px 6px rgba(0, 0, 0, 0.2);
+
+  --tooltip-background: #24182f;
+
+  /* Main Settings  */
+  --main-background-color: #0b0b0f;
+  --text-primary-color: rgb(0, 0, 0);
+  --text-secondary-color: rgb(68, 68, 68);
+
+  /* Nav Settings  */
+  --nav-link-color: rgb(0, 0, 0);
+  --nav-link-hover-color: rgb(87, 87, 87);
+  --nav-link-hover-background-color: none;
+  --nav-background-color: #0f0f0f;
+  --nav-height: 150px;
+  --nav-logo-width: 125px;
+  --nav-logo-font-size: 16px;
+
+  /* Mobile Nav Settings  */
+  --mobile-nav-background-color: rgb(155, 155, 155);
+  --mobile-nav-logo-height: 100px;
+  --mobile-nav-link-color: rgb(65, 65, 65);
+  --mobile-nav-link-hover-color: rgb(29, 29, 29);
+  --mobile-nav-link-size: 20px;
+
+  /* Card Settings  */
+  --card-background-color: rgb(216, 216, 216);
+  --card-border-radius: 10px;
+  --card-shadow: 10px 10px 20px -13px rgb(121, 121, 121);
+
+  /* Minting Area */
+  --minting-box-color: #151a1f;
+  --minting-box-heading-color: white;
+  --minting-box-info-box-color: rgb(65, 65, 65);
+  --minting-box-text-color: white;
+
+  /* Minting Button */
+  --minting-button-color: linear-gradient(180deg, #604ae5 0%, #813eee 100%);
+  --minting-button-text-color: white;
+
+  /* Dashborad */
+  --dashborad-primary-background: #111315;
+  --dashborad-secondary-background: #1a1d1f;
+}

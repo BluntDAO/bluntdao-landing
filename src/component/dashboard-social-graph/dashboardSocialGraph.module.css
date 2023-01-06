@@ -1,0 +1,127 @@
+.container {
+  background: var(--dashborad-secondary-background);
+  border-radius: 6.32666px;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 700px;
+}
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.header p {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.nodeBG,
+.inputBG,
+.thiedNodeBG,
+.FourthNodeBG {
+  height: 1rem;
+  width: 100%;
+  border-radius: 2px;
+}
+.nodeBG,
+.thiedNodeBG,
+.FourthNodeBG {
+  background: #36434e;
+  display: flex;
+  align-items: center;
+}
+.nodeBG .progress {
+  height: 100%;
+  background: rgba(0, 204, 155, 0.81);
+}
+.thiedNodeBG .progress {
+  height: 100%;
+  background: #28aef3;
+}
+.FourthNodeBG .progress {
+  height: 100%;
+  background: #ff0000;
+}
+.inputBG {
+  background: #8e5618;
+}
+.address {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--default);
+  font-weight: 600;
+  font-size: 0.625rem;
+  margin-top: 2px;
+  margin-right: auto;
+}
+
+.address img {
+  margin-right: 6px;
+  height: 20px;
+}
+
+.percentage {
+  color: var(--default);
+  margin-left: 3px;
+  font-size: 10px;
+}
+
+.searhBar {
+  background: #f5f5f5;
+  border-radius: 16px;
+  display: flex;
+  position: relative;
+  max-width: 20em;
+  width: 100%;
+  margin: auto;
+}
+.searhBar svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.searhBar svg path {
+  stroke: #737373;
+}
+.searhBar input {
+  border: 1px solid #dadada;
+  position: relative;
+  color: rgb(0, 0, 0);
+  padding: 0.5em 3em;
+  border-radius: 16px;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+.searhBar input:focus {
+  border-color: var(--dashborad-primary-background);
+  outline: none;
+}
+.searhBar:focus svg path {
+  stroke: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 460px) {
+  .header {
+    row-gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .header p {
+    font-size: 1rem;
+  }
+  .searhBar {
+    max-width: 100%;
+  }
+}

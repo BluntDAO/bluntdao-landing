@@ -1,0 +1,116 @@
+.container {
+  padding: 2em 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+.container .header p {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.container .header svg {
+  margin-right: 0.5em;
+  width: 1.625rem;
+}
+.container .header path:first-child {
+  fill: #ffb636;
+}
+.container .header path:last-child {
+  stroke: #ffb636;
+}
+.container .tableHeader {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.container .tableHeader > div {
+  background: var(--dashborad-secondary-background);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.container .tableHeader .controller {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.container .tableHeader .controller svg {
+  width: 9px;
+  height: 100%;
+  cursor: pointer;
+}
+.container .tableHeader .controller svg:hover path {
+  fill: var(--main-color);
+}
+.container .tableHeader .controller svg.active path {
+  fill: var(--main-color);
+  opacity: 1;
+}
+.container .tableHeader .controller svg:first-child {
+  margin-bottom: 2px;
+}
+
+.container .tableItemWrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  background: var(--dashborad-secondary-background);
+  margin: 0.5em 0;
+  transition: all 0.2s ease-in-out;
+}
+.tableItemWrapper:hover {
+  transform: scale(1.01);
+}
+
+.tableItemWrapper > div {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  justify-content: center;
+}
+.tableItemWrapper > div > img {
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
+.tabWrapper {
+  display: grid;
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  color: var(--default);
+  font-size: 13px;
+}
+.tabWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 460px) {
+  .container .header p {
+    font-size: 1rem;
+  }
+  .tabWrapper {
+    font-size: 10px;
+  }
+}

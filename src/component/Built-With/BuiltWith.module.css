@@ -1,0 +1,127 @@
+.container {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  /* max-width: 2000px; */
+  background: #f5f0ea;
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.header,
+.subheader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.header {
+  font-family: "Futura Bold Oblique", arial;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #e5080b;
+}
+
+.subheader {
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 2rem;
+  font-family: "Futura", arial;
+  font-weight: 500;
+}
+
+.separateRough {
+  background-image: url("../../assets/imgs/seperate.png");
+  background-color: #f5f0ea;
+  height: 160px;
+  background-position-y: 0;
+  background-size: contain;
+  background-repeat: round no-repeat;
+  transform: rotate(180deg);
+}
+
+.TechWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.3vw 1.3vw;
+  width: fit-content;
+  margin: 3rem auto;
+}
+.TechWrapper a {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b5b1b1;
+  cursor: pointer;
+  /* width: 17vw; */
+  height: 10.5vw;
+  transition: background 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+.TechWrapper a img {
+  height: 80%;
+  -webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  opacity: 0.5;
+  width: 80%;
+  object-fit: contain;
+  transition: all 0.4s ease-in-out;
+}
+.TechWrapper a:hover {
+  background: white;
+}
+.TechWrapper a:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    padding: 4rem 1rem;
+  }
+  .TechWrapper {
+    margin-top: 1rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .TechWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3% 3%;
+  }
+  .TechWrapper a img {
+    height: 60%;
+  }
+  .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .subheader {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-top: 1rem;
+  }
+  .TechWrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .TechWrapper a {
+    width: 48%;
+    margin: 5px auto;
+    height: 15.6vw;
+  }
+}

@@ -1,0 +1,215 @@
+.container {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1em;
+  margin-left: 4em;
+}
+
+.popupContainer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+}
+
+.popupContainer.active {
+  display: block;
+}
+
+.connect {
+  width: 100%;
+  font-weight: 400;
+  max-width: 14em;
+  margin-left: 4em;
+  font-size: 0.8rem;
+  padding: 0.9em 3em;
+  border-radius: 2em;
+  white-space: nowrap;
+  cursor: pointer;
+  color: white;
+  background: var(--main-color);
+  text-align: center;
+  border: 1px solid var(--main-color);
+  transition: background 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5em;
+}
+
+.connect:hover {
+  background: var(--main-hovered);
+}
+
+.connected {
+  width: max-content;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.5em;
+  color: var(--default);
+  cursor: pointer;
+  position: relative;
+  background: var(--main-color);
+  transition: all 150ms;
+  padding: 0.25em 0.25em;
+  border-radius: 2em;
+  padding: 0.25em 0.5em;
+  border: 1px solid var(--main-color);
+}
+
+.connected:hover {
+  /* color: var(--main-hovered); */
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.user img {
+  width: 1em;
+  height: 1em;
+}
+
+.chain {
+  height: 24px;
+  width: 24px;
+  background: var(--default);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.address {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+  position: relative;
+  font-size: 0.8rem;
+}
+
+.network {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 0.25em;
+  cursor: default;
+  color: white;
+}
+
+.activeNetwork {
+  font-size: 0.75rem;
+}
+
+.network svg {
+  fill: var(--default);
+  transform: rotate(-90deg);
+  transition: all 300ms;
+  width: 0.45em;
+  margin-left: 4px;
+}
+
+.networkDrop {
+  width: max-content;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(90%);
+  visibility: hidden;
+  transition: all 200ms;
+  border: 1px solid var(--outline);
+  color: black;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  background: var(--default);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.networkDrop:hover {
+  background: var(--main-lightest);
+}
+
+.network:hover .networkDrop {
+  visibility: visible;
+  transform: translateY(100%);
+}
+
+.network:hover svg {
+  transform: rotate(90deg);
+}
+
+.network .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f1b56e;
+}
+
+.dropdown {
+  width: 100%;
+  min-width: 12em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  background: var(--default);
+  position: absolute;
+  top: 2.5em;
+  color: var(--text-dark-900);
+  border-radius: 0.5em;
+  transition: all 150ms;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+  font-size: 0.85rem;
+  border: 1px solid var(--main-color);
+}
+
+.dropdown.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  transition: all 300ms;
+}
+
+.option:hover {
+  background: whitesmoke;
+}
+
+.option div {
+  white-space: nowrap;
+}
+
+.option img {
+  width: 1.2em;
+}
+
+@media screen and (max-width: 950px) {
+  .connect {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    justify-content: space-between;
+  }
+}

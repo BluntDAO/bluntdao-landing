@@ -1,0 +1,56 @@
+.container {
+  background: var(--dashborad-secondary-background);
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+  border-top: 2px solid #111315;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  transition: width 0.2s ease-in-out;
+}
+.tabItem {
+  display: flex;
+  width: 100%;
+  color: #535657;
+  align-items: center;
+  padding: 1em 0;
+  padding-left: 1.4em;
+  margin-bottom: 0.8em;
+  cursor: pointer;
+}
+
+.tabItem svg {
+  margin-right: 0.8em;
+}
+.tabItem svg path {
+  fill: #535657;
+}
+.tabItem:hover {
+  color: var(--main-color);
+}
+.tabItem:hover svg path {
+  fill: var(--main-color);
+}
+.tabItem.active {
+  border-left: 3px solid var(--main-color);
+  color: var(--main-color);
+}
+.tabItem.active svg path {
+  fill: var(--main-color);
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    border-right: 0;
+  }
+  .container.active {
+    z-index: 1;
+    width: 10rem;
+    height: 100%;
+    margin-top: 105px;
+  }
+}

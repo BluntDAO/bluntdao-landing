@@ -1,0 +1,285 @@
+.container {
+  margin: auto;
+  left: 0;
+  right: 0;
+  /* max-width: 2000px; */
+  background: #000000;
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  color: #fff;
+  margin-top: 7.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.section {
+  display: flex;
+  max-width: 1500px;
+  flex-direction: row;
+  /* height: 40rem; */
+  padding: 3rem 0rem;
+  align-items: center;
+  margin: auto;
+}
+
+.img1,
+.img2 {
+  width: 70rem;
+  border-radius: 10px;
+}
+.img1 {
+  margin-right: 2rem;
+  border: 3px solid #fff;
+}
+.img2 {
+  margin-left: 2rem;
+  width: auto;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  font-family: "Futura Bold Oblique", arial;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.connect {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.input {
+  width: 15rem;
+  height: 30px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.connectWallet,
+.discord,
+.volunteer {
+  padding: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-align: center;
+  width: 150px;
+}
+.connectWallet:hover,
+.discord:hover,
+.volunteer:hover,
+.vote:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.connectWallet,
+.discord {
+  background-color: var(--main-color);
+}
+
+.join {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.volunteer {
+  border: 1px solid #fff;
+  margin-left: 2rem;
+}
+.vote {
+  border: 1px solid #fff;
+  margin-left: 2rem;
+}
+
+.separateRough {
+  margin-top: 1rem;
+  background-image: url("../../assets/imgs/seperate-black.png");
+  background-color: #f5f0ea;
+  height: 200px;
+  background-size: contain;
+  background-repeat: round no-repeat;
+}
+
+.features {
+  height: 1.3em;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.fWrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  font-weight: bold;
+  animation: slide 7000ms infinite alternate;
+}
+.fWrapper div {
+  display: flex;
+  justify-content: center;
+  padding-right: 0.1em;
+}
+@keyframes slide {
+  0%,
+  20% {
+    transform: translateY(0em);
+  }
+  30%,
+  40% {
+    transform: translateY(-20%);
+  }
+  50%,
+  60% {
+    transform: translateY(-40%);
+  }
+  70%,
+  80% {
+    transform: translateY(-60%);
+  }
+  90%,
+  100% {
+    transform: translateY(-80%);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .img1,
+  .img2 {
+    width: 20rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .header {
+    font-size: 2rem;
+  }
+  .content {
+    font-size: 1rem;
+  }
+  .connect {
+    padding: 1rem 3rem;
+    /* max-width: 4rem; */
+  }
+  .description {
+    max-width: 18rem;
+  }
+
+  .discord,
+  .volunteer {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding-bottom: 5em;
+    padding-top: 6.5rem;
+    align-items: center;
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .img1,
+  .img2 {
+    width: 100%;
+  }
+
+  .header {
+    /* font-size: 3rem; */
+    text-align: center;
+  }
+  .content {
+    /* font-size: 2rem; */
+    text-align: center;
+  }
+  .join {
+    align-items: center;
+    justify-content: center;
+  }
+  .connect {
+    padding: 1rem 5rem;
+  }
+  .description {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .discord,
+  .volunteer {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .img2 {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 0 1rem;
+    padding-top: 4.5rem;
+  }
+  .img1,
+  .img2 {
+    width: 90%;
+  }
+  .img1 {
+    margin-left: 2rem;
+    margin-top: 2rem;
+  }
+  .img2 {
+    width: 100%;
+  }
+
+  .header {
+    font-size: 1.7rem;
+  }
+
+  .content {
+    font-size: 0.8rem;
+  }
+
+  .separateRough {
+    height: 65px;
+  }
+}

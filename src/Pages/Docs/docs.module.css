@@ -1,0 +1,10 @@
+.container {
+  min-height: 100vh;
+  padding-top: 130px;
+  display: flex;
+  justify-content: center;
+}
+.container > iframe {
+  /* height: 100%; */
+  width: 100%;
+}

@@ -1,0 +1,471 @@
+.container {
+  padding: 2em 1em;
+  color: var(--default);
+}
+
+.container > .header {
+  font-size: 1.5rem;
+  color: var(--default);
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+.header img {
+  margin: 0 8px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2em;
+}
+
+/* TopSection */
+.topPart {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1em;
+}
+
+.cardCotnainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cardCotnainer .cardWrapper {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
+}
+.cardCotnainer .cardWrapper .card {
+  background: var(--dashborad-secondary-background);
+  border-radius: 6.32666px;
+  padding: 1em;
+  font-weight: 500;
+  text-align: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cardCotnainer .cardWrapper .card:hover > svg > path {
+  fill: var(--main-color);
+  fill-opacity: 1;
+}
+.cardCotnainer .cardWrapper .card .titleCard {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8%;
+}
+.cardCotnainer .cardWrapper .card .titleCard div {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.cardCotnainer .cardWrapper .card .titleCard p {
+  display: flex;
+  justify-content: space-between;
+}
+.cardCotnainer .cardWrapper .card .titleCard p svg {
+  margin-left: 4px;
+  width: 16px;
+}
+.cardCotnainer .cardWrapper .card .titleCard p svg path {
+  fill: #ffffff;
+}
+.cardCotnainer .cardWrapper .card .text {
+  font-size: 2rem;
+  margin: 0.9rem 0 1rem;
+}
+.cardCotnainer .cardWrapper .card .linkBtn {
+  text-decoration-line: underline;
+  font-feature-settings: "salt" on, "liga" off;
+  font-size: 0.6rem;
+  cursor: pointer;
+}
+.cardCotnainer .cardWrapper .card .linkBtn:hover {
+  color: var(--main-color);
+}
+
+.prgWrapper {
+  position: absolute;
+  bottom: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.prgWrapper .amount {
+  margin-top: 1rem;
+}
+
+.tabWrapper {
+  display: grid;
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.tabWrapper::-webkit-scrollbar {
+  display: none;
+}
+/* Feeds Section */
+
+.feedContainer {
+  background: var(--dashborad-secondary-background);
+  border-radius: 6.32666px;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.feedContainer .header,
+.leaderboardContianer .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+.feedContainer .header p,
+.leaderboardContianer .header p {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.feedContainer .header svg,
+.leaderboardContianer .header svg {
+  margin-right: 0.5em;
+  width: 1.625rem;
+}
+.feedContainer .header path:first-child {
+  fill: #ffb636;
+}
+.feedContainer .header path:last-child {
+  stroke: #ffb636;
+}
+.feedContainer .tableHeader,
+.leaderboardContianer .tableHeader {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  margin-bottom: 0.5em;
+  font-size: 10px;
+}
+.leaderboardContianer .tableHeader {
+  grid-template-columns: repeat(7, 1fr);
+}
+.feedContainer .tableHeader > div,
+.leaderboardContianer .tableHeader > div {
+  background: var(--dashborad-primary-background);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.feedContainer .tableHeader .controller,
+.leaderboardContianer .tableHeader .controller {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.feedContainer .tableHeader .controller svg,
+.leaderboardContianer .tableHeader .controller svg {
+  width: 9px;
+  height: 100%;
+  cursor: pointer;
+}
+.feedContainer .tableHeader .controller svg:hover path,
+.leaderboardContianer .tableHeader .controller svg:hover path {
+  fill: var(--main-color);
+}
+
+.feedContainer .tableHeader .controller svg.active path {
+  fill: var(--main-color);
+  opacity: 1;
+}
+.feedContainer .tableHeader .controller svg:first-child,
+.leaderboardContianer .tableHeader .controller svg:first-child {
+  margin-bottom: 2px;
+}
+
+.feedContainer .tableItemWrapper,
+.leaderboardContianer .tableItemWrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  font-size: 10px;
+  background: var(--dashborad-primary-background);
+  margin: 0.5em 0;
+  transition: all 0.2s ease-in-out;
+}
+.leaderboardContianer .tableItemWrapper {
+  grid-template-columns: repeat(7, 1fr);
+}
+.tableItemWrapper:hover {
+  transform: scale(1.01);
+}
+/* .tableItemWrapper:last-child {
+  border-bottom-right-radius: 6.32666px;
+  border-bottom-left-radius: 6.32666px;
+} */
+.tableItemWrapper > div {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  justify-content: center;
+}
+.tableItemWrapper > div > img {
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
+.viewAllBtn {
+  margin: auto;
+  font-size: 0.875rem;
+  margin-top: 0.7em;
+  color: rgb(255 255 255 / 20%);
+  cursor: pointer;
+}
+.viewAllBtn:hover {
+  color: var(--main-color);
+}
+
+/* LeaderBorad */
+.leaderboardContianer {
+  background: var(--dashborad-secondary-background);
+  border-radius: 6.32666px;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.leaderboardContianer .header {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.leaderboardContianer .header .tabs {
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
+  display: flex;
+  gap: 1em;
+  font-size: 12px;
+}
+.leaderboardContianer .header .tabs > div {
+  padding: 0.5em 1em;
+  text-align: center;
+  background: #111315;
+  border-radius: 5px;
+  color: #535557;
+  cursor: pointer;
+}
+.leaderboardContianer .header .tabs > div:hover {
+  background: var(--main-color);
+  color: var(--default);
+}
+.leaderboardContianer .header .tabs > div.active {
+  background: var(--main-color);
+  color: var(--default);
+}
+.leaderboardContianer .header .viewAll,
+.feedContainer .header .viewAll {
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.feedContainer .header .viewAll {
+  font-size: 1.125rem;
+}
+.leaderboardContianer .header .viewAll:hover,
+.feedContainer .header .viewAll:hover {
+  color: var(--main-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 65% calc(35% - 1rem);
+  gap: 1rem;
+}
+
+.leaderboardContianer .cardsWrapper {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.leaderboardContianer .cardsWrapper > div {
+  background: var(--dashborad-primary-background);
+  border: 0.85805px solid #36434e;
+  border-radius: 2.57415px;
+  padding: 1em 0.5em;
+}
+
+.leaderboardContianer .cardsWrapper > div .content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+.leaderboardContianer .cardsWrapper > div .content .icon {
+  margin-right: 4px;
+  position: relative;
+}
+.leaderboardContianer .cardsWrapper > div .content .icon svg {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  bottom: 0.4em;
+  right: -0.4em;
+}
+.leaderboardContianer .cardsWrapper > div .content .text div {
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+.leaderboardContianer .cardsWrapper > div .content .text p {
+  font-size: 0.5rem;
+}
+
+.leaderboardContianer .cardsWrapper > div .line {
+  background: rgba(255, 255, 255, 0.2);
+  height: 1px;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+.leaderboardContianer .cardsWrapper > div .cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.leaderboardContianer .cardsWrapper > div .cardBottom .chapter {
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+}
+.leaderboardContianer .cardsWrapper > div .cardBottom .onboraded {
+  font-weight: 700;
+  font-size: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15.7448px;
+  padding: 1em;
+}
+
+.leaderboardContianer .cardsWrapper > div .content .cardIndex {
+  font-weight: 700;
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.14);
+  position: absolute;
+  left: -7px;
+  top: -40px;
+}
+
+.tableItemPrg {
+  display: flex;
+  align-items: center;
+  font-size: 0.5625rem;
+  color: #00cc9b;
+  background: rgba(0, 204, 155, 0.12);
+  border: 1px solid #00cc9b;
+  border-radius: 3px;
+  padding: 0.6em 1em;
+}
+
+@media screen and (max-width: 960px) {
+  .container.inactive {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+@media screen and (max-width: 830px) {
+  .grid {
+    grid-template-columns: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .cardCotnainer .cardWrapper .card {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cardCotnainer .cardWrapper .card > svg {
+    height: 100%;
+  }
+  .cardCotnainer .cardWrapper .card .titleCard div {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .cardCotnainer .cardWrapper .card .titleCard p {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 830px) {
+  .grid {
+    grid-template-columns: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .cardCotnainer .cardWrapper .card {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cardCotnainer .cardWrapper .card > svg {
+    height: 100%;
+  }
+  .cardCotnainer .cardWrapper .card .titleCard div {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .cardCotnainer .cardWrapper .card .titleCard p {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 460px) {
+  .cardCotnainer .cardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cardCotnainer .cardWrapper .card {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .cardCotnainer .cardWrapper .card > svg {
+    margin: auto;
+  }
+  .cardCotnainer .cardWrapper .card .titleCard {
+    margin: auto;
+  }
+  .container > .header {
+    font-size: 1rem;
+  }
+  .feedContainer .header p,
+  .leaderboardContianer .header p {
+    font-size: 1rem;
+  }
+  .feedContainer .header .viewAll {
+    font-size: 1rem;
+  }
+  .leaderboardContianer .cardsWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

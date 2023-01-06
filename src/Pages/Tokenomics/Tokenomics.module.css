@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  background: #ffffff;
+}
+.form {
+  height: 100vh;
+  padding-top: 150px;
+  max-width: 2000px;
+  margin: auto;
+}

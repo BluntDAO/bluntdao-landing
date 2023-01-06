@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura\ Bold/Futura Heavy font.ttf")
+    format("truetype");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura\ Bold/Futura Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura\ Bold/futura medium bt.ttf")
+    format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura\ Bold/futur.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Futura";
+  src: url("../assets/fonts/Futura\ Bold/Futura Light font.ttf")
+    format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Futura Bold Oblique";
+  src: url("../assets/fonts/Futura\ Extra\ Bold\ Oblique/Futura Extra Bold Oblique.otf")
+    format("opentype");
+}
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("http://fonts.cdnfonts.com/css/sf-pro-display");
+@import url("http://fonts.cdnfonts.com/css/helvetica-neue-9");

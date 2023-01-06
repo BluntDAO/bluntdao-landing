@@ -1,0 +1,159 @@
+.container {
+  position: fixed;
+  top: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  /* max-width: 2000px; */
+  background: var(--nav-background-color);
+  /* background-image: url("navbar-bg.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+
+.logo {
+  cursor: pointer;
+  width: 10rem;
+  margin-left: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 50px;
+  padding-left: 10px;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 0.1em;
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-right: 0.5em;
+  min-height: 50px;
+}
+
+.navItem {
+  color: white;
+  padding: 0.5em 1em;
+  font-weight: 700;
+  transition: all 300ms;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.navItem:hover {
+  border-color: rgb(235, 234, 234);
+}
+
+.active li {
+  border-radius: 0;
+  font-size: 1rem;
+  border-bottom: 3px solid rgb(152, 16, 16);
+}
+.active li:hover {
+  border-bottom: 3px solid rgb(152, 16, 16);
+}
+.iconClose,
+.iconOpen {
+  display: none;
+  cursor: pointer;
+}
+
+.wallet {
+  min-width: 12em;
+  text-align: right;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    gap: 2em;
+  }
+
+  .container input {
+    max-width: 20em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container input {
+    max-width: 12em;
+  }
+
+  .navList {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .logoDesktop {
+    display: none;
+  }
+
+  .logo {
+    display: block;
+    width: 5em;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .iconClose,
+  .iconOpen {
+    display: block;
+    z-index: 1;
+    position: fixed;
+    right: 20px;
+  }
+
+  .wrapper {
+    width: 100%;
+    position: absolute;
+    flex-direction: column;
+    gap: 2em;
+    right: 0;
+    background-color: var(--main-background-color);
+    top: 3em;
+    padding: 0em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 650ms;
+  }
+
+  .navList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 2em;
+  }
+
+  .navItem {
+    font-weight: 700;
+  }
+  .navActive {
+    max-height: fit-content;
+  }
+}

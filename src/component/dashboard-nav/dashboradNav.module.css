@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  height: 105px;
+  width: 100%;
+  background: var(--dashborad-secondary-background);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  width: 16%;
+  height: 100%;
+  display: flex;
+  padding: 1em;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  justify-content: center;
+}
+.logo a {
+  display: flex;
+}
+.logo img {
+  width: 100%;
+  object-fit: contain;
+  width: 10rem;
+}
+
+.wrapper {
+  width: 84%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.navItems {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.searhBar {
+  background: var(--dashborad-primary-background);
+  display: flex;
+  border-radius: 8px;
+  position: relative;
+  width: 18em;
+  height: fit-content;
+  margin-right: auto;
+}
+.searhBar svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+.searhBar svg path {
+  stroke: #535657;
+}
+.searhBar input {
+  position: relative;
+  color: white;
+  padding: 1.5em 0 1.5em 3em;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+.searhBar input:focus {
+  border: 1px solid var(--main-color);
+  outline: none;
+}
+.searhBar:focus svg path {
+  stroke: #ffffff;
+}
+
+.sideNavIcon {
+  width: 20px;
+  height: 100%;
+  cursor: pointer;
+  display: none;
+  margin-left: 1em;
+}
+.sideNavIcon g {
+  fill: white;
+}
+.sideNavIcon.active g {
+  fill: var(--main-color);
+}
+
+.iconClose,
+.iconOpen {
+  display: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 960px) {
+  .logo {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .sideNavIcon {
+    display: block;
+  }
+}
+@media screen and (max-width: 760px) {
+  .iconClose,
+  .iconOpen {
+    display: block;
+    z-index: 1;
+    position: relative;
+    margin-left: 10px;
+  }
+
+  .navItems {
+    width: 100%;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 2em;
+    gap: 2em;
+    right: 0;
+    background-color: var(--dashborad-secondary-background);
+    top: 6em;
+    padding: 0em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 650ms;
+    z-index: 1000;
+  }
+  .navActive {
+    max-height: fit-content;
+    padding: 1em;
+  }
+  .sideNavIcon {
+    margin-left: auto;
+  }
+  .logo {
+    width: auto;
+  }
+  .searhBar {
+    width: 100%;
+  }
+}

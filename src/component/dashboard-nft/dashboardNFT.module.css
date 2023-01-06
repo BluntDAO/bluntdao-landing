@@ -1,0 +1,138 @@
+.container {
+  padding: 2em 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.header p {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.header svg {
+  margin-right: 0.5em;
+  width: 1.625rem;
+}
+.header path:first-child {
+  stroke: #ffb636;
+}
+.header path:last-child {
+  fill: #ffb636;
+  stroke: #ffb636;
+}
+
+.cardHolders {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 3rem;
+  row-gap: 3rem;
+  column-gap: 1.1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  background: var(--dashborad-primary-background);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 11.9889px rgba(0, 0, 0, 0.12);
+  border-radius: 14.3867px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min-content;
+  color: var(--default);
+  overflow: hidden;
+}
+
+.content {
+  padding: 0.4375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.content > img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.content svg {
+  height: 27px;
+  width: 27px;
+  padding: 1px;
+  border-radius: 50%;
+  background: var(--default);
+  position: absolute;
+  bottom: -5.5px;
+  font-size: 9px;
+  right: 2em;
+}
+.content .address {
+  display: flex;
+  position: absolute;
+  background: var(--default);
+  color: black;
+  align-items: center;
+  font-size: 9px;
+  box-shadow: 0px 0px 11.9889px rgb(0 0 0 / 12%);
+  border-radius: 14.3867px;
+  width: 10em;
+  justify-content: space-around;
+  height: 3.3em;
+  left: 2em;
+  bottom: -5.5px;
+  padding: 5px;
+}
+.content .address div {
+  height: 12px;
+  width: 12px;
+  margin-right: 4px;
+  border-radius: 50%;
+}
+
+.title {
+  font-weight: 700;
+  width: calc(100% - 2em);
+  margin: auto;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.line {
+  background: rgba(255, 255, 255, 0.4);
+  height: 2px;
+  width: 100%;
+  margin: 1rem 0 0rem;
+}
+
+.viewBtn {
+  color: var(--main-color);
+  font-size: 0.875rem;
+  font-weight: 700;
+  width: 100%;
+  height: fit-content;
+  cursor: pointer;
+  padding: 0.9em 0 0.9em;
+  transition: all 0.2s ease-in-out;
+}
+
+.viewBtn:hover {
+  background: var(--main-color);
+  color: var(--default);
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    margin: auto;
+  }
+}

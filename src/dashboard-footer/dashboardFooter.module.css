@@ -1,0 +1,108 @@
+.wrapper {
+  display: flex;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.container {
+  margin: auto;
+  left: 0;
+  right: 0;
+  color: #fff;
+  background: var(--main-color);
+  min-height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  bottom: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 1rem;
+  width: 100%;
+  margin: auto;
+}
+
+.left {
+  float: left;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+}
+
+.right span {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+.socialIcons {
+  display: flex;
+}
+.icon {
+  margin-right: 0.2rem;
+  transition: all 300ms;
+  border-radius: 0.25em;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 34px;
+}
+.icon img {
+  width: 100%;
+  height: 16px;
+}
+.icon:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .icon {
+    margin: 3px;
+  }
+
+  .left {
+    margin-right: 0;
+    bottom: 0;
+  }
+  .right {
+    flex-direction: column;
+    margin-left: auto;
+  }
+  .right span {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .section {
+    flex-direction: column-reverse;
+  }
+  .left {
+    justify-content: center;
+  }
+  .right {
+    flex-direction: column;
+    margin: 0;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }
+
+  .right span {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}

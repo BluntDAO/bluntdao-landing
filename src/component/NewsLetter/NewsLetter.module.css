@@ -1,0 +1,117 @@
+.container {
+  background: #ae0003;
+  color: white;
+  width: 100%;
+  padding: 2rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  font-family: "Futura", arial;
+  font-weight: 700;
+}
+.newsLetterWrapper {
+  display: flex;
+  width: 100%;
+}
+.newsLetterWrapper > div {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  justify-content: center;
+}
+.newsLetterWrapper > img {
+  width: 30%;
+}
+.header,
+.subheader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.header {
+  font-family: "Futura Bold Oblique", arial;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.subheader {
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.formWrapper {
+  display: flex;
+  justify-content: center;
+}
+.formWrapper form {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+.formWrapper form input[type="text"] {
+  background: #d9d9d9;
+  border-radius: 50px;
+  width: 70%;
+  height: 78px;
+  font-size: 1.25rem;
+  margin-right: 1.25rem;
+  outline: none;
+  border: none;
+  padding-left: 2rem;
+  font-weight: 700;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+.formWrapper form input[type="text"]:focus {
+  border-color: #620002;
+  box-shadow: 0 1px 1px rgba(55, 55, 55, 0.372) inset, 0 0 8px #ae00036b;
+  outline: 0 none;
+}
+.btn {
+  border: 1px solid #ffffff;
+  color: white;
+  border-radius: 50px;
+  background: transparent;
+  font-size: 1.25rem;
+  height: 2.6em;
+  width: 9em;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  transform: scale(1.05) !important
+  ;
+}
+@media screen and (max-width: 900px) {
+  .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 630px) {
+  .newsLetterWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .newsLetterWrapper > img {
+    max-width: 15rem;
+    width: 100%;
+    margin-left: 50px;
+  }
+  .btn {
+    margin-top: 0.5em;
+  }
+  .newsLetterWrapper > div {
+    width: 100%;
+  }
+}

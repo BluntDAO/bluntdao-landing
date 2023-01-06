@@ -1,0 +1,149 @@
+.roadmapContainer {
+  margin: auto;
+  left: 0;
+  right: 0;
+  /* max-width: 1000px; */
+  background: #f5f0ea;
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section {
+  padding: 3rem 0rem;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  width: 100%;
+}
+
+.header,
+.subheader {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.header {
+  color: #e5080b;
+  font-size: 3rem;
+  font-family: "Futura Bold Oblique", arial;
+  font-weight: 700;
+}
+
+.subheader {
+  color: #000000;
+  font-size: 1.2rem;
+  align-self: center;
+  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  font-family: "Futura", arial;
+  font-weight: 500;
+}
+
+.roadmapItem,
+.roadmapItem2 {
+  background-color: #fff;
+  width: 16rem;
+  color: var(--main-background-color);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.roadmapItem2 {
+  margin-left: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 5px;
+  font-size: 0.8rem;
+}
+.m_heading {
+  font-size: 2rem;
+  color: var(--nav-background-color);
+  font-weight: 800;
+  opacity: 0.22;
+  text-align: center;
+}
+
+.m_subheading {
+  text-align: center;
+  color: var(--main-background-color);
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.roadmap {
+  /* background-image: url("cigar.png"); */
+  background-position: center;
+  max-width: 1000px;
+  width: 100%;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  position: relative;
+}
+.backgroundImg {
+  position: absolute;
+  top: 6em;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.done {
+  text-decoration: line-through;
+  text-decoration-color: #e5080b;
+}
+@media only screen and (max-width: 900px) {
+  .section {
+    max-width: 700px;
+    width: 90%;
+  }
+
+  .header {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .subheader {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .roadmapItem,
+  .roadmapItem2 {
+    margin-left: 11rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-top: 1rem;
+  }
+  .roadmapItem,
+  .roadmapItem2 {
+    margin: 20px auto;
+    background-color: #fff;
+    width: 100%;
+    color: var(--main-background-color);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+  .m_heading {
+    font-size: 2rem;
+  }
+  li {
+    font-size: 0.6rem;
+  }
+}

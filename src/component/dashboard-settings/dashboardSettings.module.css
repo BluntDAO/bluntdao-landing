@@ -1,0 +1,120 @@
+.container {
+  padding: 2em 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--default);
+}
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+  row-gap: 1rem;
+}
+.container .header p {
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.wrapper {
+  background: var(--dashborad-secondary-background);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2em 1em;
+}
+
+.profilePic p {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1em;
+}
+.profilePic img {
+  height: 100px;
+  margin-bottom: 3em;
+}
+
+.subheader {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 2em;
+}
+
+.wrapper label {
+  margin-bottom: 0.5em;
+}
+.wrapper > input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  padding: 1em 2em;
+  margin-bottom: 2.5em;
+  color: var(--default);
+  max-width: 30em;
+  width: 100%;
+  outline: none;
+  transition: all 0.2s ease-in;
+}
+.wrapper .infoInput {
+  margin-bottom: 1em;
+}
+.wrapper input:focus {
+  border-color: var(--main-color);
+}
+
+.infoTxt {
+  color: var(--main-color);
+  font-weight: 300;
+  font-size: 0.625rem;
+  margin-bottom: 4em;
+}
+
+.socialLabel {
+  margin-bottom: 0.5em;
+}
+.discordLabel {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.social {
+  display: flex;
+  align-items: center;
+}
+.social svg {
+  height: 100%;
+  width: 1.25rem;
+  margin-right: 0.675em;
+}
+.social input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  padding: 1em 2em;
+  color: var(--default);
+  max-width: 14em;
+  width: 100%;
+  outline: none;
+  transition: all 0.2s ease-in;
+  margin-left: 0.675em;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: var(--main-color);
+  font-size: 1.25rem;
+  padding: 0.8em 2em;
+  margin: 6em auto 0;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}

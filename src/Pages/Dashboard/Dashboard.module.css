@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--dashborad-primary-background);
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 16% 84%;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 105px;
+}
+
+@media screen and (max-width: 960px) {
+  .wrapper {
+    grid-template-columns: 100%;
+  }
+}
