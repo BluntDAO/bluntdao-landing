@@ -83,7 +83,7 @@ const MediumSlider = () => {
   useEffect(() => {
     let Parser = require("rss-parser");
     let parser = new Parser();
-    const CORS_PROXY = "https://cors-anywhere-wjlt.onrender.com/";
+    const CORS_PROXY = "https://cors-demo-app1.herokuapp.com/";
     (async () => {
       let feed = await parser.parseURL(
         CORS_PROXY + "https://medium.com/feed/@bluntdao"

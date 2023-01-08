@@ -1,5 +1,9 @@
 const PartnersData = [
   {
+    img: "/img/partners/degan.png",
+    url: "https://www.degendystopia.com/",
+  },
+  {
     img: "/img/partners/mpa.png",
     url: "https://www.minorityprogrammers.com/",
   },
@@ -15,14 +19,7 @@ const PartnersData = [
     img: "/img/partners/feel-the-fruit.png",
     url: "https://feelthefruit.com/",
   },
-  {
-    img: "/img/partners/onchainsmokers.png",
-    url: "https://www.onchainsmokers.com/",
-  }, 
-  {
-    img: "/img/partners/CannabisGenomeDAO.png",
-    url: "https://cannabisgeno.me",
-  }, 
+
   {
     img: "/img/partners/cryptobabes.png",
     url: "http://www.cryptobabesclub.com/",
@@ -34,10 +31,6 @@ const PartnersData = [
   {
     img: "/img/partners/libreate-your-wealth.png",
     url: "https://liberateyourwealth.com/",
-  },
-  {
-    img: "/img/partners/degan.png",
-    url: "https://www.degendystopia.com/",
   },
   {
     img: "/img/partners/alphagrowth.png",
@@ -55,16 +48,6 @@ const PartnersData = [
     img: "/img/partners/wykstrom.gif",
     url: "https://wlo.link/@Windu",
   },
-  {
-    img: "/img/partners/Web3conn.png",
-    url: "https://web3connect.app/",
-  }, 
-
-  {
-    img: "/img/partners/blackhistorydao.jpeg",
-    url: "www.blackhistorydao.io",
-  },
-  
   {
     img: "/img/partners/onboarddao.png",
     url: "https://www.onboarddao.com/",

@@ -19,7 +19,6 @@ const twitterAPIURL = (twitterIDs) => {
   return `https://api.twitter.com/2/tweets?ids=${ids}&tweet.fields=attachments,author_id,created_at,entities&expansions=attachments.media_keys,author_id&media.fields=alt_text,duration_ms,media_key,preview_image_url,type,url,variants&user.fields=name,profile_image_url,username`;
 };
 const tweets = [
-  "1598053293477232641",
   "1575373829001691136",
   "1583521546718482433",
   "1583874790363828224",
@@ -127,7 +126,7 @@ const Review = () => {
 
   useEffect(() => {
     axios
-      .get("https://cors-anywhere-wjlt.onrender.com/" + twitterAPIURL(tweets), {
+      .get("https://cors-demo-app1.herokuapp.com/" + twitterAPIURL(tweets), {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_TWITTER_ACCESS_TOKEN}`,
         },
