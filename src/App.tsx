@@ -18,6 +18,7 @@ import DashboardNFTSingle from "./Pages/Dashboard/DashboardNFTSingle";
 import DashboardTrainAI from "./Pages/Dashboard/DashboardTrainAI";
 import Links from "./Pages/Links/Links";
 import Schedule from "./Pages/Schedule/Schedule";
+import RPOS from "./Pages/RPOS/RPOS";
 // styles
 import "./App.css";
 import "./styles/Slider.scss";
@@ -137,6 +138,7 @@ const App = () => {
           <Route exact path="/partner" component={PartnerForm} />
           <Route exact path="/docs" component={Docs} />
           <Route exact path="/pos" component={POS} />
+          <Route exact path="/rpos" component={RPOS} />
           {/* dashboard */}
           <Route
             exact

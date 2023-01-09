@@ -12,6 +12,7 @@ import BuiltWith from "../component/Built-With/BuiltWith";
 import Review from "../component/Review/Review";
 import Footer from "../component/Footer/Footer";
 import Medium from "../component/Meduim/Medium";
+import RPOS from "./RPOS/RPOS";
 
 const Home = () => {
   const scrollToComment = () => {
@@ -52,6 +53,9 @@ const Home = () => {
       </Element>
       <Element id="pos" name="pos">
         <POS />
+      </Element>
+      <Element id="rpos" name="rpos">
+        <RPOS />
       </Element>
       <div id="gallery">
         <Gallery />
