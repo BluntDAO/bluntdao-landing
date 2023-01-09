@@ -8,6 +8,7 @@ import {ReactComponent as Spliff} from "../../assets/imgs/smookingSticks/spliff.
 import {ReactComponent as Blunt} from "../../assets/imgs/smookingSticks/blunt.svg";
 import {ReactComponent as Cigar} from "../../assets/imgs/smookingSticks/cigar.svg";
 import {ReactComponent as Cigarette} from "../../assets/imgs/smookingSticks/cigarette.svg";
+import ScanQR from '../../component/ScanQR/ScanQR';
 
 const RPOS = () => {
     const [state, setState] = useState({
@@ -41,7 +42,7 @@ const RPOS = () => {
   const Sticks = smookingStickList.map((stick) => {
     return (
       <div key={stick.Name} className={classes.smookingStick} onClick={() => {
-        handleSetState({ cameraEnable: true });
+        handleSetState({ cameraEnable: true, smookingSticks: false });
         }}>
         {stick.icon}
         <span>{stick.Name}</span>
@@ -56,7 +57,7 @@ const RPOS = () => {
       <>
           <Navbar />
           <div className={classes.container}>
-        <div className="section">
+        <div className={classes.section}>
           {!cameraEnable && (
             <div className={classes.banner}>
               <img className={classes.bluntRequestIcon} src="/img/blunt-request.svg" alt="proof of sesh icon" />
@@ -82,27 +83,32 @@ const RPOS = () => {
             </div>
           )}
           {cameraEnable && (
-            <Capture
-              {...{
-                toggle,
-                handleSetState,
-                img,
-                typeSelect,
-                detectionToggle,
-                location,
-              }}
-            />
+            // <Capture
+            //   {...{
+            //     toggle,
+            //     handleSetState,
+            //     img,
+            //     typeSelect,
+            //     detectionToggle,
+            //     location,
+            //   }}
+            // />
+            <ScanQR />
           )}
-                  <div className={classes.smookingStickDrawer}>
+          {smookingSticks &&
+            <div className={classes.smookingStickDrawer}>
                       <header className={classes.smokingStickHeader}>
                           <section className={classes.smookingStickTitleSection}>
                               <h2 className={classes.header}>Smoking stick</h2>
                               <p className={classes.content}>Select the stick that you are about to scan</p>
                           </section>
-                          <CloseIcon />
+                          <CloseIcon  onClick={() => {
+                        handleSetState({ smookingSticks: false });
+                        }} style={{cursor: "pointer"}} />
                       </header>
                 <main className={classes.listSmookingSticks}>{Sticks}</main>
-                  </div>
+            </div>
+           }
                   
         </div>
       </div>

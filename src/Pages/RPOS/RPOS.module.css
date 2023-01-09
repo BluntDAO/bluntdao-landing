@@ -11,6 +11,12 @@
     min-height: 100vh;
     overflow-y: hidden;
     background: var(--main-background-color);
+    position: relative;
+  }
+  .section{
+    display: flex;
+    flex-flow: column nowrap;
+    -ms-flex-flow: column nowrap;
   }
   .banner {
     display: flex;
@@ -91,32 +97,64 @@
     display: flex;
     flex-flow: column nowrap;
     -ms-flex-flow: column nowrap;
-    width: 97%;
-    top:240px;
+    width: 96vw;
+    top:220px;
     position: absolute;
     z-index: 1;
     background: #24262E;
     bottom: 0;
     margin: 0 auto;
+    transition: all 400ms;
+    border-radius: 5.49793px;
+    overflow: hidden;
+    align-self: center;
+    max-width: 900px;
+  }
+  .smokingStickHeader{
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    /* width: 100%; */
+    justify-content: space-between;
+    background: #0F1222;
+    border-radius: 0px;
+    margin: unset;
+    /* border-radius: 5.49793px; */
+  }
+  .smookingStickTitleSection{
+    align-self: flex-start;
+    text-align: left;
+  }
+  .smookingStickTitleSection * {
+    margin: unset;
+  }
+  .smookingStickTitleSection > h2{
+    font-size: 20px;
+  }
+  .smookingStickTitleSection > p{
+    font-size: 14px;
   }
 
   .listSmookingSticks{
     display: flex;
     justify-content: space-evenly;
-    width: 25%;
+    width: 100%;
     flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-direction: row;
+    align-items: flex-start;
     gap: 18px;
+    padding: 1.4em;
   }
   .smookingStick{
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    align-content: center;
-    width: 126px;
-    height: 126px;
+    /* align-content: center; */
+    width: 120px;
+    height: 120px;
     padding: 40px 17px;
     border-radius: 5.49793px;
     background: #D9D9D9;
