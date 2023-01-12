@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./POS.module.css";
 import Capture from "../../component/Capture/Capture";
 import Navbar from "../../component/Navbar/Navbar";
+import { GenContext } from "../../gen-state/gen.context";
+import { setNotification } from "../../gen-state/gen.actions";
 
 const POS = () => {
+  const { dispatch, account, web3auth } = useContext(GenContext);
+
+  console.log(web3auth);
+  console.log(account);
+
   const [state, setState] = useState({
     cameraEnable: false,
     typeSelect: { toggle: false, value: "" },
@@ -22,6 +29,7 @@ const POS = () => {
   const handleSetState = (payload: any) => {
     setState((state) => ({ ...state, ...payload }));
   };
+
   return (
     <>
       <Navbar />
@@ -30,20 +38,37 @@ const POS = () => {
           {!cameraEnable && (
             <div className={style.banner}>
               <img src="/img/blunt-request.svg" alt="" />
-              <div className={style.header}>Request Proof Of Sesh</div>
+              <div className={style.header}>Request Proof of Sesh</div>
               <div className={style.content}>
-                BluntDAO is the IRL onboarding movement to Web3 via proof of
-                sesh. The longest continous sesh via OG Blunt Validators in the
-                Blunt Network. Onboarding the next 1 million users to Web3,
-                wallets, DIDs, DAOs, and NFTs 1 blunt at a time.
+                Get your BluntDAO Soul Bound NFT by verifying your Blunt via
+                Proof of Sesh by a validator in your area.
               </div>
-              <div
-                onClick={() => {
-                  handleSetState({ cameraEnable: true });
-                }}
-                className={style.btn}
-              >
-                Request For Blunt
+              <div className={style.btnContainer}>
+                <div
+                  onClick={() => {
+                    if (account?.length) {
+                      handleSetState({ cameraEnable: true });
+                    } else {
+                      dispatch(
+                        setNotification({
+                          message: "You must sign in to continue",
+                          type: "error",
+                        })
+                      );
+                    }
+                  }}
+                  className={style.btn}
+                >
+                  Request For Blunt
+                </div>
+                <a
+                  href="https://medium.com/@bluntdao/proof-of-sesh-explained-bluntdao-19ecd8479750"
+                  target="_blank"
+                  className={style.btn}
+                  rel="noreferrer"
+                >
+                  Learn More
+                </a>
               </div>
             </div>
           )}
