@@ -1,0 +1,120 @@
+.container {
+  width: 90%;
+  max-width: 22em;
+  position: fixed;
+  right: 10px;
+  z-index: 3000;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transition: all 650ms;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  white-space: nowrap;
+}
+
+.message {
+  flex: 1;
+}
+
+.notification {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  animation: slide-out 650ms forwards;
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 0.5em;
+  position: relative;
+}
+
+.closeIcon {
+  fill: white;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 300ms ease;
+}
+
+.closeIcon:hover {
+  transform: rotate(90deg);
+}
+
+.notification.error {
+  background: var(--error-600);
+  border: 1px solid var(--error-600);
+}
+
+.notification.error .message {
+  color: var(--default);
+}
+
+.notification.error .closeIcon {
+  fill: var(--default);
+}
+
+.notification.warning {
+  background: var(--warning-200);
+  border: 1px solid var(--warning-500);
+}
+
+.notification.warning .closeIcon {
+  fill: var(--warning-700);
+}
+
+.notification.warning .message {
+  color: var(--warning-700);
+}
+
+.notification.success {
+  background: var(--success-500);
+  border: 1px solid var(--success-700);
+}
+
+.notification.success .message {
+  color: var(--default);
+}
+
+.notification.default {
+  background: var(--card-layer);
+}
+
+.notification.default .message {
+  color: var(--default);
+}
+
+.container.active {
+  visibility: visible;
+}
+
+.container.active .notification {
+  animation: slide-in 450ms forwards;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(110%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

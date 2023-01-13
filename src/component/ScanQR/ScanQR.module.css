@@ -1,0 +1,96 @@
+.selectContainer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgb(0, 0, 0);
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  overflow: auto;
+  padding: 1em 1em;
+  flex-direction: column;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  max-width: 28em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-gap: 1em;
+  gap: 1em;
+  border-radius: 1em;
+  animation: show 300ms alternate;
+}
+.card section {
+  display: flex;
+  width: 100%;
+}
+@keyframes show {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.headerText {
+  font-weight: 600;
+  color: var(--default);
+  font-size: 1.25rem;
+}
+
+.iconContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.closeIcon {
+  padding: 0.25em;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 300ms;
+  fill: var(--icon-color);
+}
+
+.closeIcon:hover {
+  background: var(--main-lightest);
+}
+
+@media screen and (max-width: 768px) {
+  .heading h4 {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heading h4 {
+    font-size: 0.75rem;
+  }
+  .wrapper {
+    gap: 10px;
+  }
+  .btn {
+    margin-top: 1em;
+  }
+}

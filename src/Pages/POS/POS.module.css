@@ -1,12 +1,11 @@
 .container {
-  font-family: "Futura", arial;
+  font-family: "Helvetica", arial;
   font-weight: 400;
   width: 100%;
   font-size: 1rem;
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
   padding-top: 7.5em;
   min-height: 100vh;
   overflow-y: hidden;
@@ -25,9 +24,9 @@
   width: 100%;
 }
 .header {
-  font-family: "Futura Bold Oblique", arial;
   font-size: 4rem;
-  font-weight: 800;
+  line-height: 140%;
+  font-weight: 700;
   margin: 0.8em 0;
 }
 
@@ -35,23 +34,6 @@
   font-weight: 500;
   font-size: 1.4rem;
   margin-bottom: 1rem;
-}
-
-.btn {
-  padding: 1.2em 1em;
-  font-weight: 700;
-  border-radius: 50px;
-  text-align: center;
-  width: 12em;
-  background-color: var(--main-color);
-  font-size: 1.125em;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  margin: 1.2em 0;
-}
-.btn:hover {
-  transform: scale(1.05);
-  font-weight: 700;
 }
 
 .popupContainer {
@@ -67,7 +49,37 @@
 .popupContainer.active {
   display: block;
 }
-
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+.btn {
+  padding: 1.1rem 2rem;
+  font-weight: 700;
+  border-radius: 35.1918px;
+  text-align: center;
+  width: 100%;
+  max-width: 287px;
+  background-color: var(--main-color);
+  font-size: 1.125em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  line-height: 160%;
+  border: 1px solid transparent;
+}
+a.btn {
+  color: var(--default);
+  border-color: var(--default);
+  background: transparent;
+  text-decoration: underline;
+}
+.btn:hover {
+  transform: scale(1.05);
+  font-weight: 700;
+}
 @media only screen and (max-width: 900px) {
   .header {
     font-size: 2rem;
@@ -77,21 +89,22 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  /* .header {
-    font-size: 3rem;
-    text-align: center;
-  }
-  .content {
-    font-size: 2rem;
-  } */
-  /* .connect {
-    padding: 1rem 5rem;
-  } */
-}
-
 @media screen and (max-width: 480px) {
   .header {
-    font-size: 1.7rem;
+    font-size: 1.75rem;
+    width: 80%;
+    margin: 2rem 0 1rem;
+  }
+  .content {
+    font-size: 0.8125rem;
+  }
+  .btn {
+    font-size: 0.75rem;
+  }
+  .banner img {
+    max-width: 200px;
+  }
+  .btnContainer {
+    gap: 1rem;
   }
 }

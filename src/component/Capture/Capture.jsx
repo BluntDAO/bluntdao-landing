@@ -71,41 +71,6 @@ const Capture = ({ ...props }) => {
       handleSetState({ toggle: true });
     }
   }, [permissionDenied]);
-  // const getImageSize = async (img) =>
-  //   new Promise((resolve) => {
-  //     const image = new Image();
-  //     if (typeof img === "string") {
-  //       image.src = img;
-  //     } else {
-  //       image.src = URL.createObjectURL(img);
-  //       console.log(image.src);
-  //     }
-  //     image.onload = () => {
-  //       resolve({ height: image.height, width: image.width });
-  //     };
-  //   });
-
-  // const handleFileChange = async (event) => {
-  //   clearImage();
-  //   const uploadedFile = event.target.files[0];
-
-  //   if (!uploadedFile) return;
-  //   let photo = photoRef?.current;
-  //   if (photo) {
-  //     let ctx = photo.getContext("2d");
-  //     const { height, width } = await getImageSize(uploadedFile);
-  //     const img = new Image();
-  //     img.src = URL.createObjectURL(uploadedFile);
-  //     photo.setAttribute("width", width);
-  //     photo.setAttribute("height", height);
-  //     img.onload = function () {
-  //       ctx.drawImage(img, 0, 0, width, height);
-  //     };
-  //     const imageUrl = photo.toDataURL("image/webp", 1);
-  //     console.log(imageUrl);
-  //     handleSetState({ img: imageUrl });
-  //   }
-  // };
 
   return (
     <div className={`${style.container}`}>
@@ -169,9 +134,7 @@ const Capture = ({ ...props }) => {
           </div>
         )}
       </div>
-      {/* <div className={style.uploadBtn}>
-          <IconLibrary onClick={() => fileRef.current.click()} />
-        </div> */}
+
       <StickSelect
         typeSelect={typeSelect}
         detectionToggle={detectionToggle}
@@ -183,13 +146,6 @@ const Capture = ({ ...props }) => {
         handleSetState={handleSetState}
         location={location}
       />
-      {/* <input
-        style={{ display: "none" }}
-        onChange={handleFileChange}
-        ref={fileRef}
-        type="file"
-        accept=".jpg, .jpeg, .png, .webp"
-      /> */}
     </div>
   );
 };
