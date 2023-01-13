@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import style from "./POS.module.css";
 import Capture from "../../component/Capture/Capture";
+import StickSelect from "../../component/stick-select/stickSelect";
+import ScanQR from "../../component/ScanQR/ScanQR";
 import Navbar from "../../component/Navbar/Navbar";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
@@ -8,14 +10,12 @@ import { setNotification } from "../../gen-state/gen.actions";
 const POS = () => {
   const { dispatch, account, web3auth } = useContext(GenContext);
 
-  console.log(web3auth);
-  console.log(account);
-
   const [state, setState] = useState({
     cameraEnable: false,
     typeSelect: { toggle: false, value: "" },
     toggle: false,
     detectionToggle: false,
+    scanTogggle: false,
     img: "",
     location: {
       lat: "",
@@ -23,8 +23,15 @@ const POS = () => {
     },
   });
 
-  const { cameraEnable, toggle, img, typeSelect, detectionToggle, location } =
-    state;
+  const {
+    cameraEnable,
+    toggle,
+    img,
+    typeSelect,
+    detectionToggle,
+    location,
+    scanTogggle,
+  } = state;
 
   const handleSetState = (payload: any) => {
     setState((state) => ({ ...state, ...payload }));
@@ -47,7 +54,7 @@ const POS = () => {
                 <div
                   onClick={() => {
                     if (account?.length) {
-                      handleSetState({ cameraEnable: true });
+                      handleSetState({ detectionToggle: true });
                     } else {
                       dispatch(
                         setNotification({
@@ -72,18 +79,26 @@ const POS = () => {
               </div>
             </div>
           )}
-          {cameraEnable && (
-            <Capture
+          {detectionToggle && (
+            <StickSelect
               {...{
-                toggle,
                 handleSetState,
-                img,
                 typeSelect,
-                detectionToggle,
-                location,
               }}
             />
+
+            // <Capture
+            //   {...{
+            //     toggle,
+            //     handleSetState,
+            //     img,
+            //     typeSelect,
+            //     detectionToggle,
+            //     location,
+            //   }}
+            // />
           )}
+          {scanTogggle && <ScanQR />}
         </div>
       </div>
     </>
