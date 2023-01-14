@@ -76,7 +76,22 @@
 .closeIcon:hover {
   background: var(--main-lightest);
 }
-
+.addressCard {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 0.875rem;
+}
+.cardTop {
+  display: flex;
+}
+.content > p {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.51);
+}
 @media screen and (max-width: 768px) {
   .heading h4 {
     font-size: 0.85rem;

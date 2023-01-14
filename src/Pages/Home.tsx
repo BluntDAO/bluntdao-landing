@@ -54,9 +54,9 @@ const Home = () => {
       <Element id="pos" name="pos">
         <POS />
       </Element>
-      <Element id="rpos" name="rpos">
+      {/* <Element id="rpos" name="rpos">
         <RPOS />
-      </Element>
+      </Element> */}
       <div id="gallery">
         <Gallery />
       </div>

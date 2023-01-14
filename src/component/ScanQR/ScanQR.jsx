@@ -4,6 +4,7 @@ import style from "./ScanQR.module.css";
 import { PublicKey } from "@solana/web3.js";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
+import { ReactComponent as ScanIcon } from "../../assets/imgs/icon-scan.svg";
 
 const ScanQR = ({ ...props }) => {
   const { toggle, handleSetState, img, typeSelect, detectionToggle, location } =
@@ -59,25 +60,35 @@ const ScanQR = ({ ...props }) => {
     <div className={style.selectContainer}>
       <div className={style.container}>
         <div className={style.card} ref={cardRef}>
-          <div className={style.headerText}>Scan Solana Address of your OG</div>
+          <div className={style.headerText}>Scan Solana/NEAR OG Validator</div>
           <QrReader
             onError={handleError}
             onScan={handleScan}
             style={{ width: "100%" }}
           />
-          {/* videoContainerStyle=
-          {{
-            width: "100%",
-            overflow: "hidden",
-            display: "flex",
-            paddingTop: 0,
-            position: "initial",
-          }}
-          videoStyle=
-          {{
-            position: "initial",
-          }} */}
-          <p style={{ color: "#fff" }}>{data}</p>
+
+          <div className={style.addressCard}>
+            <div className={style.cardTop}>
+              <div className={style.content}>
+                <p>Open Link | Get Validated</p>
+                <div>
+                  <img src="" alt="" />
+                  E93srKpyU....KR3XzpR5
+                </div>
+              </div>
+              <ScanIcon />
+            </div>
+            <div className={style.btnWrapper}>
+              <div>
+                <ScanIcon />
+                Scan Another
+              </div>
+              <div>
+                <ScanIcon />
+                Take Picture
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
