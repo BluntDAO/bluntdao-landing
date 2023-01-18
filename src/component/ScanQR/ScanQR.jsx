@@ -60,7 +60,7 @@ const ScanQR = ({ ...props }) => {
     <div className={style.selectContainer}>
       <div className={style.container}>
         <div className={style.card} ref={cardRef}>
-          <div className={style.headerText}>Scan Solana Address of your OG</div>
+          <div className={style.headerText}>Scan Solana/NEAR OG Validator</div>
           <QrReader
             onError={handleError}
             onScan={handleScan}
