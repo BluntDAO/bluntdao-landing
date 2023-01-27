@@ -4,15 +4,16 @@ import style from "./ScanQR.module.css";
 import { PublicKey } from "@solana/web3.js";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
-import { ReactComponent as ScanIcon } from "../../assets/imgs/icon-scan.svg";
+import { ReactComponent as ScanIcon } from "../../assets/imgs/icon-scan-outline.svg";
+import { ReactComponent as CameraIcon } from "../../assets/imgs/icon-camera-light.svg";
+import { ReactComponent as SolanaIcon } from "../../assets/imgs/icon-solana-bordered.svg";
+import { ReactComponent as BackIcon } from "../../assets/imgs/icon-goback.svg";
 
 const ScanQR = ({ ...props }) => {
-  const { toggle, handleSetState, img, typeSelect, detectionToggle, location } =
-    props;
+  const { addresses, handleSetState } = props;
   const { dispatch } = useContext(GenContext);
 
   const [data, setData] = useState("");
-  const [addresses, setAddresses] = useState([]);
   const handleScan = (data) => {
     if (data) {
       console.log(data);
@@ -41,7 +42,7 @@ const ScanQR = ({ ...props }) => {
       }
       if (data && address) {
         if (PublicKey.isOnCurve(address) && !addresses.includes(data)) {
-          setAddresses([...addresses, data]);
+          handleSetState({ addresses: [...addresses, data] });
         } else {
           dispatch(
             setNotification({
@@ -72,21 +73,21 @@ const ScanQR = ({ ...props }) => {
               <div className={style.content}>
                 <p>Open Link | Get Validated</p>
                 <div>
-                  <img src="" alt="" />
+                  <SolanaIcon />
                   E93srKpyU....KR3XzpR5
                 </div>
               </div>
-              <ScanIcon />
+              <BackIcon />
             </div>
             <div className={style.btnWrapper}>
               <div>
                 <ScanIcon />
                 Scan Another
               </div>
-              <div>
-                <ScanIcon />
+              <p>
+                <CameraIcon />
                 Take Picture
-              </div>
+              </p>
             </div>
           </div>
         </div>

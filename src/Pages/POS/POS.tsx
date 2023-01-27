@@ -3,6 +3,7 @@ import style from "./POS.module.css";
 import Capture from "../../component/Capture/Capture";
 import StickSelect from "../../component/stick-select/stickSelect";
 import ScanQR from "../../component/ScanQR/ScanQR";
+import PosForm from "../../component/PosForm/PosForm";
 import Navbar from "../../component/Navbar/Navbar";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
@@ -12,10 +13,12 @@ const POS = () => {
 
   const [state, setState] = useState({
     cameraEnable: false,
+    addresses: ["0FS53...ds8k2v"],
     typeSelect: { toggle: false, value: "" },
     toggle: false,
     detectionToggle: false,
     scanTogggle: false,
+    clipboardState: false,
     img: "",
     location: {
       lat: "",
@@ -31,11 +34,15 @@ const POS = () => {
     detectionToggle,
     location,
     scanTogggle,
+    addresses,
+    clipboardState,
   } = state;
 
   const handleSetState = (payload: any) => {
     setState((state) => ({ ...state, ...payload }));
   };
+
+  console.log(typeSelect);
 
   return (
     <>
@@ -98,7 +105,24 @@ const POS = () => {
             //   }}
             // />
           )}
-          {scanTogggle && <ScanQR />}
+          {false && (
+            <ScanQR
+              {...{
+                handleSetState,
+                addresses,
+              }}
+            />
+          )}
+          {scanTogggle && (
+            <PosForm
+              {...{
+                handleSetState,
+                addresses,
+                clipboardState,
+                typeSelect,
+              }}
+            />
+          )}
         </div>
       </div>
     </>
