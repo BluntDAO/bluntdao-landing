@@ -14,10 +14,10 @@ const PosForm = ({ ...props }) => {
   const { clipboardState, addresses, handleSetState, typeSelect } = props;
   const { dispatch, account } = useContext(GenContext);
 
-  const cardRef = useRef();
-  const clipboardRef = useRef();
+  const cardRef = useRef(null);
+  const clipboardRef = useRef(null);
 
-  const handleCopy = (props) => {
+  const handleCopy = (props:any) => {
     const { navigator, clipboard } = props;
     clipboard.select();
     clipboard.setSelectionRange(0, 99999); /* For mobile devices */
@@ -56,16 +56,12 @@ const PosForm = ({ ...props }) => {
                 className={style.copyIcon}
                 onClick={(event) => {
                   copy(account);
-                  event.target.classList.add(style.copied);
-                  setTimeout(() => {
-                    event.target.classList.remove(style.copied);
-                  }, 850);
                 }}
               />
             </div>
             <label>Validator Address</label>
             {addresses?.length > 0 &&
-              addresses.map((address) => (
+              addresses.map((address:any) => (
                 <div className={style.inputForm}>
                   <SolanaIcon />
                   <p>{breakAddress(address)}</p>
@@ -94,8 +90,9 @@ const PosForm = ({ ...props }) => {
             <div className={style.inputForm}>
               <Dropdown
                 props={{
-                  crrentValue: typeSelect.value,
+                  typeSelect: typeSelect,
                   options: stik_type,
+                  handleSetState:handleSetState
                 }}
               />
             </div>

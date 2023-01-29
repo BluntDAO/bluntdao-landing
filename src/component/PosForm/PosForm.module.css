@@ -79,8 +79,8 @@
 }
 .inputForm svg:first-child {
   left: 5%;
-  height: 1.5rem;
-  width: auto;
+  width: 1.5rem;
+  height: auto;
   z-index: 1;
 }
 .inputForm svg:last-child {
@@ -99,6 +99,9 @@
 }
 .copied path {
   fill: #3a4662 !important;
+}
+.deleteIcon{
+  width: 26px;
 }
 .deleteIcon:hover {
   animation: shake 0.3s infinite;

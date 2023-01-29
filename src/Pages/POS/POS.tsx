@@ -60,16 +60,17 @@ const POS = () => {
               <div className={style.btnContainer}>
                 <div
                   onClick={() => {
-                    if (account?.length) {
-                      handleSetState({ detectionToggle: true });
-                    } else {
-                      dispatch(
-                        setNotification({
-                          message: "You must sign in to continue",
-                          type: "error",
-                        })
-                      );
-                    }
+                    // if (account?.length) {
+                    //   handleSetState({ detectionToggle: true });
+                    // } else {
+                    //   dispatch(
+                    //     setNotification({
+                    //       message: "You must sign in to continue",
+                    //       type: "error",
+                    //     })
+                    //   );
+                    // }
+                    handleSetState({ detectionToggle: true });
                   }}
                   className={style.btn}
                 >

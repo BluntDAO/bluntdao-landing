@@ -5,7 +5,11 @@
   font-size: 1rem;
   background: var(--default);
   cursor: pointer;
-  overflow: hidden;
+  border-radius: 3px;
+  transition: border-radius 300ms;
+}
+.container.active{
+  border-radius: 3px 3px 0px 0px;
 }
 .current {
   color: #b2b7c2;
@@ -30,6 +34,27 @@ div.current > svg:last-child {
   top: 100%;
   background: white;
   color: black;
-  padding: 0.65rem 0.75rem;
   gap: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 300ms;
+  border-radius: 0px 0px 3px 3px;
+}
+.valueList.active{
+  max-height: 100vh;
+}
+.valueList div{
+  padding: 0.65rem 0.75rem;
+}
+.valueList div:hover{
+  background: var(--main-color);
+  color: var(--default);
+}
+.dropdownIcon {
+  transform: rotate(0);
+  transition: all 300ms;
+}
+
+.dropdownIcon.active {
+  transform: rotate(180deg) translateY(50%);;
 }

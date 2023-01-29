@@ -3,22 +3,27 @@ import style from "./Dropdown.module.css";
 import { ReactComponent as DropdownIcon } from "../../assets/imgs/angle-down.svg";
 
 const Dropdown = ({ props }: any) => {
-  console.log(props);
 
-  const { crrentValue, options } = props;
-  console.log(crrentValue);
+  const { typeSelect, options, handleSetState } = props;
 
-  const [state, setState] = useState();
+  const [toggle, setToggle] = useState(false);
 
+  
   return (
-    <div className={style.container}>
-      <div className={style.current}>
-        <p>{crrentValue}</p>
-        <DropdownIcon />
+    <div className={`${style.container} ${toggle ? style.active : ""}`}>
+      <div className={style.current} onClick={()=>setToggle(!toggle)}>
+        <p>{typeSelect.value}</p>
+        <DropdownIcon className={`${style.dropdownIcon} ${toggle ? style.active : ""}`} />
       </div>
-      <div className={style.valueList}>
+      <div className={`${style.valueList} ${toggle ? style.active : ""}`}>
         {options?.map((option: any) => (
-          <div>{option}</div>
+          <div  onClick={()=>{
+            setToggle(!toggle);
+            handleSetState({typeSelect:{
+              value:option,
+              toggle:typeSelect.toggle
+            }})
+          }}>{option}</div>
         ))}
       </div>
     </div>
