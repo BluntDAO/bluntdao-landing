@@ -10,7 +10,7 @@ import { ReactComponent as SolanaIcon } from "../../assets/imgs/icon-solana-bord
 import { ReactComponent as BackIcon } from "../../assets/imgs/icon-goback.svg";
 
 const ScanQR = ({ ...props }) => {
-  const { addresses, handleSetState } = props;
+  const { addresses, handleSetState, toggleUpdate } = props;
   const { dispatch } = useContext(GenContext);
 
   const [data, setData] = useState("");
@@ -84,7 +84,7 @@ const ScanQR = ({ ...props }) => {
                 <ScanIcon />
                 Scan Another
               </div>
-              <p>
+              <p onClick={() => toggleUpdate("capture")}>
                 <CameraIcon />
                 Take Picture
               </p>

@@ -5,7 +5,7 @@ import { ReactComponent as CloseIcon } from "../../assets/imgs/icon-close.svg";
 import { ReactComponent as TooltipIcon } from "../../assets/imgs/icon-tooltip.svg";
 import data from "./stickSelect-script";
 
-const StickSelect = ({ handleSetState, typeSelect }) => {
+const StickSelect = ({ handleSetState, typeSelect, toggleUpdate }) => {
   const cardRef = useRef();
 
   return (
@@ -19,10 +19,7 @@ const StickSelect = ({ handleSetState, typeSelect }) => {
           <div className={style.iconContainer}>
             <CloseIcon
               onClick={() => {
-                handleSetState({
-                  detectionToggle: false,
-                  typeSelect: { ...typeSelect, toggle: false },
-                });
+                toggleUpdate();
               }}
               className={style.closeIcon}
             />
@@ -66,10 +63,9 @@ const StickSelect = ({ handleSetState, typeSelect }) => {
           {typeSelect.value && (
             <div
               onClick={() => {
+                toggleUpdate("scan");
                 handleSetState({
                   typeSelect: { ...typeSelect, toggle: false },
-                  detectionToggle: false,
-                  scanTogggle: true,
                 });
               }}
               className={style.btn}

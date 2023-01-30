@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import style from "./POS.module.css";
-import Capture from "../../component/Capture/Capture";
+// import Capture from "../../component/Capture/Capture";
+import Capture from "../../component/mint-webcam/Capture/Capture";
 import StickSelect from "../../component/stick-select/stickSelect";
 import ScanQR from "../../component/ScanQR/ScanQR";
 import PosForm from "../../component/PosForm/PosForm";
@@ -15,9 +16,14 @@ const POS = () => {
     cameraEnable: false,
     addresses: ["0FS53...ds8k2v"],
     typeSelect: { toggle: false, value: "" },
-    toggle: false,
+    toggle: {
+      detection: false,
+      scan: false,
+      capture: false,
+    },
     detectionToggle: false,
     scanTogggle: false,
+    captureToggle: false,
     clipboardState: false,
     img: "",
     location: {
@@ -28,10 +34,9 @@ const POS = () => {
 
   const {
     cameraEnable,
-    toggle,
     img,
     typeSelect,
-    detectionToggle,
+    toggle,
     location,
     scanTogggle,
     addresses,
@@ -42,8 +47,19 @@ const POS = () => {
     setState((state) => ({ ...state, ...payload }));
   };
 
-  console.log(typeSelect);
-
+  const toggleUpdate = (updateKey = "") => {
+    const updatedToggle: Record<string, any> = {};
+    for (const key of Object.keys(toggle)) {
+      if (updateKey === key) {
+        updatedToggle[updateKey] = true;
+        console.log(updatedToggle);
+      } else {
+        updatedToggle[key] = false;
+        console.log(updatedToggle);
+      }
+    }
+    handleSetState({ toggle: updatedToggle });
+  };
   return (
     <>
       <Navbar />
@@ -70,7 +86,7 @@ const POS = () => {
                     //     })
                     //   );
                     // }
-                    handleSetState({ detectionToggle: true });
+                    toggleUpdate("detection");
                   }}
                   className={style.btn}
                 >
@@ -87,34 +103,33 @@ const POS = () => {
               </div>
             </div>
           )}
-          {detectionToggle && (
+          {toggle.detection && (
             <StickSelect
               {...{
                 handleSetState,
                 typeSelect,
+                toggleUpdate,
               }}
             />
-
-            // <Capture
-            //   {...{
-            //     toggle,
-            //     handleSetState,
-            //     img,
-            //     typeSelect,
-            //     detectionToggle,
-            //     location,
-            //   }}
-            // />
           )}
-          {false && (
+          {toggle.scan && (
             <ScanQR
               {...{
                 handleSetState,
                 addresses,
+                toggleUpdate,
               }}
             />
           )}
-          {scanTogggle && (
+          {toggle.capture && (
+            <Capture
+              {...{
+                handleSetState,
+                toggleUpdate,
+              }}
+            />
+          )}
+          {false && (
             <PosForm
               {...{
                 handleSetState,
