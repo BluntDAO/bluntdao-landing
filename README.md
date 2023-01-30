@@ -1,3 +1,6 @@
+# Docs
+https://github.com/BluntDAO/docs 
+https://docs.bluntdao.org
 # Miro Flow
 https://miro.com/app/board/uXjVP8Xe5zs=/
 # Figma designs
