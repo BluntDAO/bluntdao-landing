@@ -1,3 +1,5 @@
+# Miro Flow
+https://miro.com/app/board/uXjVP8Xe5zs=/
 # Figma designs
 https://www.figma.com/file/iw9ePuP780GyXPnjgVQboZ/BLUNTDAO?node-id=897%3A1169&t=CFV3sf2ULrLklsYD-1
 # candymachine-v2-boiler-mint-site-noFLP
