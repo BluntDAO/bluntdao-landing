@@ -1,11 +1,11 @@
-import React, { useEffect, useContext, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useContext, useRef, useState } from "react";
 import classes from "./Camera.module.css";
 import {
   switchCameraToRear,
   getFileFromBase64,
 } from "../Capture/Capture-script";
 import { Camera } from "../Camera";
+import AddressCard from "../../AddressCard/AddressCard";
 import Hypnosis from "../Hypnosis-Loader/Hypnosis";
 // icons
 import { ReactComponent as IconCapture } from "../../../assets/imgs/capture-btn.svg";
@@ -13,15 +13,16 @@ import { ReactComponent as CameraSwitch } from "../../../assets/imgs/camera-swit
 import { ReactComponent as CloseIcon } from "../../../assets/imgs/icon-close.svg";
 // Context
 import { GenContext } from "../../../gen-state/gen.context";
+import { setPOSdetails } from "../../../gen-state/gen.actions";
 
 const DoubleWebcam = ({ doubleCameraProps }) => {
   const imgContainer = useRef();
   const frontCamera = useRef();
   const rearCamera = useRef();
 
-  const history = useHistory();
+  const [toggleAddressCard, setToggleAddressCard] = useState(false);
 
-  const { dispatch } = useContext(GenContext);
+  const { dispatch, posDetails } = useContext(GenContext);
 
   const {
     img,
@@ -59,18 +60,16 @@ const DoubleWebcam = ({ doubleCameraProps }) => {
   }, [img]);
 
   const continueToMint = (image) => {
-    const name = "Image";
+    const name = new Date().valueOf();
     const result = getFileFromBase64(image, name, "image/png");
 
-    // dispatch(
-    //   setZip({
-    //     name,
-    //     file: result,
-    //     type: "Doubletake",
-    //   })
-    // );
-
-    history.push("/mint/1of1");
+    dispatch(
+      setPOSdetails({
+        addresses: posDetails.addresses,
+        img: result,
+      })
+    );
+    setToggleAddressCard(true);
   };
 
   const combineImage = () => {
@@ -131,23 +130,30 @@ const DoubleWebcam = ({ doubleCameraProps }) => {
           ref={rearCamera}
         />
       </div>
-      <div className={classes.imgBtn}>
-        <div className={classes.mintBtn} onClick={combineImage}>
-          Continue
+      {toggleAddressCard ? (
+        <AddressCard
+          toggleUpdate={toggleUpdate}
+          setToggleAddressCard={setToggleAddressCard}
+        />
+      ) : (
+        <div className={classes.imgBtn}>
+          <div className={classes.mintBtn} onClick={combineImage}>
+            Continue
+          </div>
+          <p
+            className={classes.mintBtn}
+            onClick={() => {
+              handleSetState({
+                img: "",
+                faceImg: "",
+                activeFile: "Photo",
+              });
+            }}
+          >
+            Retake
+          </p>
         </div>
-        <p
-          className={classes.mintBtn}
-          onClick={() => {
-            handleSetState({
-              img: "",
-              faceImg: "",
-              activeFile: "Photo",
-            });
-          }}
-        >
-          Retake
-        </p>
-      </div>
+      )}
     </div>
   ) : (
     <div className={classes.videoContainer}>

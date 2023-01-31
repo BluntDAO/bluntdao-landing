@@ -77,7 +77,7 @@
   background: rgb(15 29 64 / 60%);
   padding: 10px 0;
   border-radius: 10px;
-  cursor: var(--cursor-pointer);
+  cursor: pointer;
 }
 .typeSelcet > div.active {
   background: var(--default);

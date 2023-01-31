@@ -57,6 +57,10 @@
   margin-top: 2rem;
 }
 .btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 1.1rem 2rem;
   font-weight: 700;
   border-radius: 35.1918px;

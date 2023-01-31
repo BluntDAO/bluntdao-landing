@@ -3,17 +3,16 @@ import QrReader from "react-qr-scanner";
 import style from "./ScanQR.module.css";
 import { PublicKey } from "@solana/web3.js";
 import { GenContext } from "../../gen-state/gen.context";
-import { setNotification } from "../../gen-state/gen.actions";
-import { ReactComponent as ScanIcon } from "../../assets/imgs/icon-scan-outline.svg";
-import { ReactComponent as CameraIcon } from "../../assets/imgs/icon-camera-light.svg";
-import { ReactComponent as SolanaIcon } from "../../assets/imgs/icon-solana-bordered.svg";
-import { ReactComponent as BackIcon } from "../../assets/imgs/icon-goback.svg";
+import { setNotification, setPOSdetails } from "../../gen-state/gen.actions";
+import AddressCard from "../AddressCard/AddressCard";
 
 const ScanQR = ({ ...props }) => {
-  const { addresses, handleSetState, toggleUpdate } = props;
-  const { dispatch } = useContext(GenContext);
+  const { handleSetState, toggleUpdate } = props;
+  const { dispatch, posDetails } = useContext(GenContext);
 
   const [data, setData] = useState("");
+  const [toggleScan, setToggleScan] = useState(true);
+
   const handleScan = (data) => {
     if (data) {
       console.log(data);
@@ -41,8 +40,17 @@ const ScanQR = ({ ...props }) => {
         );
       }
       if (data && address) {
-        if (PublicKey.isOnCurve(address) && !addresses.includes(data)) {
-          handleSetState({ addresses: [...addresses, data] });
+        if (
+          PublicKey.isOnCurve(address) &&
+          !posDetails.addresses.includes(data)
+        ) {
+          setToggleScan(false);
+          dispatch(
+            setPOSdetails({
+              img: posDetails.img,
+              addresses: [...posDetails.addresses, data],
+            })
+          );
         } else {
           dispatch(
             setNotification({
@@ -56,40 +64,24 @@ const ScanQR = ({ ...props }) => {
       console.log(error);
     }
   }, [data]);
-  console.log(addresses);
   return (
     <div className={style.selectContainer}>
       <div className={style.container}>
         <div className={style.card} ref={cardRef}>
           <div className={style.headerText}>Scan Solana/NEAR OG Validator</div>
-          <QrReader
-            onError={handleError}
-            onScan={handleScan}
-            style={{ width: "100%" }}
-          />
-
-          <div className={style.addressCard}>
-            <div className={style.cardTop}>
-              <div className={style.content}>
-                <p>Open Link | Get Validated</p>
-                <div>
-                  <SolanaIcon />
-                  E93srKpyU....KR3XzpR5
-                </div>
-              </div>
-              <BackIcon />
-            </div>
-            <div className={style.btnWrapper}>
-              <div>
-                <ScanIcon />
-                Scan Another
-              </div>
-              <p onClick={() => toggleUpdate("capture")}>
-                <CameraIcon />
-                Take Picture
-              </p>
-            </div>
-          </div>
+          {toggleScan && (
+            <QrReader
+              onError={handleError}
+              onScan={handleScan}
+              style={{ width: "100%" }}
+            />
+          )}
+          {posDetails.addresses.length && (
+            <AddressCard
+              toggleUpdate={toggleUpdate}
+              setToggleScan={setToggleScan}
+            />
+          )}
         </div>
       </div>
     </div>

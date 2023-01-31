@@ -1,28 +1,26 @@
-import React, { useContext, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useContext, useRef, useState } from "react";
 import { Camera } from "../Camera";
 import classes from "./Camera.module.css";
 import {
   getFileFromBase64,
   takePicture,
   switchCameraToRear,
-  capitalizeFirstLetter,
 } from "../Capture/Capture-script";
+import AddressCard from "../../AddressCard/AddressCard";
 // icons
 import { ReactComponent as IconCapture } from "../../../assets/imgs/capture-btn.svg";
 import { ReactComponent as CameraSwitch } from "../../../assets/imgs/camera-switch.svg";
 import { ReactComponent as CloseIcon } from "../../../assets/imgs/icon-close.svg";
 // Context
 import { GenContext } from "../../../gen-state/gen.context";
+import { setPOSdetails } from "../../../gen-state/gen.actions";
 
 const RegularCamera = ({ regularCameraProps }) => {
   const webcamWrapper = useRef();
 
-  const history = useHistory();
+  const [toggleAddressCard, setToggleAddressCard] = useState(false);
 
-  const { dispatch } = useContext(GenContext);
-
-  // stopwatch, set to 8 sec
+  const { dispatch, posDetails } = useContext(GenContext);
 
   const {
     img,
@@ -35,7 +33,6 @@ const RegularCamera = ({ regularCameraProps }) => {
     gifGenrating,
     webcamCurrentType,
     displayedModes,
-    attributes,
     toggleUpdate,
   } = regularCameraProps;
 
@@ -60,7 +57,13 @@ const RegularCamera = ({ regularCameraProps }) => {
       file = result;
     }
 
-    history.push("/mint/1of1");
+    dispatch(
+      setPOSdetails({
+        addresses: posDetails.addresses,
+        img: file,
+      })
+    );
+    setToggleAddressCard(true);
   };
 
   // detect mobile device or a desktop
@@ -85,26 +88,29 @@ const RegularCamera = ({ regularCameraProps }) => {
       </div>
 
       {/*  */}
-      <div className={classes.imgBtn}>
-        <div
-          className={classes.mintBtn}
-          onClick={continueToMint}
-          attributes={attributes}
-        >
-          Continue
+      {toggleAddressCard ? (
+        <AddressCard
+          toggleUpdate={toggleUpdate}
+          setToggleAddressCard={setToggleAddressCard}
+        />
+      ) : (
+        <div className={classes.imgBtn}>
+          <div className={classes.mintBtn} onClick={continueToMint}>
+            Continue
+          </div>
+          <p
+            className={classes.mintBtn}
+            onClick={() => {
+              handleSetState({
+                img: "",
+                activeFile: "Photo",
+              });
+            }}
+          >
+            Retake
+          </p>
         </div>
-        <p
-          className={classes.mintBtn}
-          onClick={() => {
-            handleSetState({
-              img: "",
-              activeFile: "Photo",
-            });
-          }}
-        >
-          Retake
-        </p>
-      </div>
+      )}
     </div>
   ) : (
     <div className={classes.videoContainer}>
