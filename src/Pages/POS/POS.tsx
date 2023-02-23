@@ -1,54 +1,42 @@
 import React, { useContext, useState } from "react";
 import style from "./POS.module.css";
-import Capture from "../../component/mint-webcam/Capture/Capture";
+import Capture from "../../component/Capture/Capture";
 import StickSelect from "../../component/stick-select/stickSelect";
 import ScanQR from "../../component/ScanQR/ScanQR";
-import PosForm from "../../component/PosForm/PosForm";
 import Navbar from "../../component/Navbar/Navbar";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
 
 const POS = () => {
-  const { dispatch, account } = useContext(GenContext);
+  const { dispatch, account, web3auth } = useContext(GenContext);
 
   const [state, setState] = useState({
     cameraEnable: false,
     typeSelect: { toggle: false, value: "" },
-    toggle: {
-      detection: false,
-      scan: false,
-      capture: false,
-      form: false,
-    },
+    toggle: false,
     detectionToggle: false,
     scanTogggle: false,
-    captureToggle: false,
-    clipboardState: false,
+    img: "",
     location: {
       lat: "",
       lon: "",
     },
   });
 
-  const { cameraEnable, typeSelect, toggle, clipboardState } = state;
+  const {
+    cameraEnable,
+    toggle,
+    img,
+    typeSelect,
+    detectionToggle,
+    location,
+    scanTogggle,
+  } = state;
 
   const handleSetState = (payload: any) => {
     setState((state) => ({ ...state, ...payload }));
   };
 
-  const toggleUpdate = (updateKey = "") => {
-    const updatedToggle: Record<string, any> = {};
-    for (const key of Object.keys(toggle)) {
-      if (updateKey === key) {
-        updatedToggle[updateKey] = true;
-        console.log(updatedToggle);
-      } else {
-        updatedToggle[key] = false;
-        console.log(updatedToggle);
-      }
-    }
-    handleSetState({ toggle: updatedToggle });
-  };
   return (
     <>
       <Navbar />
@@ -63,21 +51,7 @@ const POS = () => {
                 Proof of Sesh by a validator in your area.
               </div>
               <div className={style.btnContainer}>
-                <div
-                  //onClick={() => {
-                    //if (account?.length) {
-                      //toggleUpdate("detection");
-                    //} else {
-                      //dispatch(
-                        //setNotification({
-                          //message: "You must sign in to continue",
-                          //type: "error",
-                        //})
-                      //);
-                    //}
-                  //}}
-                  className={style.btn}
-                //>
+                <div className={style.btn}>
                   Request For Blunt
                 </div>
                 <a
@@ -91,41 +65,26 @@ const POS = () => {
               </div>
             </div>
           )}
-          {toggle.detection && (
+          {detectionToggle && (
             <StickSelect
               {...{
                 handleSetState,
                 typeSelect,
-                toggleUpdate,
               }}
             />
+
+            // <Capture
+            //   {...{
+            //     toggle,
+            //     handleSetState,
+            //     img,
+            //     typeSelect,
+            //     detectionToggle,
+            //     location,
+            //   }}
+            // />
           )}
-          {toggle.scan && (
-            <ScanQR
-              {...{
-                handleSetState,
-                toggleUpdate,
-              }}
-            />
-          )}
-          {toggle.capture && (
-            <Capture
-              {...{
-                handleSetState,
-                toggleUpdate,
-              }}
-            />
-          )}
-          {toggle.form && (
-            <PosForm
-              {...{
-                toggleUpdate,
-                handleSetState,
-                clipboardState,
-                typeSelect,
-              }}
-            />
-          )}
+          {scanTogggle && <ScanQR />}
         </div>
       </div>
     </>
