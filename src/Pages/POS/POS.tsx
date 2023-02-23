@@ -64,20 +64,20 @@ const POS = () => {
               </div>
               <div className={style.btnContainer}>
                 <div
-                  //onClick={() => {
-                    //if (account?.length) {
-                      //toggleUpdate("detection");
-                    //} else {
-                      //dispatch(
-                        //setNotification({
-                          //message: "You must sign in to continue",
-                          //type: "error",
-                        //})
-                      //);
-                    //}
-                  //}}
+                  onClick={() => {
+                    if (account?.length) {
+                      toggleUpdate("detection");
+                    } else {
+                      dispatch(
+                        setNotification({
+                          message: "You must sign in to continue",
+                          type: "error",
+                        })
+                      );
+                    }
+                  }}
                   className={style.btn}
-                //>
+                >
                   Request For Blunt
                 </div>
                 <a
