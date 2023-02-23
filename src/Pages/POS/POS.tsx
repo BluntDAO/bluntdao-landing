@@ -51,25 +51,7 @@ const POS = () => {
                 Proof of Sesh by a validator in your area.
               </div>
               <div className={style.btnContainer}>
-<<<<<<< HEAD
                 <div className={style.btn}>
-=======
-                <div
-                  onClick={() => {
-                    if (account?.length) {
-                      toggleUpdate("detection");
-                    } else {
-                      dispatch(
-                        setNotification({
-                          message: "You must sign in to continue",
-                          type: "error",
-                        })
-                      );
-                    }
-                  }}
-                  className={style.btn}
-                >
->>>>>>> parent of 287c7be (remote "you must sign in to continue")
                   Request For Blunt
                 </div>
                 <a
