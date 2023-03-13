@@ -5,30 +5,30 @@ const POS = () => {
     {
       title: "Roll Up A Blunt",
       description:
-        "A current OG Validator (BluntDAO Member) finds people to Proof of Sesh aka “Smoke with”  and rolls up a Blunt",
+        "A current OG Validator (BluntDAO Member) finds people to Proof of Sesh aka “Smoke with”  and rolls up a Blunt. Now any SESH device will do IRL depending on the mint",
       img: "/img/roll-up.png",
     },
     {
       title: "Light Blunt",
-      description: "Light the Blunt and hit it",
+      description: "Light the Blunt and hit it (or the sesh device)",
       img: "/img/burn.png",
     },
     {
       title: "Init",
       description:
-        "Initialize rotations and pass to prospective members. Once they have hit the Blunt they are now allowed to be given the new BluntDAO member an OG Valiators NFT (if an OG validator was present to witness this)",
+        "Initialize rotations and pass to prospective members. Once they have hit the Blunt (or Sesh Device) they are now allowed to be given the new BluntDAO member an OG Valiators NFT (if an OG validator was present to witness this)",
       img: "/img/init.png",
     },
     {
       title: "Create Wallet",
       description:
-        "During the rotation while the Blunt is lit, have the new prospective member download a Web wallet (Solana or NEAR w/ NEAR scan the Blunt DAO code) and have them join the BluntDAO telegram or discord",
+        "During the rotation while the Blunt (or sesh device) is lit, have the new prospective member download a wallet (Solana or NEAR w/ NEAR scan the Blunt DAO code) and have them join the BluntDAO telegram or discord",
       img: "/img/token.png",
     },
     {
       title: "Validation",
       description:
-        "Depending on if the new member is on Solana have them send you the address, or on NEAR have them scan the link and claim NFT. Once they get the NFT Proof of Sesh is complete",
+        "Depending on if the new member is on Solana have them send you the address, or on NEAR/Polygon have them scan the link and claim NFT. Once they get the NFT Proof of Sesh is complete",
       img: "/img/validation.png",
     },
     {
