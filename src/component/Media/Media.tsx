@@ -4,6 +4,16 @@ import Slider from "react-slick";
 
 const media = [
   {
+    url: "https://thechainsaw.com/nft/dao-bluntdao-onboarding-to-web3/",
+    imgActive: "/img/media/chainsaw.svg",
+    imgInactive: "/img/media/chainsaw-inactive.svg",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=1QCUmsPP-dE&t=27836s",
+    imgActive: "/img/media/DAODenver.png",
+    imgInactive: "/img/media/DAODenver-inactive.png",
+  },
+  {
     url: "https://awesomenear.com/bluntdao",
     imgActive: "/img/media/Awesome-Near.png",
     imgInactive: "/img/media/Awesome-Near-inactive.png",
@@ -23,11 +33,7 @@ const media = [
     imgActive: "/img/media/Shitcoin.png",
     imgInactive: "/img/media/Shitcoin-inactive.png",
   },
-  {
-    url: "https://thechainsaw.com/nft/dao-bluntdao-onboarding-to-web3/",
-    imgActive: "/img/media/chainsaw.svg",
-    imgInactive: "/img/media/chainsaw-inactive.svg",
-  },
+
 ];
 
 var settings = {
