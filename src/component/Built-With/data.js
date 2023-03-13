@@ -28,6 +28,30 @@ const technologies = [
     url: "https://squads.so/",
   },
   {
+    img: "/img/built-with/snapshotlogo.png",
+    url: "https://snapshot.org/#/bluntdao.eth",
+  },
+  {
+    img: "/img/built-with/poap.png",
+    url: "https://poap.xyz",
+  },
+  {
+    img: "/img/built-with/nearsocial.png",
+    url: "https://near.social",
+  },
+  {
+    img: "/img/built-with/keypom.png",
+    url: "https://keypom.xyz/",
+  },
+  {
+    img: "/img/built-with/genadrops.png",
+    url: "https://genadrop.io/mint/sesh",
+  },
+  {
+    img: "/img/built-with/underdog.png",
+    url: "https://underdogprotocol.com/",
+  },
+  {
     img: "/img/built-with/paras.png",
     url: "https://paras.id/",
   },
