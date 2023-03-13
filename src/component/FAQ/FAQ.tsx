@@ -22,7 +22,7 @@ const FQA = () => {
       id: 1,
       question: "What blockchain is BluntDAO on?",
       answer:
-        "The BluntDAO is initally on the Solana blockchain with sesh mints across multiple blockchains and plans to port governance tokens onto multiple blockchains. There is now a set of 420 OG Validators on NEAR protocol powered by Satori Creator Studio",
+        "The BluntDAO is initally on the Solana blockchain with sesh mints across multiple blockchains and plans to port governance tokens onto multiple blockchains. There is now a set of 420 OG Validators on NEAR protocol. POAPs on Gnosis, Soulbound Seshes on EVM chains supported by GenaDrop, and NFT based DAOs on Solana (SQDS), NEAR (AstroDAO), and Polygon (SNAPSHOT).",
     },
     // {
     //     question: "When is the mint date?",
@@ -32,39 +32,55 @@ const FQA = () => {
       id: 2,
       question: "How many BluntNFTs are part of the first mint?",
       answer:
-        "420 Blunts are part of OG mint on Solana. We have a series of POAPs, events, and 1 of 1s that have been minted to Solana, Polygon, & NEAR. We also have a set of 420 OG Validators on NEAR ",
+        "420 Blunts are part of OG mint on Solana. We have a series of POAPs, events, and 1 of 1s that have been minted to Solana, Polygon, & NEAR. We also have a set of 420 OG Validators on NEAR. The plan is 420 SESH Validators on every blockchain ever.",
     },
     {
       id: 3,
       question: "How do I join the BluntDAO?",
       answer:
-        "You join the BluntDAO by officially sesh'ing with DAO member via Proof of Sesh (IRL sparking a blunt)",
+        "You join the BluntDAO by officially sesh'ing with DAO member via Proof of Sesh (IRL SESH) We are building a dApp for Proof of Sesh (Coming soon)",
     },
     {
       id: 4,
       question: "How do I vote in the BluntDAO?",
       answer: (
+        <p> 
         <a
-          href="https://app.sqds.io/nft/6NrbQwDSvvnkn4Yv82hVnpyLoKsriPV1D7NUXwMKMxAp/"
+          href="https://bluntdao.org/dao-sol"
           target="_blank"
           rel="noreferrer"
         >
-          Vote with YOUR SOLANA OG NFT
+          Vote with YOUR SOLANA OG NFT   - 
+         </a>
+        <a
+          href="https://bluntdao.org/dao-near/"
+          target="_blank"
+          rel="noreferrer"
+        >
+           - or with YOUR NEAR OG NFT 
         </a>
+        <a
+          href="https://bluntdao.org/snapshot"
+          target="_blank"
+          rel="noreferrer"
+        >
+          -   or with your POAP (Polygon)
+        </a>
+        </p>
       ),
     },
     {
       id: 5,
       question: "What if I can’t smoke blunts?",
       answer:
-        "We will make special exempt cases for those who have medical conditions like asthma, but who compensate through other means like joints or edibles and have been verified through a “Proof of Sesh” by OG DAO members. Solely a substitute substance will not qualify for a NFT/DAO membership, and considerable value must be added to the DAO for this new member to qualify.",
+        "We will make special exempt cases for those who have medical conditions like asthma, but who compensate through other means like joints or edibles and have been verified through a “Proof of Sesh” by OG DAO members. Solely a substitute substance will not qualify for a NFT/DAO membership, and considerable value must be added to the DAO for this new member to qualify UPDATE: post-Eth Denver 2023 (click the DAO Denver button on the media section to see announcement) we have opened up onboarding to all IRL Seshes.",
     },
     {
       id: 6,
       question: "Where can I find a links about BluntDAO?",
       answer: (
-        <a href="https://linktr.ee/bluntdao" target="_blank" rel="noreferrer">
-          BluntDAO | Linktree
+        <a href="https://bluntdao.org/links" target="_blank" rel="noreferrer">
+          BluntDAO Links
         </a>
       ),
     },
