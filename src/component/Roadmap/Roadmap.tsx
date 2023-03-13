@@ -80,9 +80,9 @@ const Roadmap = () => {
               <li>🍃 Vendored Partnered Events in Miami x New York</li>
               <li>🍃 BluntDAO Event Passes on Solana</li>
               <li>🍃 3rd Blockchain: 420 OG Validators</li>
-              <li>🍃 BluntDAO Goes to Europe (ETH CC, NEARCON)</li>
-              <li>🍃 BluntDAO Merch Store</li>
-              <li>🍃 BluntDAO Records - decentralized music group</li>
+              <li className={style.done}>🍃 BluntDAO Goes to Europe (ETH CC, NEARCON)</li>
+              <li className={style.done}>🍃 BluntDAO Goes to Africa</li>
+              <li className={style.done}>🍃 BluntDAO Merch Store</li>
               <li>🍃 Call for Advisors</li>
               <li className={style.done}>🍃 BluntDAO Mailing List, LinkedIn</li>
               <li>
@@ -92,8 +92,6 @@ const Roadmap = () => {
               <li className={style.done}>
                 🍃 Transition Website {"->"} Web App
               </li>
-              <li>🍃 Core-Team / Org Chart Released</li>
-              <li>🍃 Events Team Formed</li>
             </ul>
           </div>
           <div className={style.roadmapItem2}>
@@ -102,21 +100,15 @@ const Roadmap = () => {
               BluntDAO Goes International / SubDAOs (October- December 2022)
             </div>
             <ul>
-              <li>🍃 SpliffDAO Launches with SOAP on Solana at Breakpoint</li>
+              <li className={style.done}>🍃 SpliffDAO Launches with SOAP on Solana at Breakpoint</li>
               <li>🍃 JointsDAO Launches in the U.S</li>
-              <li>🍃 Blunt Summit</li>
-              <li>🍃 BluntDAO goes to Asia</li>
-              <li>🍃 BluntDAOlbum Released on dStreaming Platforms</li>
-              <li>🍃 Advisory Council Formed</li>
-              <li>🍃 First Official Influencer Announcements</li>
               <li>
                 🍃 Search for the BluntDAO Strain (A Sativa that makes you
                 onboard others into Web3)
               </li>
               <li>🍃 Branded Activations / Proof of Seshes</li>
               <li>
-                🍃 Bluntcubator. Incubator for BluntDAO member projects (first
-                physical location)
+                🍃 Bluntcubator. Incubator for BluntDAO member projects
               </li>
             </ul>
           </div>

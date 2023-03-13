@@ -69,9 +69,9 @@ const cardInfo = [
     img: "/img/SeshRoom.png",
   },
   {
-    title: "Eth Denver 2022 Blunt",
+    title: "Eth Denver 2023 POS",
     description:
-      "We got so high we didn't even do this one. We also had another Ethereum Blunt version. Made by @dyrmkr",
+      "Proof of Sesh at EthDenver 2023 POAP. Made by @dyrmkr",
     img: "/img/ethblunt.gif",
   },
   {

@@ -191,6 +191,166 @@ const App = () => {
               return null;
             }}
           ></Route>
+            <Route
+            exact
+            path="/twitter"
+            component={() => {
+              window.location.replace("https://twitter.com/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/telegram"
+            component={() => {
+              window.location.replace("https://t.me/+r61CkOBHLq03YTYx");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/instagram"
+            component={() => {
+              window.location.replace("https://www.instagram.com/bluntdao/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/dao-sol"
+            component={() => {
+              window.location.replace("https://app.sqds.io/nft/6NrbQwDSvvnkn4Yv82hVnpyLoKsriPV1D7NUXwMKMxAp/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/dao-near"
+            component={() => {
+              window.location.replace("https://app.astrodao.com/dao/blunt.sputnik-dao.near");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/snapshot"
+            component={() => {
+              window.location.replace("https://snapshot.org/#/bluntdao.eth");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/github"
+            component={() => {
+              window.location.replace("https://github.com/BluntDAO/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/linkedin"
+            component={() => {
+              window.location.replace("https://www.linkedin.com/company/bluntdao/");
+              return null;
+            }}
+          ></Route>
+            <Route
+            exact
+            path="/eventbrite"
+            component={() => {
+              window.location.replace("http://bluntdao.eventbrite.com/");
+              return null;
+            }}
+          ></Route>
+            <Route
+            exact
+            path="/youtube"
+            component={() => {
+              window.location.replace("https://www.youtube.com/channel/UCSWKFnP3z27XFu1CPRvqV6Q");
+              return null;
+            }}
+          ></Route>
+            <Route
+            exact
+            path="/reddit"
+            component={() => {
+              window.location.replace("https://www.reddit.com/r/BluntDAO/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/merch"
+            component={() => {
+              window.location.replace("https://nearswag.xyz/collections/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/blog"
+            component={() => {
+              window.location.replace("http://medium.com/@bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/tg"
+            component={() => {
+              window.location.replace("https://t.me/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/tg"
+            component={() => {
+              window.location.replace("https://t.me/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/bos"
+            component={() => {
+              window.location.replace("https://bluntdao.near.social/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/poap-denver"
+            component={() => {
+              window.location.replace("https://poap.gallery/r/event/104320");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/market-sol"
+            component={() => {
+              window.location.replace("https://bluntdao.holaplex.market/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/og-near"
+            component={() => {
+              window.location.replace("https://paras.id/token/bluntdao.snft.near::1");
+              return null;
+            }}
+          ></Route>
+         <Route
+            exact
+            path="/bos-request-sesh"
+            component={() => {
+              window.location.replace("https://near.social/#/bluntdao.near/widget/RequestASesh");
+              return null;
+            }}
+          ></Route>
           <Route exact path="/" component={Home} />
           {/* <Route path="/tickets" component={Tickets} /> */}
           {/* <Route exact path="/calendar" component={Calendar} /> */}
