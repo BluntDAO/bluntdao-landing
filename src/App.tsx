@@ -18,6 +18,7 @@ import DashboardNFTSingle from "./Pages/Dashboard/DashboardNFTSingle";
 import DashboardTrainAI from "./Pages/Dashboard/DashboardTrainAI";
 import Links from "./Pages/Links/Links";
 import Schedule from "./Pages/Schedule/Schedule";
+import RPOS from "./Pages/RPOS/RPOS";
 // styles
 import "./App.css";
 import "./styles/Slider.scss";
@@ -30,6 +31,8 @@ import { CHAIN_NAMESPACES, WALLET_ADAPTERS } from "@web3auth/base";
 import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
 import { GenContext } from "./gen-state/gen.context";
 import { setWeb3auth, setProvider } from "./gen-state/gen.actions";
+// Utils
+import Notification from "./component/Notification/Notification";
 
 const TRACKING_ID = "UA-203278283-2"; // OUR_TRACKING_ID
 const clientId = process.env.REACT_APP_VERCEL_ENV_WEB3AUTH_CLIENT_ID;
@@ -48,7 +51,7 @@ const App = () => {
     const init = async () => {
       try {
         if (!clientId) {
-          throw Error('Client ID is undefined');
+          throw Error("Client ID is undefined");
         }
         const web3auth = new Web3Auth({
           clientId,
@@ -56,7 +59,7 @@ const App = () => {
           uiConfig: {
             appLogo: "/img/logo-web3auth.png",
             theme: "dark",
-            loginMethodsOrder: ["facebook", "google", "twitter", "github"]
+            loginMethodsOrder: ["facebook", "google", "twitter", "github"],
           },
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.SOLANA,
@@ -67,7 +70,8 @@ const App = () => {
 
         const openloginAdapter = new OpenloginAdapter({
           adapterSettings: {
-            network: process.env.NODE_ENV === "development" ? "testnet" : "mainnet", // "testnet", "mainnet" or "cyan"
+            network:
+              process.env.NODE_ENV === "development" ? "testnet" : "mainnet", // "testnet", "mainnet" or "cyan"
             clientId,
             // type WhiteLabelData
             whiteLabel: {
@@ -75,7 +79,7 @@ const App = () => {
               dark: true, // true or false
               theme: { primary: "#d70411" },
               defaultLanguage: "de",
-            }
+            },
           },
         });
 
@@ -137,6 +141,7 @@ const App = () => {
           <Route exact path="/partner" component={PartnerForm} />
           <Route exact path="/docs" component={Docs} />
           <Route exact path="/pos" component={POS} />
+          <Route exact path="/rpos" component={RPOS} />
           {/* dashboard */}
           <Route
             exact
@@ -357,6 +362,7 @@ const App = () => {
           <Route component={Fallback} />
         </Switch>
       </div>
+      <Notification />
     </BrowserRouter>
   );
 };

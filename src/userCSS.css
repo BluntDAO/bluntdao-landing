@@ -10,11 +10,41 @@
   --card-trait: #f4f5f6;
   --text-placeholder: #b2b7c2;
   --text-dark-900: #0f1d40;
-
+  --card-layer: #585e7d;
   --shadow-light: 2px 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-dark: 3px 3px 6px rgba(0, 0, 0, 0.2);
 
   --tooltip-background: #24182f;
+
+  --success-100: #ebfcd5;
+  --success-200: #d4f9ac;
+  --success-300: #b1ee80;
+  --success-400: #8fde5d;
+  --success-500: #5fc92e;
+  --success-600: #44ac21;
+  --success-700: #2d9017;
+  --success-800: #1a740e;
+  --success-900: #0d6008;
+
+  --warning-100: #fff5ce;
+  --warning-200: #ffe89e;
+  --warning-300: #ffd76d;
+  --warning-400: #ffc749;
+  --warning-500: #ffad0d;
+  --warning-600: #db8c09;
+  --warning-700: #b76f06;
+  --warning-800: #935404;
+  --warning-900: #7a4102;
+
+  --error-100: #ffe3d6;
+  --error-200: #ffc0ad;
+  --error-300: #ff9783;
+  --error-400: #ff6f65;
+  --error-500: #ff3236;
+  --error-600: #db2438;
+  --error-700: #b71938;
+  --error-800: #930f35;
+  --error-900: #7a0933;
 
   /* Main Settings  */
   --main-background-color: #0b0b0f;

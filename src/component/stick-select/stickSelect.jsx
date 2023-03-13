@@ -1,36 +1,26 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import style from "./stickSelect.module.css";
 import ReactTooltip from "react-tooltip";
 import { ReactComponent as CloseIcon } from "../../assets/imgs/icon-close.svg";
 import { ReactComponent as TooltipIcon } from "../../assets/imgs/icon-tooltip.svg";
 import data from "./stickSelect-script";
 
-const StickSelect = ({ handleSetState, toggle, typeSelect }) => {
+const StickSelect = ({ handleSetState, typeSelect }) => {
   const cardRef = useRef();
 
-  const handleClickOutside = (event) => {
-    if (!cardRef?.current?.contains(event.target)) {
-      handleSetState({
-        typeSelect: { ...typeSelect, toggle: false },
-      });
-    }
-  };
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
-  // }, []);
   return (
     <div
       className={`${style.selectContainer} ${
         typeSelect.toggle && style.active
       }`}
     >
-      <div className={`${style.container}  ${toggle && style.deactive}`}>
+      <div className={style.container}>
         <div className={style.card} ref={cardRef}>
           <div className={style.iconContainer}>
             <CloseIcon
               onClick={() => {
                 handleSetState({
+                  detectionToggle: false,
                   typeSelect: { ...typeSelect, toggle: false },
                 });
               }}
@@ -78,7 +68,8 @@ const StickSelect = ({ handleSetState, toggle, typeSelect }) => {
               onClick={() => {
                 handleSetState({
                   typeSelect: { ...typeSelect, toggle: false },
-                  detectionToggle: true,
+                  detectionToggle: false,
+                  scanTogggle: true,
                 });
               }}
               className={style.btn}
