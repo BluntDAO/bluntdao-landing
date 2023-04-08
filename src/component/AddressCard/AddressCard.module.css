@@ -1,0 +1,100 @@
+.addressCard {
+  position: absolute;
+  bottom: 0%;
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 0.875rem;
+  gap: 2rem;
+}
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardTop > svg {
+  transform: rotate(180deg);
+  transition: all 200ms;
+  cursor: pointer;
+}
+.cardTop > svg:hover {
+  translate: 6px;
+}
+.cardTop > svg path {
+  stroke: #000;
+}
+.content {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.content > p {
+  width: fit-content;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.51);
+}
+.content > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.content > div > svg {
+  height: 2rem;
+  width: 100%;
+}
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.btnWrapper p,
+.btnWrapper div {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.08);
+  border-radius: 23px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.btnWrapper p svg path,
+.btnWrapper div svg path {
+  transition: stroke 300ms;
+}
+.btnWrapper div {
+  background: #ff0000;
+  color: var(--default);
+  cursor: pointer;
+  border: 1px solid #ff0000;
+}
+.btnWrapper div:hover {
+  background: #ffffff;
+  color: #ff0000;
+}
+.btnWrapper div:hover svg path {
+  stroke: #ff0000;
+}
+.btnWrapper p {
+  background: transparent;
+  color: var(--default);
+  border: 1px solid #cacdd5;
+  color: #cacdd5;
+}
+.btnWrapper p:hover {
+  background: #cacdd5;
+  color: var(--default);
+}
+.btnWrapper p:hover svg path {
+  stroke: var(--default);
+}
+div.tooltip {
+  width: fit-content;
+  background: #5c657d !important;
+}
+div.tooltip::after {
+  border-top-color: #5c657d !important;
+}

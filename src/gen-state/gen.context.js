@@ -19,6 +19,7 @@ const GenContextProvider = ({ children }) => {
     toggleWalletPopup,
     web3auth,
     NFTs,
+    posDetails,
   } = state;
 
   return (
@@ -36,6 +37,7 @@ const GenContextProvider = ({ children }) => {
         toggleWalletPopup,
         web3auth,
         NFTs,
+        posDetails,
         prompt,
         dispatch,
       }}

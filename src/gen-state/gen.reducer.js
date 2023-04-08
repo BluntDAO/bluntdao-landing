@@ -16,6 +16,10 @@ export const INITIAL_STATE = {
   mainnet: false,
   toggleWalletPopup: false,
   NFTs: [],
+  posDetails: {
+    img: "",
+    addresses: [],
+  },
 };
 
 export const genReducer = (state = INITIAL_STATE, action) => {
@@ -81,7 +85,11 @@ export const genReducer = (state = INITIAL_STATE, action) => {
         ...state,
         NFTs: action.payload,
       };
-
+    case genActionTypes.SET_POS_DETAILS:
+      return {
+        ...state,
+        posDetails: action.payload,
+      };
     default:
       return state;
   }

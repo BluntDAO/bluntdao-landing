@@ -53,3 +53,7 @@ export const setNFTs = (NFTs) => ({
   type: genActionTypes.SET_NFTS,
   payload: NFTs,
 });
+export const setPOSdetails = (posDetails) => ({
+  type: genActionTypes.SET_POS_DETAILS,
+  payload: posDetails,
+});

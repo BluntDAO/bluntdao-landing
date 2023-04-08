@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  max-width: 1280px;
+}
+
+.inActive {
+  height: 0 !important;
+  border: none;
+}
+
+.RecordBtnWrapper {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  transition: outline 300ms;
+  position: relative;
+}
+
+.RecordBtnWrapper:hover {
+  outline: 1px solid #ff3236;
+}
+.recordBtn {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff3236;
+  border-radius: 50%;
+}
+
+.coninue {
+  color: var(--default);
+}
+.btn {
+  padding: 1.2em 1em;
+  border-radius: 50px;
+  text-align: center;
+  width: 10em;
+  background-color: var(--main-color);
+  font-size: 1rem;
+  color: var(--default);
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.none {
+  display: none !important;
+}
+
+.typeSelcet {
+  display: grid;
+  max-width: 15rem;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.typeSelcet p {
+  color: var(--default);
+  font-weight: 500;
+}
+.typeSelcet > div.active p {
+  color: var(--main-color);
+}
+.typeSelcet > div {
+  display: flex;
+  justify-content: space-evenly;
+  background: rgb(15 29 64 / 60%);
+  padding: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.typeSelcet > div.active {
+  background: var(--default);
+}
+.typeSelcet > div:hover .rdaioBtn > div {
+  display: block;
+}
+.rdaioBtn {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--default);
+  border-radius: 50%;
+  padding: 2px;
+}
+div.active .rdaioBtn {
+  border: 2px solid var(--main-color);
+}
+.rdaioBtn > div {
+  display: none;
+  background: var(--main-color);
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+div.active .rdaioBtn > div {
+  display: block;
+}
+
+.testrecod {
+  position: absolute;
+  font-size: 2rem;
+  top: 10%;
+  background: white;
+}
+
+@media screen and (max-width: 768px) {
+  .uploadBtn {
+    display: flex;
+  }
+}

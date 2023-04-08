@@ -29,47 +29,28 @@ function __makeTemplateObject(cooked, raw) {
 var Wrapper = styled.div(
   templateObject_1 ||
     (templateObject_1 = __makeTemplateObject(
-      [
-        "\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n",
-      ],
-      [
-        "\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n",
-      ]
+      ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n"],
+      ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n"]
     ))
 );
 var Container = styled.div(
   templateObject_2 ||
-    (templateObject_2 = __makeTemplateObject(
-      ["\n  width: 100%;\n  ", "\n"],
-      ["\n  width: 100%;\n  ", "\n"]
-    )),
+    (templateObject_2 = __makeTemplateObject(["\n  width: 100%;\n  ", "\n"], ["\n  width: 100%;\n  ", "\n"])),
   function (_a) {
     var aspectRatio = _a.aspectRatio;
     return aspectRatio === "cover"
       ? "\n    position: absolute;\n    bottom: 0\n    top: 0\n    left: 0\n    right: 0"
-      : "\n    position: relative;\n    padding-bottom: " +
-          100 / aspectRatio +
-          "%;";
+      : "\n    position: relative;\n    padding-bottom: " + 100 / aspectRatio + "%;";
   }
 );
 var ErrorMsg = styled.div(
-  templateObject_3 ||
-    (templateObject_3 = __makeTemplateObject(
-      ["\n  padding: 40px;\n"],
-      ["\n  padding: 40px;\n"]
-    ))
+  templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  padding: 40px;\n"], ["\n  padding: 40px;\n"]))
 );
 var Cam = styled.video(
   templateObject_4 ||
     (templateObject_4 = __makeTemplateObject(
-      [
-        "\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  z-index: 0;\n  transform: rotateY(",
-        ");\n",
-      ],
-      [
-        "\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  z-index: 0;\n  transform: rotateY(",
-        ");\n",
-      ]
+      ["\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  z-index: 0;\n  transform: rotateY(", ");\n"],
+      ["\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  z-index: 0;\n  transform: rotateY(", ");\n"]
     )),
   function (_a) {
     var mirrored = _a.mirrored;
@@ -77,17 +58,9 @@ var Cam = styled.video(
   }
 );
 var Canvas = styled.canvas(
-  templateObject_5 ||
-    (templateObject_5 = __makeTemplateObject(
-      ["\n  display: none;\n"],
-      ["\n  display: none;\n"]
-    ))
+  templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  display: none;\n"], ["\n  display: none;\n"]))
 );
-var templateObject_1,
-  templateObject_2,
-  templateObject_3,
-  templateObject_4,
-  templateObject_5;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 var Camera = React.forwardRef(function (_a, ref) {
   var _b = _a.facingMode,
@@ -101,21 +74,12 @@ var Camera = React.forwardRef(function (_a, ref) {
             return null;
           }
         : _d,
-    _f = _a.permissionDeniedCallback,
-    permissionDeniedCallback =
-      _f === void 0
-        ? function () {
-            return null;
-          }
-        : _f,
     _e = _a.errorMessages,
     errorMessages =
       _e === void 0
         ? {
-            noCameraAccessible:
-              "No camera device accessible. Please connect your camera or try a different browser.",
-            permissionDenied:
-              "Permission denied. Please refresh and give camera permission.",
+            noCameraAccessible: "No camera device accessible. Please connect your camera or try a different browser.",
+            permissionDenied: "Permission denied. Please refresh and give camera permission.",
             switchCamera:
               "It is not possible to switch camera to different one because there is only one video device accessible.",
             canvas: "Canvas is not supported.",
@@ -145,12 +109,6 @@ var Camera = React.forwardRef(function (_a, ref) {
     },
     [numberOfCameras]
   );
-  useEffect(
-    function () {
-      permissionDeniedCallback(permissionDenied);
-    },
-    [permissionDenied]
-  );
   useImperativeHandle(ref, function () {
     return {
       takePhoto: function () {
@@ -160,30 +118,20 @@ var Camera = React.forwardRef(function (_a, ref) {
         }
         if ((_a = canvas) === null || _a === void 0 ? void 0 : _a.current) {
           var playerWidth =
-            ((_c =
-              (_b = player) === null || _b === void 0 ? void 0 : _b.current) ===
-              null || _c === void 0
+            ((_c = (_b = player) === null || _b === void 0 ? void 0 : _b.current) === null || _c === void 0
               ? void 0
               : _c.videoWidth) || 1280;
           var playerHeight =
-            ((_e =
-              (_d = player) === null || _d === void 0 ? void 0 : _d.current) ===
-              null || _e === void 0
+            ((_e = (_d = player) === null || _d === void 0 ? void 0 : _d.current) === null || _e === void 0
               ? void 0
               : _e.videoHeight) || 720;
           var playerAR = playerWidth / playerHeight;
           var canvasWidth =
-            ((_g =
-              (_f = container) === null || _f === void 0
-                ? void 0
-                : _f.current) === null || _g === void 0
+            ((_g = (_f = container) === null || _f === void 0 ? void 0 : _f.current) === null || _g === void 0
               ? void 0
               : _g.offsetWidth) || 1280;
           var canvasHeight =
-            ((_j =
-              (_h = container) === null || _h === void 0
-                ? void 0
-                : _h.current) === null || _j === void 0
+            ((_j = (_h = container) === null || _h === void 0 ? void 0 : _h.current) === null || _j === void 0
               ? void 0
               : _j.offsetHeight) || 1280;
           var canvasAR = canvasWidth / canvasHeight;
@@ -210,14 +158,11 @@ var Camera = React.forwardRef(function (_a, ref) {
             context.scale(-1, 1);
           }
 
-          if (
-            context &&
-            ((_k = player) === null || _k === void 0 ? void 0 : _k.current)
-          ) {
+          if (context && ((_k = player) === null || _k === void 0 ? void 0 : _k.current)) {
             context.drawImage(player.current, sX, sY, sW, sH, 0, 0, sW, sH);
             // context.drawImage(player.current, 0, 0, sW, sH);
           }
-          var imgData = canvas.current.toDataURL("image/jpeg");
+          var imgData = canvas.current.toDataURL("image/jpeg", 0.2);
           return imgData;
         } else {
           throw new Error(errorMessages.canvas);
@@ -227,12 +172,9 @@ var Camera = React.forwardRef(function (_a, ref) {
         if (numberOfCameras < 1) {
           throw new Error(errorMessages.noCameraAccessible);
         } else if (numberOfCameras < 2) {
-          console.error(
-            "Error: Unable to switch camera. Only one device is accessible."
-          ); // console only
+          console.error("Error: Unable to switch camera. Only one device is accessible."); // console only
         }
-        var newFacingMode =
-          currentFacingMode === "user" ? "environment" : "user";
+        var newFacingMode = currentFacingMode === "user" ? "environment" : "user";
         setFacingMode(newFacingMode);
         return newFacingMode;
       },
@@ -246,15 +188,7 @@ var Camera = React.forwardRef(function (_a, ref) {
   });
   useEffect(
     function () {
-      initCameraStream(
-        stream,
-        setStream,
-        currentFacingMode,
-        setNumberOfCameras,
-        setNotSupported,
-        setPermissionDenied,
-        permissionDeniedCallback
-      );
+      initCameraStream(stream, setStream, currentFacingMode, setNumberOfCameras, setNotSupported, setPermissionDenied);
     },
     [currentFacingMode]
   );
@@ -279,12 +213,8 @@ var Camera = React.forwardRef(function (_a, ref) {
     React.createElement(
       Wrapper,
       null,
-      notSupported
-        ? React.createElement(ErrorMsg, null, errorMessages.noCameraAccessible)
-        : null,
-      permissionDenied
-        ? React.createElement(ErrorMsg, null, errorMessages.permissionDenied)
-        : null,
+      notSupported ? React.createElement(ErrorMsg, null, errorMessages.noCameraAccessible) : null,
+      permissionDenied ? React.createElement(ErrorMsg, null, errorMessages.permissionDenied) : null,
       React.createElement(Cam, {
         ref: player,
         id: "video",
@@ -322,9 +252,7 @@ var initCameraStream = function (
     },
   };
   if (
-    (_b =
-      (_a = navigator) === null || _a === void 0 ? void 0 : _a.mediaDevices) ===
-      null || _b === void 0
+    (_b = (_a = navigator) === null || _a === void 0 ? void 0 : _a.mediaDevices) === null || _b === void 0
       ? void 0
       : _b.getUserMedia
   ) {
@@ -370,13 +298,8 @@ var handleSuccess = function (stream, setNumberOfCameras) {
 };
 var handleError = function (error, setNotSupported, setPermissionDenied) {
   console.error(error);
-  console.log(error.name);
   //https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-  if (
-    error.name === "PermissionDeniedError" ||
-    error.name === "NotAllowedError"
-  ) {
-    console.log("test");
+  if (error.name === "PermissionDeniedError") {
     setPermissionDenied(true);
   } else {
     setNotSupported(true);

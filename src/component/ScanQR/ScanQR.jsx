@@ -3,15 +3,16 @@ import QrReader from "react-qr-scanner";
 import style from "./ScanQR.module.css";
 import { PublicKey } from "@solana/web3.js";
 import { GenContext } from "../../gen-state/gen.context";
-import { setNotification } from "../../gen-state/gen.actions";
+import { setNotification, setPOSdetails } from "../../gen-state/gen.actions";
+import AddressCard from "../AddressCard/AddressCard";
 
 const ScanQR = ({ ...props }) => {
-  const { toggle, handleSetState, img, typeSelect, detectionToggle, location } =
-    props;
-  const { dispatch } = useContext(GenContext);
+  const { handleSetState, toggleUpdate } = props;
+  const { dispatch, posDetails } = useContext(GenContext);
 
   const [data, setData] = useState("");
-  const [addresses, setAddresses] = useState([]);
+  const [toggleScan, setToggleScan] = useState(true);
+
   const handleScan = (data) => {
     if (data) {
       console.log(data);
@@ -39,8 +40,17 @@ const ScanQR = ({ ...props }) => {
         );
       }
       if (data && address) {
-        if (PublicKey.isOnCurve(address) && !addresses.includes(data)) {
-          setAddresses([...addresses, data]);
+        if (
+          PublicKey.isOnCurve(address) &&
+          !posDetails.addresses.includes(data)
+        ) {
+          setToggleScan(false);
+          dispatch(
+            setPOSdetails({
+              img: posDetails.img,
+              addresses: [...posDetails.addresses, data],
+            })
+          );
         } else {
           dispatch(
             setNotification({
@@ -54,30 +64,24 @@ const ScanQR = ({ ...props }) => {
       console.log(error);
     }
   }, [data]);
-  console.log(addresses);
   return (
     <div className={style.selectContainer}>
       <div className={style.container}>
         <div className={style.card} ref={cardRef}>
-          <div className={style.headerText}>Scan Solana Address of your OG</div>
-          <QrReader
-            onError={handleError}
-            onScan={handleScan}
-            style={{ width: "100%" }}
-          />
-          {/* videoContainerStyle=
-          {{
-            width: "100%",
-            overflow: "hidden",
-            display: "flex",
-            paddingTop: 0,
-            position: "initial",
-          }}
-          videoStyle=
-          {{
-            position: "initial",
-          }} */}
-          <p style={{ color: "#fff" }}>{data}</p>
+          <div className={style.headerText}>Scan Solana/NEAR OG Validator</div>
+          {toggleScan && (
+            <QrReader
+              onError={handleError}
+              onScan={handleScan}
+              style={{ width: "100%" }}
+            />
+          )}
+          {posDetails.addresses.length && (
+            <AddressCard
+              toggleUpdate={toggleUpdate}
+              setToggleScan={setToggleScan}
+            />
+          )}
         </div>
       </div>
     </div>
