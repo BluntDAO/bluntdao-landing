@@ -10,7 +10,7 @@ const NewsLetter = () => {
   const gaEventTracker = useAnalyticsEventTracker("Contact US");
 
   const url =
-    "https://us9.list-manage.com/contact-form?u=f285799be1c7c1a6b30d21035&form_id=31e2637117f6523ad149be3254176d9a";
+    "https://t.me/+t2nnbUov1sRhMTgx";
 
   return (
     <div className={style.container}>
@@ -22,8 +22,7 @@ const NewsLetter = () => {
             <h2 className={style.header}>
               Contact Us & Join our Mailing List{" "}
             </h2>
-            <h2 className={style.subheader}>
-              Contact Us & Join BluntDAO's Mailing list to keep track of
+            <h2 className={style.subheader}> (actually a telegram we got lazy) to keep track of
               everything BluntDAO
             </h2>
             <a
@@ -33,7 +32,7 @@ const NewsLetter = () => {
               rel="noreferrer"
               onClick={() => gaEventTracker("click", "contact-us")}
             >
-              Contact Us
+              Find Community
             </a>
           </div>
         </div>

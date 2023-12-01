@@ -101,15 +101,12 @@ const Roadmap = () => {
             </div>
             <ul>
               <li className={style.done}>🍃 SpliffDAO Launches with SOAP on Solana at Breakpoint</li>
-              <li>🍃 JointsDAO Launches in the U.S</li>
+              <li className={style.done}>🍃 JointsDAO Launches in the U.S</li>
               <li>
                 🍃 Search for the BluntDAO Strain (A Sativa that makes you
                 onboard others into Web3)
               </li>
-              <li>🍃 Branded Activations / Proof of Seshes</li>
-              <li>
-                🍃 Bluntcubator. Incubator for BluntDAO member projects
-              </li>
+              <li className={style.done}>🍃 Branded Activations / Proof of Seshes</li>
             </ul>
           </div>
           <img className={style.backgroundImg} src={cigar} alt="" />
