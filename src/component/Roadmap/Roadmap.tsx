@@ -76,7 +76,6 @@ const Roadmap = () => {
             <div className={style.m_heading}>Quarter 3</div>
             <div className={style.m_subheading}>Fundraise + Proof of Sesh v3 (July - September 2022)</div>
             <ul>
-              <li>🍃 Mint out 420 NFTs on NEAR; ASTRO DAO Integration</li>
               <li>🍃 Vendored Partnered Events in Miami x New York</li>
               <li>🍃 BluntDAO Event Passes on Solana</li>
               <li>🍃 3rd Blockchain: 420 OG Validators</li>
@@ -102,11 +101,44 @@ const Roadmap = () => {
             <ul>
               <li className={style.done}>🍃 SpliffDAO Launches with SOAP on Solana at Breakpoint</li>
               <li className={style.done}>🍃 JointsDAO Launches in the U.S</li>
-              <li>
-                🍃 Search for the BluntDAO Strain (A Sativa that makes you
-                onboard others into Web3)
-              </li>
               <li className={style.done}>🍃 Branded Activations / Proof of Seshes</li>
+              <li className={style.done}>🍃 Struggles with Soberity - Core team begins to sober up</li>
+
+            </ul>
+          </div>
+          <div className={style.roadmapItem}>
+            <div className={style.m_heading}>35 grams</div>
+            <div className={style.m_subheading}>EVM Blunts (January - March 2023)</div>
+            <ul>
+              <li className={style.done}>🍃 DAODenver / NFTDenver Event, EthDenver the Start of EVM</li>
+              <li className={style.done}>🍃BluntDAO on Web3 Social </li>
+              <li className={style.done}>🍃BluntDAO x PizzaDAO Global Pizza Day in Morcco </li>
+            </ul>
+          </div>
+          <div className={style.roadmapItem2}>
+            <div className={style.m_heading}>1.5 ounce</div>
+            <div className={style.m_subheading}>Q6 Halal Vibes(April - June 2023)</div>
+            <ul>
+              <li className={style.done}>🍃 Ramadan & BluntDAO Core Severely Sturggles With Sobriety</li>
+              <li className={style.done}>🍃 A simple onboard link with ShardDog GOing around but no one really knows how to onboard anymore</li>
+            </ul>
+          </div>
+          <div className={style.roadmapItem2}>
+            <div className={style.m_heading}>Quarter 7</div>
+            <div className={style.m_subheading}> Not Doing Anything But Vibes(July - September 2023)</div>
+            <ul>
+              <li className={style.done}>🍃 Minimally Onboarding at Eth Global</li>
+              <li className={style.done}>🍃 BluntDAO seems lost, SmokeDAO is a year strong now, at least they out here</li>
+              <li className={style.done}>🍃 BluntDAO core works on Proof of Vibes, Infra, & more</li>
+            </ul>
+          </div>
+          <div className={style.roadmapItem}>
+            <div className={style.m_heading}>2 OUNCES</div>
+            <div className={style.m_subheading}>COMEBACK SEASON(October - December 2023)</div>
+            <ul>
+              <li className={style.done}>🍃 BluntDAO Core Is Back Getting Litttt</li>
+              <li className={style.done}>🍃 Blunt DAO solves onboarding with Web3 Social, DAO Onboarding, and Account Abstraction to subDAOse</li>
+              <li className={style.done}>🍃 Blunt DAO EthIndia and Art Basel Miami COMEBACK</li>
             </ul>
           </div>
           <img className={style.backgroundImg} src={cigar} alt="" />
