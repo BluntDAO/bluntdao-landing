@@ -91,6 +91,8 @@ const Roadmap = () => {
               <li className={style.done}>
                 🍃 Transition Website {"->"} Web App
               </li>
+              <li className={style.done}>🍃 BluntDAO HACKS @ BTC Center New York</li>
+
             </ul>
           </div>
           <div className={style.roadmapItem2}>
