@@ -82,6 +82,53 @@
   min-width: 12em;
   text-align: right;
 }
+.navList > div {
+  cursor: pointer;
+  position: relative;
+}
+
+.toolTip {
+  padding-top: 1rem;
+  position: absolute;
+  display: none;
+  top: 1.1rem;
+  margin-left: -0.5rem;
+}
+.toolTip > div {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  padding: 10px;
+  background: #1a1b23;
+  width: 5.5rem;
+  gap: 11px;
+}
+div:hover > .toolTip {
+  animation: drop 300ms forwards;
+  display: flex;
+}
+.toolTip a {
+  font-size: 0.8rem;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transition: all 300ms;
+  border-bottom: 1px solid transparent;
+}
+
+.toolTip a:hover {
+  border-color: rgb(235, 234, 234);
+}
+@keyframes drop {
+  from {
+    transform: translateY(-1em);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .container {
@@ -141,6 +188,12 @@
     transition: max-height 650ms;
   }
 
+  .toolTip {
+    margin-left: -1rem;
+  }
+  .toolTip a {
+    font-size: 0.6rem;
+  }
   .navList {
     width: 100%;
     display: flex;
@@ -155,5 +208,6 @@
   }
   .navActive {
     max-height: fit-content;
+    overflow: visible;
   }
 }

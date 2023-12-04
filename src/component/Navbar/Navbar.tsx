@@ -1,10 +1,25 @@
 import style from "./navbar.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ExternalLink } from "react-external-link";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-scroll";
 import ConnectWallet from "../wallet/updatedWallet";
 import useAnalyticsEventTracker from "../../utils/useAnalyticsEventTracker";
+
+const votesArr = [
+  {
+    title: "NEAR",
+    url: "https://bluntdao-gateway.vercel.app/bluntdao.near/widget/DAO.Dashboard",
+  },
+  {
+    title: "Solana",
+    url: "https://app.sqds.io/nft/6NrbQwDSvvnkn4Yv82hVnpyLoKsriPV1D7NUXwMKMxAp/",
+  },
+  {
+    title: "ETH",
+    url: "https://snapshot.org/#/bluntdao.eth",
+  },
+];
 
 const Navbar = () => {
   const [state, setState] = useState({
@@ -101,9 +116,23 @@ const Navbar = () => {
           <ExternalLink href="https://nearswag.xyz/collections/bluntdao">
             <li className={style.navItem}>MERCH</li>
           </ExternalLink>
-          <ExternalLink href="https://app.sqds.io/nft/6NrbQwDSvvnkn4Yv82hVnpyLoKsriPV1D7NUXwMKMxAp/">
+          <div>
             <li className={style.navItem}>VOTE</li>
-          </ExternalLink>
+            <div className={style.toolTip}>
+              <div>
+                {votesArr.map((link) => (
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    key={link.url}
+                    rel="noreferrer"
+                  >
+                    <p>{link.title}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
           <ConnectWallet />
           {/* <Link
             to={'https://bluntdao.holaplex.market/'}
