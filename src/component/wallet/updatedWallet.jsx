@@ -9,7 +9,12 @@ import disconnectIcon from "../../assets/imgs/icon-disconnect.svg";
 import { ReactComponent as ChevronDown } from "../../assets/imgs/angle-left-solid.svg";
 import { ReactComponent as SolanaIcon } from "../../assets/imgs/icon-solana.svg";
 // wallet script
-import { breakAddress, login, logout, setNetwork } from "./updatedWallet-script";
+import {
+  breakAddress,
+  login,
+  logout,
+  setNetwork,
+} from "./updatedWallet-script";
 import { GenContext } from "../../gen-state/gen.context";
 import { setAccount, setProvider } from "../../gen-state/gen.actions";
 
@@ -87,7 +92,7 @@ function ConnectWallet() {
       </div>
     </div>
   );
-  
+
   const connected = (
     <div
       onMouseLeave={() => handleSetState({ toggleDropdown: false })}
@@ -110,9 +115,25 @@ function ConnectWallet() {
       </div>
       <ChevronDown />
       <div className={style.networkDrop}>
-        {network === "mainnet" 
-        ? (<div onClick={() => {setNetwork(web3auth, "testnet"); handleSetState({ network: "testnet" })}}>Switch to testnet</div>) 
-        : (<div onClick={() => {setNetwork(web3auth, "mainnet"); handleSetState({ network: "mainnet" })}}>Switch to mainnet</div>)}
+        {network === "mainnet" ? (
+          <div
+            onClick={() => {
+              setNetwork(web3auth, "testnet");
+              handleSetState({ network: "testnet" });
+            }}
+          >
+            Switch to testnet
+          </div>
+        ) : (
+          <div
+            onClick={() => {
+              setNetwork(web3auth, "mainnet");
+              handleSetState({ network: "mainnet" });
+            }}
+          >
+            Switch to mainnet
+          </div>
+        )}
       </div>
     </div>
   );
@@ -127,15 +148,23 @@ function ConnectWallet() {
           {/* {goToDashboard} */}
         </div>
       ) : (
-        <div
+        // <div
+        //   className={style.connect}
+        //   onClick={async () => {
+        //     handleSetState({ test: true });
+        //     await login(walletProps);
+        //   }}
+        // >
+        //   Connect Wallet
+        // </div>
+        <a
+          href="https://app.bluntdao.com/"
           className={style.connect}
-          onClick={async () => {
-            handleSetState({ test: true });
-            await login(walletProps);
-          }}
+          target="_blank"
+          rel="noreferrer"
         >
-          Connect Wallet
-        </div>
+          Launch App
+        </a>
       )}
     </>
   );
