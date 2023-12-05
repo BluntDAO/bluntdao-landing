@@ -9,7 +9,7 @@ import useAnalyticsEventTracker from "../../utils/useAnalyticsEventTracker";
 const votesArr = [
   {
     title: "NEAR",
-    url: "https://bluntdao-gateway.vercel.app/bluntdao.near/widget/DAO.Dashboard",
+    url: "https://app.bluntdao.com/bluntdao.near/widget/DAO.Dashboard",
   },
   {
     title: "Solana",
