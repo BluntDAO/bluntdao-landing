@@ -17,31 +17,28 @@ const Banner = () => {
             </div>
           </div>
           <div className={style.content}>
-            BluntDAO is the IRL onboarding movement to Web3 via Proof of Sesh.
-            The longest continous sesh via OG Blunt Validators in the Blunt
-            Network. Onboarding the next 1 million users to Web3, wallets, DIDs,
-            DAOs, and NFTs 1 blunt at a time.
+            BluntDAO is the the biggest IRL onboarding movement to Web3 via Proof of Sesh through local IRL OGs. We are now introducing the unlimtted sesh fund, a regular re-up mechanism where anyone can request ETH to host a sesh from contributors. Onboarding the next million, 1 blunt/sesh at a time.
           </div>
 
           <div className={style.join}>
             <a
               className={style.discord}
-              href="https://discord.com/invite/e3cGSTzyWp"
+              href="https://t.me/+ban7bVBaU5Q5YmJh"
               rel="noopener noreferrer"
               target="_blank"
             >
-              DISCORD
+              Telegram
             </a>
             {/* <div className={style.discord}>JOIN DISCORD</div> */}
 
             {/* <a className={style.volunteer} href="https://doc.clickup.com/d/xhfvf-20/bluntifesto/xhfvf-240/volunteer-interest-form" rel="noopener noreferrer" target="_blank">VOLUNTEER</a> */}
             <a
               className={style.volunteer}
-              href="https://app.sqds.io/nft/6NrbQwDSvvnkn4Yv82hVnpyLoKsriPV1D7NUXwMKMxAp/"
+              href="https://blunts.wtf"
               rel="noopener noreferrer"
               target="_blank"
             >
-              VOTE
+              FUND
             </a>
           </div>
         </div>

@@ -105,12 +105,12 @@ const Navbar = () => {
           >
             <li className={style.navItem}>GALLERY</li>
           </HashLink> */}
-          <ExternalLink href="https://bluntdao.holaplex.market/">
+          <ExternalLink href="https://blunts.wtf/">
             <li
-              onClick={() => gaEventTracker("view", "marketplace")}
+              onClick={() => gaEventTracker("view", "fund")}
               className={style.navItem}
             >
-              MARKETPLACE
+              Fund
             </li>
           </ExternalLink>
           <ExternalLink href="https://nearswag.xyz/collections/bluntdao">

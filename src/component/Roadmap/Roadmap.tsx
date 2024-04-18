@@ -143,6 +143,23 @@ const Roadmap = () => {
               <li className={style.done}>🍃 Blunt DAO EthIndia and Art Basel Miami COMEBACK</li>
             </ul>
           </div>
+          <div className={style.roadmapItem2}>
+            <div className={style.m_heading}>63 grams</div>
+            <div className={style.m_subheading}>The Pre-roll(January - March 2024)</div>
+            <ul>
+              <li className={style.done}>🍃 BluntDAO back at EthDenver</li>
+            </ul>
+          </div>
+          <div className={style.roadmapItem}>
+            <div className={style.m_heading}>10 quarters</div>
+            <div className={style.m_subheading}>Unlimitted Sesh Fund(April - June 2024)</div>
+            <ul>
+            <li className={style.done}>🍃 Start of TouchGrass Series at NFT NYC</li>
+              <li>🍃 BluntDAO launches nounish fork on base on 420</li>
+              <li>🍃 Unlimitted Sesh Fund to request for Seshed</li>
+              <li>🍃 Blunt DAO EthIndia and Art Basel Miami COMEBACK</li>
+            </ul>
+          </div>
           <img className={style.backgroundImg} src={cigar} alt="" />
         </div>
       </div>

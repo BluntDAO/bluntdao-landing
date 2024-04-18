@@ -42,6 +42,12 @@ const FQA = () => {
     },
     {
       id: 4,
+      question: "What is the difference between Sesh Fund Treasury + NFT and the OG Validators",
+      answer:
+        "Our IRL onboarding and OG validators NFTs come from ONLY onboarding via IRL. However to pay and scale for the Sesh we have launched a regular noun-ish (NounsDAO inspired) auction that goes towards a treasurey run by blunts.wtf minters. This is to allow anyone to increase the Sesh. OGs still need to vlaidate IRL.",
+    },
+    {
+      id: 5,
       question: "How do I vote in the BluntDAO?",
       answer: (
         <p> 
@@ -70,13 +76,13 @@ const FQA = () => {
       ),
     },
     {
-      id: 5,
+      id: 6,
       question: "What if I can’t smoke blunts?",
       answer:
         "We will make special exempt cases for those who have medical conditions like asthma, but who compensate through other means like joints or edibles and have been verified through a “Proof of Sesh” by OG DAO members. Solely a substitute substance will not qualify for a NFT/DAO membership, and considerable value must be added to the DAO for this new member to qualify UPDATE: post-Eth Denver 2023 (click the DAO Denver button on the media section to see announcement) we have opened up onboarding to all IRL Seshes.",
     },
     {
-      id: 6,
+      id: 7,
       question: "Where can I find a links about BluntDAO?",
       answer: (
         <a href="https://bluntdao.org/links" target="_blank" rel="noreferrer">
@@ -85,7 +91,7 @@ const FQA = () => {
       ),
     },
     {
-      id: 7,
+      id: 8,
       question:
         "I still have a question not answered in this FAQ, how can I find out?",
       answer:
