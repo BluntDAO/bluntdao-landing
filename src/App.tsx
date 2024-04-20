@@ -240,7 +240,7 @@ const App = () => {
             exact
             path="/ideas"
             component={() => {
-              window.location.replace("https://www.instagram.com/bluntdao/");
+              window.location.replace("https://github.com/orgs/BluntDAO/projects/1/views/1");
               return null;
             }}
           ></Route>
