@@ -188,6 +188,22 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/bento"
+            component={() => {
+              window.location.replace("https://bento.me/blunt");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/charmverse"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/discord"
@@ -215,6 +231,30 @@ const App = () => {
           <Route
             exact
             path="/instagram"
+            component={() => {
+              window.location.replace("https://www.instagram.com/bluntdao/");
+              return null;
+            }}
+          ></Route>
+                    <Route
+            exact
+            path="/ideas"
+            component={() => {
+              window.location.replace("https://www.instagram.com/bluntdao/");
+              return null;
+            }}
+          ></Route>
+                    <Route
+            exact
+            path="/vote-fund"
+            component={() => {
+              window.location.replace("https://www.instagram.com/bluntdao/");
+              return null;
+            }}
+          ></Route>
+           <Route
+            exact
+            path="/mint"
             component={() => {
               window.location.replace("https://www.instagram.com/bluntdao/");
               return null;
