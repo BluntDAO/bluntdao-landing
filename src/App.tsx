@@ -268,6 +268,30 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/fund"
+            component={() => {
+              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/charmverse"
+            component={() => {
+              window.location.replace("https://forum.bluntdao.org");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/forum"
+            component={() => {
+              window.location.replace("https://forum.bluntdao.org");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/fund-contracts"
@@ -418,6 +442,14 @@ const App = () => {
             path="/bos-request-sesh"
             component={() => {
               window.location.replace("https://near.social/#/bluntdao.near/widget/RequestASesh");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/events"
+            component={() => {
+              window.location.replace("https://lu.ma/sesh");
               return null;
             }}
           ></Route>
