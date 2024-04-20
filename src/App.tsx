@@ -248,7 +248,7 @@ const App = () => {
             exact
             path="/vote-fund"
             component={() => {
-              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/?tab=activity");
+              window.location.replace("https://nouns.build/dao/base/0x8a613Cb90Ab3b318D4e46D09F260a84b788e206b/?tab=activity");
               return null;
             }}
           ></Route>
@@ -264,7 +264,7 @@ const App = () => {
             exact
             path="/fund-settings"
             component={() => {
-              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/");
+              window.location.replace("https://nouns.build/dao/base/0x8a613Cb90Ab3b318D4e46D09F260a84b788e206b/");
               return null;
             }}
           ></Route>
@@ -272,7 +272,7 @@ const App = () => {
             exact
             path="/fund"
             component={() => {
-              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/");
+              window.location.replace("https://nouns.build/dao/base/0x8a613Cb90Ab3b318D4e46D09F260a84b788e206b/");
               return null;
             }}
           ></Route>
@@ -296,7 +296,7 @@ const App = () => {
             exact
             path="/fund-contracts"
             component={() => {
-              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/?tab=contracts");
+              window.location.replace("https://nouns.build/dao/base/0x8a613Cb90Ab3b318D4e46D09F260a84b788e206b/?tab=contracts");
               return null;
             }}
           ></Route>
@@ -305,7 +305,7 @@ const App = () => {
             exact
             path="/mint"
             component={() => {
-              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8");
+              window.location.replace("https://nouns.build/dao/base/0x8a613Cb90Ab3b318D4e46D09F260a84b788e206b");
               return null;
             }}
           ></Route>
