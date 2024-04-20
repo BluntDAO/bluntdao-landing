@@ -254,6 +254,14 @@ const App = () => {
           ></Route>
           <Route
             exact
+            path="/nouns-art"
+            component={() => {
+              window.location.replace("https://drive.google.com/drive/folders/1vpYPFgcjSYqUgVomGqXCutei-9wnkSF4?usp=drive_link");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
             path="/fund-settings"
             component={() => {
               window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/");
