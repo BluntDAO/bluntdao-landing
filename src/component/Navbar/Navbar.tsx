@@ -113,9 +113,9 @@ const Navbar = () => {
               Fund
             </li>
           </ExternalLink>
-          <ExternalLink href="https://nearswag.xyz/collections/bluntdao">
+          {false && <ExternalLink href="https://nearswag.xyz/collections/bluntdao">
             <li className={style.navItem}>MERCH</li>
-          </ExternalLink>
+          </ExternalLink>}
           <div>
             <li className={style.navItem}>VOTE</li>
             <div className={style.toolTip}>
