@@ -248,15 +248,32 @@ const App = () => {
             exact
             path="/vote-fund"
             component={() => {
-              window.location.replace("https://www.instagram.com/bluntdao/");
+              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/?tab=activity");
               return null;
             }}
           ></Route>
+          <Route
+            exact
+            path="/fund-settings"
+            component={() => {
+              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/fund-contracts"
+            component={() => {
+              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8/?tab=contracts");
+              return null;
+            }}
+          ></Route>
+
            <Route
             exact
             path="/mint"
             component={() => {
-              window.location.replace("https://www.instagram.com/bluntdao/");
+              window.location.replace("https://nouns.build/dao/base/0xb581073738abae7d0dccc8fda6ecdd12e9b767f8");
               return null;
             }}
           ></Route>
