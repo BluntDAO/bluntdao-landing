@@ -244,7 +244,40 @@ const App = () => {
               return null;
             }}
           ></Route>
-                    <Route
+          <Route
+            exact
+            path="/guild"
+            component={() => {
+              window.location.replace("https://guild.xyz/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/channel"
+            component={() => {
+              window.location.replace("https://warpcast.com/~/channel/bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/newsletter"
+            component={() => {
+              window.location.replace("https://subscribe.bluntdao.org");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/subscribe"
+            component={() => {
+              window.location.replace("https://subscribe.bluntdao.org");
+              return null;
+            }}
+          ></Route>
+          
+          <Route
             exact
             path="/vote-fund"
             component={() => {
