@@ -260,6 +260,14 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/nouns-vote"
+            component={() => {
+              window.location.replace("https://nouns.build/dao/base/0x8a613cb90ab3b318d4e46d09f260a84b788e206b/11?tab=activity");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/newsletter"
