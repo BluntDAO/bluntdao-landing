@@ -248,6 +248,14 @@ const App = () => {
             exact
             path="/ideas"
             component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/ideas-16838950361399907");
+              return null;
+            }}
+          ></Route>
+            <Route
+            exact
+            path="/dev-ideas"
+            component={() => {
               window.location.replace("https://github.com/orgs/BluntDAO/projects/1/views/1");
               return null;
             }}
