@@ -206,6 +206,14 @@ const App = () => {
           ></Route>
           <Route
             exact
+            path="/charmverse-invite"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/join?domain=bluntdao");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
             path="/discord"
             component={() => {
               window.location.replace("https://discord.com/invite/e3cGSTzyWp");
