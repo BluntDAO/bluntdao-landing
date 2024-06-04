@@ -406,6 +406,54 @@ const App = () => {
               return null;
             }}
           ></Route>
+          <Route
+            exact
+            path="/start-chapter"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/chapter-playbook-21045415295897296");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/chapter-toolkit"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/chapter-playbook-21045415295897296");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/chapter-playbook"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/chapter-playbook-21045415295897296");
+              return null;
+            }}
+          ></Route>
+            <Route
+            exact
+            path="/chapters"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/chapters-8326647952357713?viewId=56f55070-b049-4f44-8fc0-d670bfb7c32e");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/event-playbook"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/events-playbook-7798752396576578");
+              return null;
+            }}
+          ></Route>
+          <Route
+            exact
+            path="/events-playbook"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/events-playbook-7798752396576578");
+              return null;
+            }}
+          ></Route>
             <Route
             exact
             path="/reddit"
