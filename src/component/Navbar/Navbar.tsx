@@ -8,6 +8,10 @@ import useAnalyticsEventTracker from "../../utils/useAnalyticsEventTracker";
 
 const votesArr = [
   {
+    title: "SESH FUND (BASE)",
+    url: "https://blunts.wtf/vote",
+  },
+  {
     title: "NEAR",
     url: "https://app.bluntdao.com/bluntdao.near/widget/DAO.Dashboard",
   },
