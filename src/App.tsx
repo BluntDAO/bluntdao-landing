@@ -454,6 +454,14 @@ const App = () => {
               return null;
             }}
           ></Route>
+                      <Route
+            exact
+            path="/onboarding"
+            component={() => {
+              window.location.replace("https://forum.bluntdao.org/onboarding-flow-3702957985563158");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/event-playbook"
