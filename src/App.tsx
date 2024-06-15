@@ -490,7 +490,7 @@ const App = () => {
             exact
             path="/merch"
             component={() => {
-              window.location.replace("https://nearswag.xyz/collections/bluntdao");
+              window.location.replace("https://shop.bluntdao.org");
               return null;
             }}
           ></Route>
