@@ -477,6 +477,15 @@ const App = () => {
               window.location.replace("https://app.charmverse.io/bluntdao/events-playbook-7798752396576578");
               return null;
             }}
+            
+          ></Route>
+            <Route
+            exact
+            path="/picnic"
+            component={() => {
+              window.location.replace("https://lu.ma/kmlo97ku");
+              return null;
+            }}
           ></Route>
             <Route
             exact
