@@ -260,6 +260,14 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/base-spec"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/proof-of-sesh-v5-on-base-requirements-7973441883916392");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/guild"
