@@ -268,6 +268,15 @@ const App = () => {
               return null;
             }}
           ></Route>
+                              <Route
+            exact
+            path="/sesh-call"
+            component={() => {
+              window.location.replace("https://discord.com/channels/936004252634054686/936004253443575840");
+              return null;
+            }}
+          ></Route>
+          
           <Route
             exact
             path="/guild"
