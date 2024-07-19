@@ -260,7 +260,15 @@ const App = () => {
               return null;
             }}
           ></Route>
-                    <Route
+          <Route
+            exact
+            path="/brand"
+            component={() => {
+              window.location.replace("https://app.charmverse.io/bluntdao/brand-style-guide-template-7373151419465727");
+              return null;
+            }}
+          ></Route>
+          <Route
             exact
             path="/base-spec"
             component={() => {
