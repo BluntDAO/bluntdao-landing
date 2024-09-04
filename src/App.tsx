@@ -276,6 +276,14 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/olympics"
+            component={() => {
+              window.location.replace("https://lu.ma/wocmc7oe");
+              return null;
+            }}
+          ></Route>
                               <Route
             exact
             path="/sesh-call"
