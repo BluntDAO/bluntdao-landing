@@ -118,7 +118,7 @@ const Navbar = () => {
             </li>
           </ExternalLink>
           <ExternalLink href="https://shop.bluntdao.org">
-            <li className={style.navItem}>MERCH</li>
+            <li className={style.navItem}>Shop</li>
           </ExternalLink>
           <div>
             <li className={style.navItem}>VOTE</li>

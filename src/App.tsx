@@ -536,6 +536,14 @@ const App = () => {
               return null;
             }}
           ></Route>
+                    <Route
+            exact
+            path="/shop"
+            component={() => {
+              window.location.replace("https://shop.bluntdao.org");
+              return null;
+            }}
+          ></Route>
           <Route
             exact
             path="/blog"
