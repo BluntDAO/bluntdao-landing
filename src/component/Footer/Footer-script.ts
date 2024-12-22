@@ -1,19 +1,15 @@
 const footerLinks = [
   {
     icon: "/icons/icon-links.svg",
-    url: "/links",
+    url: "https://bento.me/blunt",
+  },
+  {
+    icon: "/icons/twitter.svg",
+    url: "https://x.com/bluntdao",
   },
   {
     icon: "/icons/discord.svg",
     url: "https://discord.com/invite/e3cGSTzyWp",
-  },
-  {
-    icon: "/icons/twitter.svg",
-    url: "https://twitter.com/bluntdao",
-  },
-  {
-    icon: "/icons/medium.svg",
-    url: "http://medium.com/@bluntdao",
   },
   {
     icon: "/icons/telegram.svg",
@@ -30,6 +26,10 @@ const footerLinks = [
   {
     icon: "/icons/linkedin-brands.svg",
     url: "https://www.linkedin.com/company/bluntdao/",
+  },
+  {
+    icon: "/icons/medium.svg",
+    url: "http://medium.com/@bluntdao",
   },
 ];
 
