@@ -158,12 +158,12 @@ function ConnectWallet() {
         //   Connect Wallet
         // </div>
         <a
-          href="https://app.bluntdao.com/"
+          href="https://blunts.wtf/"
           className={style.connect}
           target="_blank"
           rel="noreferrer"
         >
-          Launch App
+          BUY $OUNCE
         </a>
       )}
     </>
