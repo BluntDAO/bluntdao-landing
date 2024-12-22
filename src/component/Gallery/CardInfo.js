@@ -3,7 +3,7 @@ const cardInfo = [
     title: "OUNCES",
     description:
       "OUNCES are the Nouns of Weed. The unlimitted sesh fund, an ounce is sold everyday and OUNCERS can request funding for seshes",
-    img: "https://remote-image.decentralized-content.com/image?url=https%3A%2F%2Fapi.zora.co%2Frenderer%2Fstack-images%3FcontractAddress%3D0x808802c759318c4284385890dad7571ca93f52cb%26tokenId%3D35%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fbackground%252fbrown.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fbody%252fzippov2grey.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fclothes%252fblackleatherjacket.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fice%252fgoldchain.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fhands%252fgrabba.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fheads%252fbladescale.png%26images%3Dipfs%253a%252f%252fbafybeigniet6w376hpruagqxml7b7v7ujbt64eu4ek3ctvkvntv76olx5i%252fhoggles%252fyeellow.png&w=1080&q=75",
+    img: "https://www.blunts.wtf/_next/image?url=%2Fblunts-3.jpg&w=1080&q=75",
     url: "https://blunts.wtf",
   },
    {
@@ -20,20 +20,20 @@ const cardInfo = [
     img: "/img/banner.gif",
     url: "https://solscan.io/token/F8rfnjdQTxLTKKMQ9M6LWbP4aiiqUkQSs6jxpBSRcVPz",
   },
-  {
-    title: "BluntDAO Tweet NFTs",
-    description:
-      "The following nfts were minted on Polygon to forever cement BluntDAO's rise to fam on twitter.",
-    img: "/img/BluntDAO-Tweet-NFTs.png",
-    url: "https://opensea.io/collection/blunttwitter",
-  },
-  {
-    title: "Apply to Be in BluntDAO Art Launchpad",
-    description:
-      "Have your blunt related art showcased on the premium BluntDAO gallery link.",
-    img: "/img/BluntDAO-Art-Launchpad.png",
-    url: "https://forms.gle/XLfEbuYvh7wQZbQt5",
-  },
+  // {
+  //   title: "BluntDAO Tweet NFTs",
+  //   description:
+  //     "The following nfts were minted on Polygon to forever cement BluntDAO's rise to fam on twitter.",
+  //   img: "/img/BluntDAO-Tweet-NFTs.png",
+  //   url: "https://opensea.io/collection/blunttwitter",
+  // },
+  // {
+  //   title: "Apply to Be in BluntDAO Art Launchpad",
+  //   description:
+  //     "Have your blunt related art showcased on the premium BluntDAO gallery link.",
+  //   img: "/img/BluntDAO-Art-Launchpad.png",
+  //   url: "https://forms.gle/XLfEbuYvh7wQZbQt5",
+  // },
   {
     title: "OG 420 Validator [NEAR]",
     description:
@@ -69,12 +69,12 @@ const cardInfo = [
     img: "/img/miami.png",
   },
 
-  {
-    title: "VR Sesh Room",
-    description:
-      "This yet to be minted Metaverse Sesh Room is made for the Blunt DAO to Proof of Sesh in digital reality.",
-    img: "/img/SeshRoom.png",
-  },
+  // {
+  //   title: "VR Sesh Room",
+  //   description:
+  //     "This yet to be minted Metaverse Sesh Room is made for the Blunt DAO to Proof of Sesh in digital reality.",
+  //   img: "/img/SeshRoom.png",
+  // },
   {
     title: "Eth Denver 2023 POS",
     description:
