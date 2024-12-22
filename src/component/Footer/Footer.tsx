@@ -22,7 +22,7 @@ const Footer = ({ children, ...props }: Props) => {
             &copy; 2024 BluntDAO. All rights reserved
           </div>
           <div className={style.right}>
-            <span>Join our community</span>
+            {/* <span>Join our community</span> */}
             <div className={style.socialIcons}>
               {footerLinks.map((elm) => (
                 <a

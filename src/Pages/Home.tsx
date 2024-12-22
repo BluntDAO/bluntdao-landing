@@ -60,12 +60,12 @@ const Home = () => {
       <div id="gallery">
         <Gallery />
       </div>
-      <div id="roadmap">
+      {/* <div id="roadmap">
         <Roadmap />
-      </div>
-      <div id="evemts">
+      </div> */}
+      {/* <div id="events">
         <Events />
-      </div>
+      </div> */}
       <Element name="Partner">
         <Partner />
       </Element>
