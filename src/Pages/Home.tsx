@@ -66,9 +66,9 @@ const Home = () => {
       {/* <div id="events">
         <Events />
       </div> */}
-      <Element name="Partner">
+      {/* <Element name="Partner">
         <Partner />
-      </Element>
+      </Element> */}
       <Element name="testimonial">
         <Review />
       </Element>
