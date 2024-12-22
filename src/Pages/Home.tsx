@@ -63,7 +63,7 @@ const Home = () => {
       <div id="roadmap">
         <Roadmap />
       </div>
-      <div id="roadmap">
+      <div id="evemts">
         <Events />
       </div>
       <Element name="Partner">
@@ -72,12 +72,12 @@ const Home = () => {
       <Element name="testimonial">
         <Review />
       </Element>
-      <div id="roadmap">
+      <div id="buildwith">
         <BuiltWith />
       </div>
-      <div id="medium">
+      {/* <div id="medium">
         <Medium />
-      </div>
+      </div> */}
       <Element id="faq" name="faq">
         <FAQ />
       </Element>
