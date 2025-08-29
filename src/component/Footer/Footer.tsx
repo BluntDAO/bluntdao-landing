@@ -19,7 +19,7 @@ const Footer = ({ children, ...props }: Props) => {
       <div className={style.container}>
         <div className={`${style.section} section`}>
           <div className={style.left}>
-            &copy; 2024 BluntDAO. All rights reserved
+            &copy; {new Date().getFullYear()} BluntDAO. All rights reserved
           </div>
           <div className={style.right}>
             {/* <span>Join our community</span> */}
