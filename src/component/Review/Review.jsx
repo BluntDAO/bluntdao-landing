@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./Review.module.css";
 import Slider from "react-slick";
-import { TwitterTweetEmbed } from 'react-tweet-embed';
+import TweetEmbed from 'react-tweet-embed';
 import { ReactComponent as AngleLft } from "../../assets/imgs/angle-left-solid.svg";
 import { ReactComponent as AngleRight } from "../../assets/imgs/angle-right-solid.svg";
 
@@ -115,7 +115,7 @@ const Review = () => {
               {displayTweets.map((tweetId) => (
                 <div key={tweetId} className={style.tweetContainer}>
                   <div className={style.tweetWrapper}>
-                    <TwitterTweetEmbed
+                    <TweetEmbed
                       tweetId={tweetId}
                       options={{
                         theme: 'dark',
