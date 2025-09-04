@@ -1,22 +1,8 @@
 {
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs22.x"
-    }
-  },
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
