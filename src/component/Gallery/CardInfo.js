@@ -20,6 +20,19 @@ const cardInfo = [
     img: "/img/banner.gif",
     url: "https://solscan.io/token/F8rfnjdQTxLTKKMQ9M6LWbP4aiiqUkQSs6jxpBSRcVPz",
   },
+  {
+    title: "Chiang Mai PelagoCity Proof of Sesh",
+    description:
+      "Sesh part of BluntDAO Hacker House in Chiang Mai as part of Network State Archipelago",
+    img: "/img/proofofseshchiangmaioctober2024poap.png",
+    url: "https://poap.gallery/drops/178678",
+  },
+  {
+title: "Proof of Sesh Nashville: Boots & Blunts",
+description: "This POAP is available to all attendees of the BluntDAO Boots and Brunch event. Whether you participated in person or a side proof of sesh, you are eligible to claim this commemorative token. Date: July 27th, 2024.",
+image: "/img/bootsandblunts.jpeg",
+url: "https://poap.gallery/drops/176295",
+  },
   // {
   //   title: "BluntDAO Tweet NFTs",
   //   description:
@@ -80,7 +93,24 @@ const cardInfo = [
     description:
       "Proof of Sesh at EthDenver 2023 POAP. Made by @dyrmkr",
     img: "/img/ethblunt.gif",
+    url: "https://poap.gallery/drops/104320",
   },
+  {
+    title: "India Blockchain Week 2024 Proof of Sesh",
+    description:
+      "Proof of Sesh'd IRL with an OG Validator at India Blockchain Week2024  or respective side events. This means you are an OG Validator and you can Proof of Sesh with other members.!",
+    img: "/img/proofofseshindiablockchainweek2024poap.webp",
+    url: "  https://poap.gallery/drops/182424",
+  },
+  {
+    title: "EthCC Brussels 2024 Proof of Sesh",
+    description:
+      "Proof of Sesh'd IRL with an OG Validator at India Blockchain Week2024  or respective side events. This means you are an OG Validator and you can Proof of Sesh with other members.!",
+    img: "/img/proofofseshethccbruseelspoap.jpeg",
+    url: " https://poap.gallery/drops/175911",
+  },
+
+
   {
     title: "BluntDAO Solana Pass",
     description:
