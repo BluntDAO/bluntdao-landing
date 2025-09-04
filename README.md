@@ -141,7 +141,7 @@ Located in `/public/img/dashboard-imgs/`:
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v22 or higher)
 - Yarn package manager
 - Git
 
