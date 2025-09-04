@@ -6,11 +6,11 @@ const technologies = [
   {
     img: "/img/built-with/base.png",
     url: "https://base.org",
-  }
+  },
   {
     img: "/img/built-with/nouns.png",
     url: "https://nouns.wtf",
-  }
+  },
   {
     img: "/img/built-with/near.png",
     url: "https://near.org/",

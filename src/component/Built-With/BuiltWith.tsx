@@ -3,6 +3,9 @@ import style from "./BuiltWith.module.css";
 import data from "./data";
 
 const BuiltWith = () => {
+  // Duplicate the data to create seamless infinite scroll
+  const duplicatedData = [...data, ...data];
+
   return (
     <div className={style.container}>
       <div className={`${style.section} section`}>
@@ -11,12 +14,20 @@ const BuiltWith = () => {
           BluntDAO's infrastructure is powered by the following blockchains,
           frameworks, tools, and integrations
         </div>
-        <div className={style.TechWrapper}>
-          {data.map((tech) => (
-            <a key={tech.url} href={tech.url} target="_blank" rel="noreferrer">
-              <img src={tech.img} alt="" />
-            </a>
-          ))}
+        <div className={style.scrollContainer}>
+          <div className={style.scrollTrack}>
+            {duplicatedData.map((tech, index) => (
+              <a 
+                key={`${tech.url}-${index}`} 
+                href={tech.url} 
+                target="_blank" 
+                rel="noreferrer"
+                className={style.techCard}
+              >
+                <img src={tech.img} alt="" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

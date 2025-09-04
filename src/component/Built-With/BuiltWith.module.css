@@ -47,38 +47,67 @@
   transform: rotate(180deg);
 }
 
-.TechWrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.3vw 1.3vw;
-  width: fit-content;
+/* Constantly rotating scroll container */
+.scrollContainer {
+  overflow: hidden;
+  width: 100%;
   margin: 3rem auto;
+  position: relative;
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
-.TechWrapper a {
+
+.scrollTrack {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  gap: 2rem;
+  width: fit-content;
+}
+
+.scrollTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.techCard {
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #b5b1b1;
   cursor: pointer;
-  /* width: 17vw; */
-  height: 10.5vw;
-  transition: background 0.4s ease-in-out;
+  width: 150px;
+  height: 100px;
+  transition: all 0.4s ease-in-out;
   box-sizing: border-box;
+  flex-shrink: 0;
+  border-radius: 8px;
 }
-.TechWrapper a img {
-  height: 80%;
-  -webkit-filter: grayscale(10%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  opacity: 0.5;
+
+.techCard img {
+  height: 60%;
   width: 80%;
   object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
   transition: all 0.4s ease-in-out;
 }
-.TechWrapper a:hover {
+
+.techCard:hover {
   background: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-.TechWrapper a:hover img {
+
+.techCard:hover img {
   filter: grayscale(0%);
   opacity: 1;
 }
@@ -87,26 +116,31 @@
   .section {
     padding: 4rem 1rem;
   }
-  .TechWrapper {
-    margin-top: 1rem;
+  
+  .scrollContainer {
+    margin: 2rem auto;
   }
-}
-@media only screen and (max-width: 900px) {
-  .TechWrapper {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3% 3%;
+  
+  .techCard {
+    width: 120px;
+    height: 80px;
   }
-  .TechWrapper a img {
-    height: 60%;
+  
+  .scrollTrack {
+    gap: 1.5rem;
+    animation: scroll 25s linear infinite;
   }
+  
   .header {
     font-size: 2rem;
     text-align: center;
   }
+  
   .subheader {
     text-align: center;
   }
 }
+
 @media screen and (max-width: 480px) {
   .section {
     padding: 0 1rem;
@@ -114,14 +148,25 @@
 
   .header {
     margin-top: 1rem;
+    font-size: 1.8rem;
   }
-  .TechWrapper {
-    display: flex;
-    flex-wrap: wrap;
+  
+  .scrollContainer {
+    margin: 1.5rem auto;
   }
-  .TechWrapper a {
-    width: 48%;
-    margin: 5px auto;
-    height: 15.6vw;
+  
+  .techCard {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .scrollTrack {
+    gap: 1rem;
+    animation: scroll 20s linear infinite;
+  }
+  
+  .techCard img {
+    height: 50%;
+    width: 70%;
   }
 }
