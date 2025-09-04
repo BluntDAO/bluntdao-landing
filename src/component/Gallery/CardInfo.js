@@ -109,8 +109,31 @@ url: "https://poap.gallery/drops/176295",
     img: "/img/proofofseshethccbruseelspoap.jpeg",
     url: " https://poap.gallery/drops/175911",
   },
-
-
+  {
+    title: "Solana Summer Camp 2024 The Acres",
+    description:
+      "Road to Blunt Olympics, the Acres Solana Summer Camp, Pennsylvania August, 2024",
+    img: "/img/solanasummercamp.jpeg",
+    url: "https://poap.gallery/drops/176715",
+  },
+  {
+    title: "Vrbs Coffee & Crypto 1",
+    description: "A special POAP to signify the first coffee and crypto meet up with Vrbs and BluntDAO. People can be part of BluntDAO history. San Antonio, Texas August 10, 2024",
+    img: "/img/vrbssanantonio.jpg",
+    url: "https://poap.gallery/drops/176713",
+  },
+  {
+    title: "BluntDao Science Week NYC 2024",
+    description: "BluntDao is doing a Takeover of Science Blockchain week her ein New York. Will be the first official event sponsored by BluntDao. August 2024.",
+    img: "/img/scienceweek.jpeg",
+    url: "https://poap.gallery/drops/176714",
+  },
+  {
+    title: "Proof of Seah - DEVCON WEEK 2024",
+    description: "November 10, 2024. Devcon Week, BluntOlympics. You proof of sesh’d with an OG Validator. This means you are an OG Validator and now you can onboard others to BlunTDAO",
+    img: "/img/devcon2024.jpeg",
+    url: "https://poap.gallery/drops/180069",
+  },
   {
     title: "BluntDAO Solana Pass",
     description:
