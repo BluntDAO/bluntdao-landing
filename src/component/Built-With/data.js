@@ -41,11 +41,15 @@ const technologies = [
   },
   {
     img: "/img/built-with/poap.png",
-    url: "https://poap.xyz",
+    url: "https://moments.poap.xyz/drops/104320",
+  },
+  {
+    img: "/img/built-with/guildxyz.png",
+    url: "https://guild.xyz/@bluntdao",
   },
   // {
   //   img: "/img/built-with/nearsocial.png",
-  //   url: "https://near.social",
+  //   url: "https://blunt.near.social",
   // },
   // {
   //   img: "/img/built-with/keypom.png",
@@ -92,10 +96,10 @@ const technologies = [
   //   img: "/img/built-with/satori.png",
   //   url: "https://satori.art/",
   // },
-  // {
-  //   img: "/img/built-with/metaplex.png",
-  //   url: "https://www.metaplex.com/",
-  // },
+  {
+    img: "/img/built-with/metaplex.png",
+    url: "https://www.metaplex.com/",
+  },
   // {
   //   img: "/img/built-with/nepbot.png",
   //   url: "https://nepbot.org/",
