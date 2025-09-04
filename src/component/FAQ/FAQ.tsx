@@ -20,6 +20,20 @@ const FQA = () => {
   const FAQS = [
     {
       id: 1,
+      question: "How do I join the BluntDAO?",
+      answer:
+        "You join the BluntDAO by officially sesh'ing with DAO member via Proof of Sesh (IRL SESH) We are building a dApp for Proof of Sesh (Coming soon)",
+    },
+
+    {
+      id: 2,
+      question: "Where do you have BluntDAO Chapters & Members?",
+      answer:
+        "Active chapters everywhere. Tune into sesh.day for the 420 Celebration",
+    },
+    
+    {
+      id: 3,
       question: "What blockchain is BluntDAO on?",
       answer:
         "The BluntDAO is initally on the Solana blockchain with sesh mints across multiple blockchains and plans to port governance tokens onto multiple blockchains. There is now a set of 420 OG Validators on NEAR protocol. POAPs on Gnosis, Soulbound Seshes on EVM chains supported by GenaDrop, and NFT based DAOs on Solana (SQDS), NEAR (AstroDAO), and Polygon (SNAPSHOT).",
@@ -29,17 +43,12 @@ const FQA = () => {
     //     answer: ['The mint is live on ', <a href="www.bluntdao.com">bluntdao.com</a>, " right now"]
     // },
     {
-      id: 2,
+      id: 4,
       question: "How many BluntNFTs are part of the first mint?",
       answer:
         "420 Blunts are part of OG mint on Solana. We have a series of POAPs, events, and 1 of 1s that have been minted to Solana, Polygon, & NEAR. We also have a set of 420 OG Validators on NEAR. The plan is 420 SESH Validators on every blockchain ever.",
     },
-    {
-      id: 3,
-      question: "How do I join the BluntDAO?",
-      answer:
-        "You join the BluntDAO by officially sesh'ing with DAO member via Proof of Sesh (IRL SESH) We are building a dApp for Proof of Sesh (Coming soon)",
-    },
+
     {
       id: 4,
       question: "What is the difference between Sesh Fund Treasury + NFT and the OG Validators",
