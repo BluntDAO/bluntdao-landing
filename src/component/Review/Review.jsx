@@ -105,9 +105,9 @@ const Review = () => {
   return (
     <div className={`${style.container} reviews-section`}>
       <div className="section">
-        <div className={style.header}>Buzz on Twitter</div>
+        <div className={style.header}>The Most Beloved DAO</div>
         <div className={style.subheader}>
-          See how people are getting Buzzed off the BluntDAO on Twitter
+          See how the streets love the world's biggest cannabis crew.
         </div>
         <div className={style.swiperWrapper}>
           {isLoaded && (
