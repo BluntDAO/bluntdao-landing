@@ -13,21 +13,21 @@ const media = [
     imgActive: "/img/media/DAODenver.png",
     imgInactive: "/img/media/DAODenver-inactive.png",
   },
-  {
-    url: "https://awesomenear.com/bluntdao",
-    imgActive: "/img/media/Awesome-Near.png",
-    imgInactive: "/img/media/Awesome-Near-inactive.png",
-  },
+  // {
+  //   url: "https://awesomenear.com/bluntdao",
+  //   imgActive: "/img/media/Awesome-Near.png",
+  //   imgInactive: "/img/media/Awesome-Near-inactive.png",
+  // },
   {
     url: "https://www.producthunt.com/posts/bluntdao",
     imgActive: "/img/media/Product-Hunt.png",
     imgInactive: "/img/media/Product-Hunt-inactive.png",
   },
-  {
-    url: "https://barracuda.io/bluntdao",
-    imgActive: "/img/media/Barracuda.png",
-    imgInactive: "/img/media/Barracuda-inactive.png",
-  },
+  // {
+  //   url: "https://barracuda.io/bluntdao",
+  //   imgActive: "/img/media/Barracuda.png",
+  //   imgInactive: "/img/media/Barracuda-inactive.png",
+  // },
   {
     url: "https://shitcoinconf.com/",
     imgActive: "/img/media/Shitcoin.png",
