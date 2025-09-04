@@ -64,21 +64,6 @@ const Navbar = () => {
         <br />
 
         <ul className={style.navList}>
-          <Link
-            spy={true}
-            smooth={true}
-            offset={-80}
-            duration={300}
-            isDynamic={true}
-            activeClass={style.active}
-            hashSpy={true}
-            to="banner"
-            onClick={() => handleSetState({ dropdown: false })}
-          >
-            <RouterLink to={"/#banner"}>
-              <li className={`${style.navItem}`}>Home</li>
-            </RouterLink>
-          </Link>
           {/* <HashLink smooth to={'#banner'} onClick={() => handleSetState({ dropdown: false })}>
                         <li className={style.navItem} >THE VISION</li>
                     </HashLink> */}
