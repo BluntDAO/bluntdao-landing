@@ -99,11 +99,11 @@ const Navbar = () => {
               onClick={() => gaEventTracker("view", "fund")}
               className={style.navItem}
             >
-              Fund
+              FUND
             </li>
           </ExternalLink>
           <ExternalLink href="https://shop.bluntdao.org">
-            <li className={style.navItem}>Shop</li>
+            <li className={style.navItem}>SHOP</li>
           </ExternalLink>
           <div>
             <li className={style.navItem}>VOTE</li>
