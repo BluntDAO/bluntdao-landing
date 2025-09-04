@@ -1,24 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import axios from "axios";
 import style from "./Review.module.css";
-import twitterIcon from "../../assets/imgs/twitter.svg";
 import Slider from "react-slick";
-import { getFormattedDateTweets } from "../Events/Utils";
+import { TwitterTweetEmbed } from 'react-tweet-embed';
 import { ReactComponent as AngleLft } from "../../assets/imgs/angle-left-solid.svg";
 import { ReactComponent as AngleRight } from "../../assets/imgs/angle-right-solid.svg";
 
-const twitterAPIURL = (twitterIDs) => {
-  let ids = "";
-  twitterIDs.forEach((id, idx) => {
-    if (idx < twitterIDs.length - 1) {
-      ids += `${id},`;
-    } else {
-      ids += `${id}`;
-    }
-  });
-  return `https://api.twitter.com/2/tweets?ids=${ids}&tweet.fields=attachments,author_id,created_at,entities&expansions=attachments.media_keys,author_id&media.fields=alt_text,duration_ms,media_key,preview_image_url,type,url,variants&user.fields=name,profile_image_url,username`;
-};
-const tweets = [
+// Featured tweet IDs to display in the review section
+const featuredTweets = [
   "1598053293477232641",
   "1575373829001691136",
   "1583521546718482433",
@@ -73,30 +61,24 @@ const tweets = [
 var settings = {
   dots: false,
   infinite: true,
-  speed: 2000,
-  slidesToShow: 4,
-  slidesToScroll: 4,
+  speed: 1000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
   initialSlide: 0,
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 6000,
+  pauseOnHover: true,
   responsive: [
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-      },
-    },
-    {
-      breakpoint: 900,
-      settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
       },
     },
     {
-      breakpoint: 694,
+      breakpoint: 768,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -106,161 +88,74 @@ var settings = {
 };
 
 const Review = () => {
-  const cardRef = useRef(null);
   const slider = useRef(null);
-  const [state, setState] = useState({
-    tweetsData: [],
-  });
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const { tweetsData } = state;
-
-  const handleSetState = (payload) => {
-    setState((state) => ({ ...state, ...payload }));
-  };
-
-  const formattedContent = (content) => {
-    return content.substring(0, 140) + (content.length > 140 ? "..." : "");
-  };
-  const formattedContentUserName = (content) => {
-    return content.substring(0, 20) + (content.length > 20 ? "..." : "");
-  };
+  // Select a subset of tweets to display (limit for better performance)
+  const displayTweets = featuredTweets.slice(0, 12);
 
   useEffect(() => {
-    axios
-      .get("https://cors-anywhere-wjlt.onrender.com/" + twitterAPIURL(tweets), {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_TWITTER_ACCESS_TOKEN}`,
-        },
-      })
-      .then((data) => {
-        let tweets = data.data;
-        let attachments = {};
-        let users = {};
-        data.data.includes.users.forEach((element) => {
-          users[element.id] = {
-            id: element.id,
-            username: element.username,
-            profile_image_url: element.profile_image_url,
-            name: element.name,
-          };
-        });
-        data.data.includes.media.forEach((element) => {
-          let img;
-          if (element?.type === "photo") {
-            img = element?.url;
-          } else {
-            img = element.variants[0]?.url;
-          }
-          attachments[element.media_key] = {
-            media_key: element.media_key,
-            type: element?.type,
-            url: img,
-          };
-        });
-        tweets = data.data.data.map((tweet) => {
-          return {
-            id: tweet.id,
-            media: attachments[tweet?.attachments?.media_keys[0]],
-            author_id: users[tweet?.author_id],
-            created_at: tweet?.created_at,
-            text: tweet.text?.split("https://t.co/")[0],
-            url: `https://twitter.com/${
-              users[tweet?.author_id]?.username
-            }/status/${tweet.id}`,
-            domain: "Twitter Web App",
-            icon: twitterIcon,
-            links: tweet.entities?.urls?.filter(
-              (link) => !link.display_url.includes("pic.twitter")
-            )[0],
-          };
-        });
-        tweets.sort(function (a, b) {
-          // Turn your strings into dates, and then subtract them
-          // to get a value that is either negative, positive, or zero.
-          return new Date(b.created_at) - new Date(a.created_at);
-        });
-        handleSetState({ tweetsData: tweets });
-      })
-      .catch((err) => console.log(err));
+    // Small delay to ensure slider is properly initialized
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
   return (
     <div className={`${style.container} reviews-section`}>
       <div className="section">
         <div className={style.header}>Buzz on Twitter</div>
         <div className={style.subheader}>
-          See how people are getting Buzzed off the BluntDAO on twitter
+          See how people are getting Buzzed off the BluntDAO on Twitter
         </div>
         <div className={style.swiperWrapper}>
-          <Slider ref={slider} {...settings}>
-            {tweetsData.map((review) => (
-              <div key={review.id}>
-                <a
-                  href={review.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  ref={cardRef}
-                  className={style.card}
-                >
-                  <div className={style.cardHeader}>
-                    <img src={review.icon} alt="" className={style.icon} />
-                    <div className={style.date}>
-                      {getFormattedDateTweets(review.created_at)}
-                    </div>
-                    <div className={style.domain}>{review.domain}</div>
-                  </div>
-                  {review?.media?.type === "photo" && review?.media?.url ? (
-                    <img
-                      src={review.media.url}
-                      alt=""
-                      className={style.banner}
+          {isLoaded && (
+            <Slider ref={slider} {...settings}>
+              {displayTweets.map((tweetId) => (
+                <div key={tweetId} className={style.tweetContainer}>
+                  <div className={style.tweetWrapper}>
+                    <TwitterTweetEmbed
+                      tweetId={tweetId}
+                      options={{
+                        theme: 'dark',
+                        width: 350,
+                        conversation: 'none',
+                        cards: 'visible',
+                        align: 'center'
+                      }}
+                      placeholder="Loading tweet..."
                     />
-                  ) : review?.media?.url ? (
-                    <video
-                      className={style.banner}
-                      src={review.media?.url}
-                      loop={true}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  <div className={style.content}>
-                    {formattedContent(review.text)}
                   </div>
-                  {!review?.media?.url && <div className={style.filler} />}
-                  <div className={style.line}></div>
-                  <div className={style.footer}>
-                    <img
-                      className={style.thumbnail}
-                      src={review.author_id.profile_image_url}
-                      alt=""
-                    />
-                    <div className={style.wrapper}>
-                      <div className={style.name}>
-                        {formattedContentUserName(review.author_id.name)}
-                      </div>
-                      <div className={style.handle}>
-                        @{review.author_id.username}
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </Slider>
-          <>
-            <button
-              onClick={() => slider?.current?.slickPrev()}
-              className={style.ctrlBtn_left}
-            >
-              <AngleLft />
-            </button>
-            <button
-              onClick={() => slider?.current?.slickNext()}
-              className={style.ctrlBtn_right}
-            >
-              <AngleRight />
-            </button>
-          </>
+                </div>
+              ))}
+            </Slider>
+          )}
+          
+          {!isLoaded && (
+            <div className={style.loadingContainer}>
+              <div className={style.loadingText}>Loading Twitter feed...</div>
+            </div>
+          )}
+
+          {isLoaded && (
+            <>
+              <button
+                onClick={() => slider?.current?.slickPrev()}
+                className={style.ctrlBtn_left}
+                aria-label="Previous tweets"
+              >
+                <AngleLft />
+              </button>
+              <button
+                onClick={() => slider?.current?.slickNext()}
+                className={style.ctrlBtn_right}
+                aria-label="Next tweets"
+              >
+                <AngleRight />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

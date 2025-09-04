@@ -166,8 +166,110 @@
     text-align: center;
   }
 }
+/* New Twitter embed styles */
+.tweetContainer {
+  padding: 0 10px;
+  height: auto;
+  display: flex !important;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tweetWrapper {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 0.75em;
+  overflow: hidden;
+  box-shadow: 2px 18px 18px #e4e1ddac;
+  transition: all 300ms;
+}
+
+.tweetWrapper:hover {
+  box-shadow: 2px 18px 18px #e4e1dd;
+  transform: translateY(-2px);
+}
+
+.tweetPlaceholder {
+  width: 350px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e5e8eb;
+  box-shadow: 2px 18px 18px #e4e1ddac;
+}
+
+.loadingSpinner {
+  color: #1da1f2;
+  font-family: "Futura", arial;
+  font-size: 0.9rem;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+}
+
+.loadingText {
+  color: #e5080b;
+  font-family: "Futura", arial;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Override default Twitter embed styles */
+.tweetWrapper iframe {
+  border-radius: 0.75em !important;
+  box-shadow: none !important;
+}
+
+/* Responsive adjustments for Twitter embeds */
+@media screen and (max-width: 1200px) {
+  .tweetWrapper {
+    max-width: 320px;
+  }
+  
+  .tweetPlaceholder {
+    width: 320px;
+    height: 380px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tweetWrapper {
+    max-width: 300px;
+  }
+  
+  .tweetPlaceholder {
+    width: 300px;
+    height: 350px;
+  }
+  
+  .ctrlBtn_left,
+  .ctrlBtn_right {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .container {
     padding: 0;
+  }
+  
+  .tweetWrapper {
+    max-width: 280px;
+  }
+  
+  .tweetPlaceholder {
+    width: 280px;
+    height: 320px;
   }
 }

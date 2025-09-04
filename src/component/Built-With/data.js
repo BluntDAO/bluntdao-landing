@@ -4,6 +4,14 @@ const technologies = [
     url: "https://solana.com/",
   },
   {
+    img: "/img/built-with/base.png",
+    url: "https://base.org",
+  }
+  {
+    img: "/img/built-with/nouns.png",
+    url: "https://nouns.wtf",
+  }
+  {
     img: "/img/built-with/near.png",
     url: "https://near.org/",
   },
@@ -19,10 +27,10 @@ const technologies = [
   //   img: "/img/built-with/holaplex.png",
   //   url: "https://www.holaplex.com/",
   // },
-  {
-    img: "/img/built-with/astro.png",
-    url: "https://astrodao.com/",
-  },
+  // {
+  //   img: "/img/built-with/astro.png",
+  //   url: "https://astrodao.com/",
+  // },
   {
     img: "/img/built-with/squads.png",
     url: "https://squads.so/",
