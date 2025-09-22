@@ -124,6 +124,7 @@ const Review = () => {
                         cards: 'visible',
                         align: 'center'
                       }}
+                      hideMedia={true}
                       placeholder="Loading tweet..."
                     />
                   </div>
