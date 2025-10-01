@@ -66,6 +66,7 @@ var settings = {
   slidesToScroll: 1,
   initialSlide: 0,
   arrows: false,
+  adaptiveHeight: false,
   autoplay: true,
   autoplaySpeed: 6000,
   pauseOnHover: true,

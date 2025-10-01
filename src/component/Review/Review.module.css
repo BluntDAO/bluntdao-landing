@@ -3,6 +3,10 @@
   /* margin-bottom: 8em; */
   background-color: #f5f0ea;
   /* padding: 0 1em; */
+
+  .slick-slide > div:first-child {
+    width: 100%;
+  }
 }
 .header,
 .subheader {
@@ -140,6 +144,7 @@
   transition: all 300ms;
   outline: none;
   border: none;
+  transform: translateY(-250%);
   top: 50%;
 }
 .ctrlBtn_left svg,
@@ -153,8 +158,12 @@
   box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.3);
 }
 
+.ctrlBtn_left {
+  left: -42px;
+}
+
 .ctrlBtn_right {
-  right: 0;
+  right: -42px;
 }
 
 @media screen and (max-width: 900px) {
@@ -168,22 +177,29 @@
 }
 /* New Twitter embed styles */
 .tweetContainer {
-  padding: 0 10px;
-  height: auto;
+  min-height: 500px;
+  width: 100%;
+
   display: flex !important;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .tweetWrapper {
   width: 100%;
-  max-width: 350px;
   margin: 0 auto;
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 0.75em;
   overflow: hidden;
-  box-shadow: 2px 18px 18px #e4e1ddac;
+  /* box-shadow: 2px 18px 18px #e4e1ddac; */
   transition: all 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tweetWrapper > div:first-child {
+  width: 100%;
 }
 
 .tweetWrapper:hover {
@@ -235,7 +251,7 @@
   .tweetWrapper {
     max-width: 320px;
   }
-  
+
   .tweetPlaceholder {
     width: 320px;
     height: 380px;
@@ -246,16 +262,24 @@
   .tweetWrapper {
     max-width: 300px;
   }
-  
+
   .tweetPlaceholder {
     width: 300px;
     height: 350px;
   }
-  
+
   .ctrlBtn_left,
   .ctrlBtn_right {
     width: 2.5em;
     height: 2.5em;
+  }
+
+  .ctrlBtn_left {
+    left: -12px;
+  }
+
+  .ctrlBtn_right {
+    right: -12px;
   }
 }
 
@@ -263,13 +287,14 @@
   .container {
     padding: 0;
   }
-  
-  .tweetWrapper {
-    max-width: 280px;
-  }
-  
+
   .tweetPlaceholder {
     width: 280px;
     height: 320px;
+  }
+
+  .ctrlBtn_left,
+  .ctrlBtn_right {
+    transform: translateY(-250%);
   }
 }
