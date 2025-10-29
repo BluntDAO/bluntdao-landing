@@ -1,0 +1,721 @@
+{
+  "lastUpdated": "2024-12-29",
+  "dataSource": "The Global Cannabis Index: A Comprehensive Analysis of Legalization, Markets, and Policy",
+  "countries": {
+    "United States": {
+      "federalStatus": {
+        "recreational": "Illegal",
+        "medical": "Illegal",
+        "description": "Cannabis is federally illegal under the Controlled Substances Act of 1970 as a Schedule I drug, but states have authority under the 10th Amendment to establish their own laws."
+      },
+      "states": {
+        "Alabama": {
+          "recreational": "Illegal",
+          "medical": "Legal (non-operational)",
+          "penalties": "Possession is a misdemeanor (up to 1 year jail, $6,000 fine); repeat offense is a felony",
+          "laws": "Compassion Act (SB 46) passed in 2021, but program is stalled by litigation",
+          "stores": 0,
+          "notes": "Lacks decriminalization. Medical program prohibits smokable flower and requires pain patients to try opioids first.",
+          "colorCode": "red"
+        },
+        "Alaska": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Ballot Measure 2 legalized adult use in 2014. Medical use legal since 1998",
+          "stores": 188,
+          "businesses": ["Great Northern Cannabis"],
+          "notes": "First state to license on-site consumption (2019). Only legal state with no expungement process. No employment protections.",
+          "colorCode": "green"
+        },
+        "Arizona": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Proposition 207 (Smart and Safe Act) legalized adult use in 2020. Medical use (Prop 203) legal since 2010",
+          "stores": 292,
+          "businesses": ["Trulieve", "Verano", "Copperstate Farms", "Curaleaf"],
+          "notes": "Allows home delivery. Expungement is a petition-based process, not automatic. Strong civil protections for medical patients.",
+          "colorCode": "green"
+        },
+        "Arkansas": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession is a jailable offense",
+          "laws": "Medical cannabis program enacted by voters in 2016. Adult-use ballot measure (Issue 4) failed in 2022",
+          "stores": 38,
+          "businesses": ["Good Day Farm", "Osage Creek Cultivation", "Bold Team"],
+          "notes": "One of 19 states that still jails for simple possession. Gov. Sanders vetoed expansions to the medical program in 2025.",
+          "colorCode": "yellow"
+        },
+        "California": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Possession over 28.5g is a misdemeanor (up to 6 months jail, $500 fine). Cultivating >6 plants is a misdemeanor",
+          "laws": "Proposition 64 legalized adult use in 2016. Medical use (Prop 215) legal since 1996",
+          "stores": 1244,
+          "businesses": ["Eaze", "STIIIZY", "Glass House Farms", "Papa & Barkley", "Kiva Confections"],
+          "notes": "First state to legalize medical cannabis. Enacted strong employment protections (AB 2188, SB 700) in 2024.",
+          "colorCode": "green",
+          "bluntdaoChapter": "BluntDAO LA, BluntDAO SF"
+        },
+        "Colorado": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Amendment 64 legalized adult use in 2012. Medical use legal since 2000",
+          "stores": 1023,
+          "businesses": ["Green Dot Labs", "Wana Brands", "WYLD", "LivWell"],
+          "notes": "First state (tied with WA) to legalize adult use. Allows home delivery and hospitality lounges. Lacks employment protections.",
+          "colorCode": "green"
+        },
+        "Connecticut": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "S.B. 1201 legalized adult use in 2021. Sales began Jan 2023. Decriminalized since 2011",
+          "stores": 28,
+          "businesses": [],
+          "notes": "Law includes automatic expungement. 50% of licenses reserved for social equity applicants. Home grow for adults began July 2023.",
+          "colorCode": "green"
+        },
+        "Delaware": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Public use includes possible jail time",
+          "laws": "HB 1 & HB 2 legalized adult use in April 2023. Sales to begin Aug 2025. Medical use legal since 2011",
+          "stores": 12,
+          "businesses": ["First State Compassion"],
+          "notes": "Home cultivation is not permitted. Lacks employment and housing protections. Expungement process became automatic in Aug 2024.",
+          "colorCode": "green"
+        },
+        "Florida": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession >20g is a felony (up to 5 years). Possession <20g is a misdemeanor (up to 1 year)",
+          "laws": "Amendment 2 legalized medical use in 2016. Adult-use ballot measure (Amendment 3) failed in 2024 (56% vote, 60% needed)",
+          "stores": 622,
+          "businesses": ["Trulieve", "Verano (MÜV)", "Curaleaf", "Surterra Wellness"],
+          "notes": "Lacks decriminalization. 2026 adult-use ballot initiative underway. Medical program is robust but does not allow home grow.",
+          "colorCode": "yellow",
+          "bluntdaoChapter": "BluntDAO Miami"
+        },
+        "Georgia": {
+          "recreational": "Illegal",
+          "medical": "Legal (Low-THC)",
+          "penalties": "First-offense possession of 1 oz or less carries up to 1 year imprisonment",
+          "laws": "Georgia's Hope Act (2019) allows in-state access to low-THC (≤5%) oil. Sales began in 2023",
+          "stores": 32,
+          "businesses": ["Trulieve GA", "Botanical Sciences", "Fine Fettle"],
+          "notes": "Program is not considered a full medical cannabis law by MPP. Does not allow raw flower or vaporization.",
+          "colorCode": "orange"
+        },
+        "Hawaii": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "Possession of >3g carries possible jail time. Possession of ≤3g is a $130 civil fine",
+          "laws": "Medical use legalized legislatively in 2000. Limited decriminalization passed in 2019",
+          "stores": 24,
+          "businesses": ["Aloha Green Holdings", "Maui Wellness Group", "Hawaiian Ethos"],
+          "notes": "First state to legalize medical use via legislature. Most restrictive decriminalization law in the US. Lacks employment protections for patients.",
+          "colorCode": "lightgreen"
+        },
+        "Idaho": {
+          "recreational": "Illegal",
+          "medical": "Illegal",
+          "penalties": "Possession of ≤3 oz is a misdemeanor (up to 1 year jail, $1,000 fine). Mandatory minimum $300 fine starting Jan 2026",
+          "laws": "All attempts at reform have failed. A 2025 resolution aims to amend the constitution to give the legislature sole authority over legalization",
+          "stores": 0,
+          "businesses": ["Thrive (in Jackpot, NV, serves Idaho market)"],
+          "notes": "Arguably the strictest cannabis laws in the US. Last state to legalize hemp production.",
+          "colorCode": "darkred"
+        },
+        "Illinois": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Legalized adult use via legislature in 2019 (Cannabis Regulation and Tax Act). Sales began Jan 2020",
+          "stores": 232,
+          "businesses": ["Green Thumb Industries (GTI)", "Verano", "Cresco Labs", "PharmaCann"],
+          "notes": "First state to create a regulated adult-use market legislatively. Strong social equity and automatic expungement provisions. Home cultivation is not permitted for adult use.",
+          "colorCode": "green"
+        },
+        "Indiana": {
+          "recreational": "Illegal",
+          "medical": "Legal (CBD only)",
+          "penalties": "Simple possession is a jailable offense",
+          "laws": "Legalized low-THC (≤0.3%) CBD oil in 2018. All broader reform bills have failed in the legislature",
+          "stores": 0,
+          "businesses": ["Stash Ventures (HQ in Indiana, operates in MI)"],
+          "notes": "One of 19 states that still jails for simple possession. Surrounded by legal states (MI, IL, OH).",
+          "colorCode": "red"
+        },
+        "Iowa": {
+          "recreational": "Illegal",
+          "medical": "Legal (Low-THC)",
+          "penalties": "First-offense possession is a misdemeanor (up to 6 months jail, $1,000 fine)",
+          "laws": "Medical Cannabidiol Program established 2014, expanded 2017 & 2020. No raw flower allowed",
+          "stores": 5,
+          "businesses": ["Bud and Mary's"],
+          "notes": "One of the most severe first-offense penalties in the US. Lacks a citizen initiative process, so reform depends on the legislature.",
+          "colorCode": "orange"
+        },
+        "Kansas": {
+          "recreational": "Illegal",
+          "medical": "Legal (Affirmative Defense)",
+          "penalties": "Simple possession is a jailable offense",
+          "laws": "\"Claire and Lola's Law\" (2019) provides an affirmative defense for possession of CBD oil with up to 5% THC, but does not allow legal sale or production",
+          "stores": 0,
+          "businesses": ["Show-Me Organics (Missouri-based, serves KC area)"],
+          "notes": "One of 11 states without a comprehensive medical law. Medical and decriminalization bills have repeatedly failed in the state Senate.",
+          "colorCode": "red"
+        },
+        "Kentucky": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession is a misdemeanor (up to 45 days jail, $250 fine)",
+          "laws": "SB 47 legalized medical cannabis in 2023. The program became effective Jan 1, 2025, with sales expected in late 2025",
+          "stores": 0,
+          "businesses": [],
+          "notes": "Lacks decriminalization. Medical law does not permit smokable flower but allows vaporization. Has the worst racial disparity in the US for cannabis arrests.",
+          "colorCode": "yellow"
+        },
+        "Louisiana": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "Possession of ≤14g is a ticketable offense (up to $100 fine)",
+          "laws": "Medical program expanded significantly since 2015. Statewide decriminalization passed in 2021",
+          "stores": 20,
+          "businesses": ["Ilera Holistic Healthcare (partnered with Southern University)"],
+          "notes": "Medical cannabis is dispensed through state-licensed \"pharmacies.\" New Orleans has pardoned ~10,000 possession convictions.",
+          "colorCode": "lightgreen"
+        },
+        "Maine": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Ballot initiative legalized adult use in 2016. Sales began Oct 2020. Decriminalized since 1976",
+          "stores": 198,
+          "businesses": ["JAR Cannabis Co.", "Wellness Connection", "Green Truck"],
+          "notes": "No specific list of qualifying conditions for medical use. Municipalities can opt-out of allowing home cultivation.",
+          "colorCode": "green"
+        },
+        "Maryland": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Public smoking is a civil fine ($50 first offense)",
+          "laws": "Question 4, a legislatively referred measure, legalized adult use in 2022. Sales began July 2023",
+          "stores": 100,
+          "businesses": ["Curio Wellness", "SunMed Growers", "TerrAscend", "Trulieve"],
+          "notes": "The odor of cannabis alone is not grounds for a search. A lottery for new social equity licenses was held in April 2024.",
+          "colorCode": "green"
+        },
+        "Massachusetts": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Question 4 legalized adult use in 2016. Sales began Nov 2018. Medical use legal since 2012",
+          "stores": 436,
+          "businesses": ["Curaleaf", "Green Thumb Industries (GTI)", "Insa", "New England Treatment Access (NETA)"],
+          "notes": "All delivery licenses were reserved for social equity applicants for the first three years. Surpassed $4 billion in retail sales by 2023.",
+          "colorCode": "green"
+        },
+        "Michigan": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Prop 1 legalized adult use in 2018. Sales began late 2019. Medical use legal since 2008",
+          "stores": 994,
+          "businesses": ["High Minded", "Jeeter", "Wana Brands", "WYLD"],
+          "notes": "First state in the Midwest to legalize. Allows on-site consumption and delivery. Has automatic expungement. A new 24% wholesale tax is set for 2026.",
+          "colorCode": "green"
+        },
+        "Minnesota": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Open container in a vehicle is a misdemeanor (up to 90 days jail)",
+          "laws": "HF 100 legalized adult use in 2023. Sales began in 2025, initially from tribal-run stores",
+          "stores": 17,
+          "businesses": ["Vireo Health"],
+          "notes": "Legalization law includes automatic expungement. Adults can possess up to two pounds at home and cultivate 8 plants.",
+          "colorCode": "green"
+        },
+        "Mississippi": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "First-offense possession of ≤30g is a $250 fine. Paraphernalia possession remains a jailable offense",
+          "laws": "Mississippi Medical Cannabis Act (SB 2095) passed in 2022 after voters' initiative was overturned. Sales began Jan 2023",
+          "stores": 191,
+          "businesses": [],
+          "notes": "The state's ballot initiative process remains invalidated by the courts. The Mississippi Band of Choctaw Indians has voted to legalize adult use on tribal lands.",
+          "colorCode": "lightgreen"
+        },
+        "Missouri": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Amendment 3 legalized adult use in 2022. Sales began Feb 2023. Medical use (Amendment 2) legal since 2018",
+          "stores": 215,
+          "businesses": ["Vivid", "Buoyant Bob", "Illicit Gardens", "Clovr"],
+          "notes": "Law includes automatic expungement for nonviolent offenses. Medical patients and caregivers can cultivate up to 6 plants.",
+          "colorCode": "green"
+        },
+        "Montana": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "I-190 legalized adult use in 2020. Sales began Jan 2022. Medical use legal since 2004",
+          "stores": 426,
+          "businesses": [],
+          "notes": "A moratorium on new business licenses is in effect until June 2025. Some counties have opted out of adult-use sales.",
+          "colorCode": "green"
+        },
+        "Nebraska": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "First-offense possession of ≤1 oz is a $300 fine. A second offense can result in up to 5 days in jail",
+          "laws": "Voters approved medical cannabis in Nov 2024. Decriminalized since 1978",
+          "stores": 42,
+          "businesses": ["Degrees", "Greenlight Natural (Hemp-derived THC)"],
+          "notes": "Medical program is being implemented, but emergency rules have banned edibles and flower. Concentrates are a felony.",
+          "colorCode": "lightgreen"
+        },
+        "Nevada": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Public consumption is a fine up to $600",
+          "laws": "Ballot measure legalized adult use in 2016. Medical use legal since 2000",
+          "stores": 169,
+          "businesses": ["Thrive Cannabis Marketplace", "Planet 13", "The Source"],
+          "notes": "Legalized consumption lounges in 2021. Offers employment protections for off-duty use. Mass pardons issued for minor possession convictions.",
+          "colorCode": "green"
+        },
+        "New Hampshire": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "Possession of ≤0.75 oz is a civil fine",
+          "laws": "Decriminalized in 2017. Medical use legal since 2013. Adult-use legalization bills have passed the House but failed in the Senate",
+          "stores": 7,
+          "businesses": [],
+          "notes": "Only state in New England without legal adult-use cannabis. Lacks a citizen initiative process. \"Open container\" law passed in 2024.",
+          "colorCode": "lightgreen"
+        },
+        "New Jersey": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Voters approved legalization in 2020; enabling laws passed in 2021. Sales began April 2022",
+          "stores": 296,
+          "businesses": ["Curaleaf", "TerrAscend (The Apothecarium)", "Verano (Zen Leaf)"],
+          "notes": "One of few legal states that prohibits home cultivation. 70% of tax revenue is directed to community reinvestment.",
+          "colorCode": "green"
+        },
+        "New Mexico": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Legalized adult use via legislature in 2021. Sales began April 2022",
+          "stores": 650,
+          "businesses": [],
+          "notes": "Law includes automatic expungement and employment protections for medical patients. Medical patients can renew cards every three years.",
+          "colorCode": "green"
+        },
+        "New York": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Marijuana Regulation and Taxation Act (MRTA) passed in 2021. Sales began Dec 2022",
+          "stores": 99,
+          "businesses": ["Curaleaf", "Green Thumb Industries (GTI)", "Vireo Health"],
+          "notes": "Law includes automatic expungement and strong social equity provisions. Adults can possess up to 3 oz and grow 6 plants (household cap of 12).",
+          "colorCode": "green",
+          "bluntdaoChapter": "BluntDAO NYC"
+        },
+        "North Carolina": {
+          "recreational": "Decriminalized",
+          "medical": "Illegal",
+          "penalties": "First-offense possession of ≤14g is a fine-only criminal charge ($200). Paraphernalia is an arrestable offense",
+          "laws": "Decriminalized in 1978. Medical cannabis bills have repeatedly passed the Senate but failed in the House",
+          "stores": 0,
+          "businesses": [],
+          "notes": "The Eastern Band of Cherokee Indians has legalized adult-use sales on tribal lands within the state.",
+          "colorCode": "orange"
+        },
+        "North Dakota": {
+          "recreational": "Decriminalized",
+          "medical": "Legal",
+          "penalties": "Possession of ≤0.5 oz is a criminal infraction with a max fine of $1,000. Use is a misdemeanor",
+          "laws": "Measure 5 legalized medical use in 2016. Decriminalization passed in 2019. Adult-use ballot measures failed in 2018, 2022, and 2024",
+          "stores": 18,
+          "businesses": [],
+          "notes": "Medical program does not allow home cultivation. Patients can purchase up to 7.5 oz per month.",
+          "colorCode": "lightgreen"
+        },
+        "Ohio": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "For minors (<21), possession of <100g is a minor misdemeanor ($150 fine)",
+          "laws": "Issue 2, a citizen initiative, legalized adult use in Nov 2023. Sales began Aug 2024",
+          "stores": 118,
+          "businesses": [],
+          "notes": "Legislature has passed bills (e.g., SB 56) to roll back some provisions of the voter-approved law, such as home grow rights and non-discrimination protections.",
+          "colorCode": "green"
+        },
+        "Oklahoma": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession of any amount is a misdemeanor (up to 1 year jail)",
+          "laws": "State Question 788 created a broad medical program in 2018. Adult-use ballot measure failed in 2023",
+          "stores": 2387,
+          "businesses": [],
+          "notes": "Has one of the largest and most free-market medical programs in the US, with over 8.5% of the population registered as patients.",
+          "colorCode": "yellow"
+        },
+        "Oregon": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Ballot Measure 91 legalized adult use in 2014. Medical use legal since 1998. First state to decriminalize (1973)",
+          "stores": 824,
+          "businesses": [],
+          "notes": "Mass pardon issued in 2022 for over 47,000 simple possession convictions. Market is oversupplied, leading to low prices. Has a moratorium on new licenses.",
+          "colorCode": "green"
+        },
+        "Pennsylvania": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession is a jailable offense",
+          "laws": "Act 16 established the medical program in 2016. Sales began 2018. Adult-use legalization bills are debated but have not passed",
+          "stores": 177,
+          "businesses": [],
+          "notes": "Surrounded by legal states. Gov. Shapiro supports legalization. Bills to decriminalize to a summary offense have been introduced.",
+          "colorCode": "yellow"
+        },
+        "Rhode Island": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Legalized adult use via legislature in May 2022. Sales began Dec 2022",
+          "stores": 7,
+          "businesses": [],
+          "notes": "Law includes automatic expungement. A quarter of new retail licenses are reserved for social equity applicants and another quarter for worker-owned cooperatives.",
+          "colorCode": "green"
+        },
+        "South Carolina": {
+          "recreational": "Illegal",
+          "medical": "Illegal",
+          "penalties": "First-offense possession is a misdemeanor (up to 30 days jail, $100-200 fine)",
+          "laws": "All reform efforts have failed. Medical cannabis bills have passed the Senate but died in the House",
+          "stores": 0,
+          "businesses": [],
+          "notes": "One of 19 states that still jails for simple possession. Over 10,000 possession arrests in 2023.",
+          "colorCode": "darkred"
+        },
+        "South Dakota": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Measure 26 legalized medical use in 2020. Adult-use measure (Amd. A) passed in 2020 but was overturned by the state Supreme Court. A 2024 measure failed",
+          "stores": 81,
+          "businesses": [],
+          "notes": "Medical program allows limited home cultivation. Gov. Noem has been hostile to cannabis reform.",
+          "colorCode": "yellow"
+        },
+        "Tennessee": {
+          "recreational": "Illegal",
+          "medical": "Legal (Low-THC)",
+          "penalties": "Possession of ≤0.5 oz is punishable by up to 1 year incarceration",
+          "laws": "Low-THC (≤0.9%) oil law passed in 2021, but provides no legal in-state access. All broader reform bills have failed",
+          "stores": 0,
+          "businesses": [],
+          "notes": "Patients must acquire products from other states with reciprocity. The state's Medical Cannabis Commission has been largely ineffective.",
+          "colorCode": "red"
+        },
+        "Texas": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession of >2 oz is a felony. Possession of ≤2 oz is a misdemeanor (up to 180 days jail, $2,000 fine)",
+          "laws": "Texas Compassionate Use Program (TCUP) expanded in 2025 to be a comprehensive medical law. All other reform efforts have failed",
+          "stores": 23,
+          "businesses": ["Goodblend", "Texas Original", "Caprock Family Farms (Hemp)"],
+          "notes": "Most restrictive medical program among comprehensive states. Leads the US in annual cannabis arrests (>23,000 in 2023). Several cities have passed local decriminalization ordinances.",
+          "colorCode": "yellow"
+        },
+        "Utah": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "Possession of ≤1 oz is a misdemeanor (up to 6 months jail)",
+          "laws": "Proposition 2 passed in 2018, but was replaced by a more restrictive legislative compromise. Sales began March 2020",
+          "stores": 15,
+          "businesses": [],
+          "notes": "Medical program does not allow home cultivation or smoking. 14 pharmacies have been approved to dispense.",
+          "colorCode": "yellow"
+        },
+        "Vermont": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Legalized possession/cultivation via legislature in 2018; regulated sales in 2020. Sales began Oct 2022",
+          "stores": 79,
+          "businesses": [],
+          "notes": "First state to legalize adult use via legislature. Law includes automatic expungement. THC potency caps are in place for adult-use products.",
+          "colorCode": "green"
+        },
+        "Virginia": {
+          "recreational": "Legal (No Sales)",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Legalized possession and home cultivation in 2021. However, the framework for legal sales was not re-enacted and remains illegal",
+          "stores": 22,
+          "businesses": ["Beyond/Hello", "RISE", "Cannabist", "gLeaf"],
+          "notes": "First state in the South to legalize. Adults can possess up to 1 oz and grow 4 plants. Gov. Youngkin has vetoed bills to establish a legal market.",
+          "colorCode": "lightgreen"
+        },
+        "Washington": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "penalties": "Home cultivation for adult use is a Class C felony (up to 5 years prison). Underage possession is a jailable offense",
+          "laws": "I-502 legalized adult use in 2012. Sales began July 2014. Medical use legal since 1998",
+          "stores": 471,
+          "businesses": [],
+          "notes": "Only legal state where adult-use home grow is a felony. Has employment protections for job applicants. Passed a law to enable interstate commerce once federally permissible.",
+          "colorCode": "green"
+        },
+        "West Virginia": {
+          "recreational": "Illegal",
+          "medical": "Legal",
+          "penalties": "First-offense possession carries a mandatory minimum of 90 days imprisonment",
+          "laws": "SB 386 legalized medical use in 2017. Sales began Nov 2021",
+          "stores": 53,
+          "businesses": [],
+          "notes": "One of the harshest possession penalties in the US. Ranks 4th in the nation for racial disparity in cannabis arrests.",
+          "colorCode": "yellow"
+        },
+        "Wisconsin": {
+          "recreational": "Illegal",
+          "medical": "Illegal",
+          "penalties": "Simple possession is a jailable offense",
+          "laws": "All reform efforts have failed in the legislature. Has a non-functional CBD-only law",
+          "stores": 0,
+          "businesses": [],
+          "notes": "One of 10 states without a compassionate medical cannabis law, despite 86% public support. No citizen initiative process.",
+          "colorCode": "darkred"
+        },
+        "Wyoming": {
+          "recreational": "Illegal",
+          "medical": "Illegal",
+          "penalties": "Possession of ≤3 oz is a misdemeanor (up to 12 months jail, $1,000 fine)",
+          "laws": "All reform efforts have failed in the legislature",
+          "stores": 0,
+          "businesses": [],
+          "notes": "Ranks 9th in the nation for racial disparity in cannabis arrests. A 2024 decriminalization bill failed to pass.",
+          "colorCode": "darkred"
+        },
+        "District of Columbia": {
+          "recreational": "Legal (No Sales)",
+          "medical": "Legal",
+          "penalties": "N/A",
+          "laws": "Initiative 71 legalized possession and home grow in 2014. Medical use approved 1998, implemented 2009",
+          "stores": 7,
+          "businesses": ["Takoma Wellness Center", "National Holistic Healing Center"],
+          "notes": "Federal \"Harris Rider\" has blocked the District from regulating and taxing adult-use sales since 2014. Allows self-certification for medical patients.",
+          "colorCode": "lightgreen"
+        }
+      }
+    },
+    "Canada": {
+      "federalStatus": {
+        "recreational": "Legal",
+        "medical": "Legal",
+        "description": "Canada became the second country in the world, and the first G7 nation, to federally legalize cannabis for recreational use with the Cannabis Act on October 17, 2018."
+      },
+      "provinces": {
+        "Alberta": {
+          "recreational": "Legal",
+          "medical": "Legal",
+          "minimumAge": 18,
+          "homeGrow": "Yes (4 plants/household)",
+          "publicConsumption": "Permitted where tobacco smoking is allowed, with exceptions",
+          "retailModel": "Private Retail, Government Online",
+          "stores": 749,
+          "businesses": ["SNDL", "High Tide"],
+          "notes": "Has the highest number of stores per capita in Canada (20.4 per 100,000 people). Legal age is 18, lower than most provinces.",
+          "colorCode": "green"
+        }
+      }
+    },
+    "Germany": {
+      "federalStatus": {
+        "recreational": "Legal (Limited)",
+        "medical": "Legal",
+        "description": "Germany initiated a landmark shift with the Cannabisgesetz (CanG), effective April 1, 2024, establishing a two-pillar approach prioritizing public health and non-commercial access."
+      },
+      "details": {
+        "recreational": "Legal",
+        "medical": "Legal",
+        "possessionLimits": "Public: Up to 25 grams. Private: Up to 50 grams",
+        "homeCultivation": "Adults 18+ may cultivate up to three plants at their residence",
+        "socialClubs": "Non-profit associations of up to 500 members authorized to collectively cultivate and distribute cannabis",
+        "stores": 343,
+        "businesses": ["Demecan", "Sanity Group", "Cansativa Group", "Cantourage", "Aurora Cannabis", "Canopy Growth"],
+        "notes": "Pioneering non-profit social club model. Prohibited within 200 meters of schools, playgrounds, and sports facilities.",
+        "colorCode": "lightgreen"
+      }
+    },
+    "Netherlands": {
+      "federalStatus": {
+        "recreational": "Decriminalized (Tolerated)",
+        "medical": "Legal",
+        "description": "Famous for its 'tolerance policy' (gedoogbeleid) dating back to the 1970s, tolerating cannabis sales in licensed coffeeshops while maintaining illegal supply chains."
+      },
+      "details": {
+        "recreational": "Decriminalized",
+        "medical": "Legal",
+        "possessionLimits": "Up to 5 grams or cultivation of up to 5 plants for personal use",
+        "coffeeshops": "Licensed establishments where cannabis is sold but no alcohol is served",
+        "stores": 166,
+        "businesses": ["Bedrocan", "Cannadis Europe", "The Bulldog", "Barney's"],
+        "notes": "Legal paradox: 'front door' (retail) tolerated, 'back door' (supply) illegal. Amsterdam has 166 coffeeshops.",
+        "colorCode": "lightgreen"
+      }
+    },
+    "Portugal": {
+      "federalStatus": {
+        "recreational": "Decriminalized",
+        "medical": "Legal",
+        "description": "Revolutionary 2001 drug policy decriminalizing personal possession of all drugs, shifting from criminal justice to public health framework."
+      },
+      "details": {
+        "recreational": "Decriminalized",
+        "medical": "Legal",
+        "possessionLimits": "Up to 25 grams of flower or 5 grams of hashish (10-day supply)",
+        "consequences": "Referred to Commission for Dissuasion of Drug Addiction, not criminal penalties",
+        "stores": 0,
+        "businesses": ["BudFarma", "SOMAÍ Pharmaceuticals"],
+        "notes": "Significant decrease in drug-related deaths and HIV infections. Major European hub for medical cannabis cultivation and export.",
+        "colorCode": "lightgreen"
+      }
+    },
+    "Spain": {
+      "federalStatus": {
+        "recreational": "Decriminalized (Social Clubs)",
+        "medical": "Legal (Limited)",
+        "description": "Cannabis Social Clubs operate in legal gray area, with over 2,000 clubs nationwide, particularly concentrated in Catalonia and the Basque Country."
+      },
+      "details": {
+        "recreational": "Decriminalized",
+        "medical": "Legal",
+        "possessionLimits": "Up to 100 grams in private generally not penalized",
+        "socialClubs": "Private, non-profit associations that cultivate cannabis exclusively for members",
+        "stores": 200,
+        "businesses": ["Linneo Health", "Circulo BCN", "Nectar"],
+        "notes": "Over 2,000 Cannabis Social Clubs nationwide. Barcelona has over 200 clubs. No explicit national law regulating clubs.",
+        "colorCode": "lightgreen"
+      }
+    },
+    "Uruguay": {
+      "federalStatus": {
+        "recreational": "Legal",
+        "medical": "Legal",
+        "description": "First country in the world to fully legalize the cannabis market in December 2013, establishing a state-controlled system."
+      },
+      "details": {
+        "recreational": "Legal",
+        "medical": "Legal",
+        "retailModel": "State-controlled pharmacies, home cultivation, and cannabis clubs",
+        "stores": "Yes",
+        "businesses": [],
+        "notes": "First country to fully legalize cannabis market. Three legal access methods: pharmacies, home grow, and social clubs.",
+        "colorCode": "green"
+      }
+    },
+    "Thailand": {
+      "federalStatus": {
+        "recreational": "Illegal",
+        "medical": "Legal (Prescription Only)",
+        "description": "Dramatic policy reversal: decriminalized in June 2022, then re-restricted to medical-only in June 2025 due to public health concerns."
+      },
+      "details": {
+        "recreational": "Illegal",
+        "medical": "Legal",
+        "access": "All purchases must be accompanied by valid medical prescription",
+        "qualifyingConditions": "Stress disorders, anorexia, insomnia, among others diagnosed by professionals",
+        "stores": "Thousands of dispensaries adapting to medical-only model",
+        "businesses": ["Green House Thailand"],
+        "notes": "Rapid policy shift highlights volatility in emerging markets. Government supporting legitimate medicinal businesses through transition.",
+        "colorCode": "yellow"
+      }
+    },
+    "South Africa": {
+      "federalStatus": {
+        "recreational": "Legal (Private Use Only)",
+        "medical": "Legal",
+        "description": "2018 Constitutional Court ruling decriminalized private use, codified by Cannabis for Private Purposes Act in May 2024."
+      },
+      "details": {
+        "recreational": "Legal (Private)",
+        "medical": "Legal",
+        "possessionLimits": "At home: 600g per adult, 1.2kg per dwelling with 2+ adults. Public: 100g",
+        "homeCultivation": "Four flowering plants per person in private place",
+        "commercialSales": "Illegal",
+        "stores": 0,
+        "businesses": ["Cilo Cybin", "Medigrow", "Felbridge"],
+        "notes": "High barriers to entry for legal medicinal market (R3-5 million). Automatic expungement of past minor possession offenses.",
+        "colorCode": "lightgreen"
+      }
+    }
+  },
+  "legalCategories": {
+    "green": {
+      "label": "Fully Legal (Recreational & Medical)",
+      "description": "Both recreational and medical cannabis are legal with regulated markets"
+    },
+    "lightgreen": {
+      "label": "Legal/Decriminalized with Restrictions",
+      "description": "Legal or decriminalized with significant restrictions or limited access"
+    },
+    "yellow": {
+      "label": "Medical Only",
+      "description": "Only medical cannabis is legal, recreational use remains illegal"
+    },
+    "orange": {
+      "label": "Limited Medical/CBD Only",
+      "description": "Very limited medical programs or CBD-only laws"
+    },
+    "red": {
+      "label": "Illegal with Penalties",
+      "description": "Cannabis is illegal with criminal penalties for possession"
+    },
+    "darkred": {
+      "label": "Strictly Illegal",
+      "description": "Cannabis is strictly illegal with harsh penalties"
+    }
+  },
+  "sources": [
+    {
+      "title": "NORML - National Organization for the Reform of Marijuana Laws",
+      "url": "https://norml.org/laws/",
+      "description": "Comprehensive database of cannabis laws by state"
+    },
+    {
+      "title": "Marijuana Policy Project",
+      "url": "https://www.mpp.org/states/",
+      "description": "State-by-state cannabis policy information"
+    },
+    {
+      "title": "Cannabis Control Commission",
+      "url": "https://mass-cannabis-control.com/",
+      "description": "Massachusetts cannabis regulatory authority"
+    },
+    {
+      "title": "Leafly Legal Guide",
+      "url": "https://www.leafly.com/news/politics/cannabis-legalization-map",
+      "description": "Interactive cannabis legalization map and legal guide"
+    },
+    {
+      "title": "The Global Cannabis Index Report",
+      "url": "#",
+      "description": "Comprehensive analysis of global cannabis legalization, markets, and policy"
+    }
+  ]
+}

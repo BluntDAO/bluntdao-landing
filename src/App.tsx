@@ -19,6 +19,7 @@ import DashboardTrainAI from "./Pages/Dashboard/DashboardTrainAI";
 import Links from "./Pages/Links/Links";
 import Schedule from "./Pages/Schedule/Schedule";
 import RPOS from "./Pages/RPOS/RPOS";
+import Map from "./Pages/Map/Map";
 // styles
 import "./App.css";
 import "./styles/Slider.scss";
@@ -172,6 +173,7 @@ const App = () => {
           />
           <Route exact path="/links" component={Links} />
           <Route exact path="/schedule" component={Schedule} />
+          <Route exact path="/map" component={Map} />
           <Route
             exact
             path="/market"

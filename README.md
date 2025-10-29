@@ -29,6 +29,7 @@ BluntDAO is a decentralized autonomous organization (DAO) focused on onboarding 
 - **Dashboard** (`/dashboard/*`) - Member dashboard with multiple sections
 - **Proof of Sesh** (`/pos`) - Information about the onboarding process
 - **Links** (`/links`) - Comprehensive link directory
+- **Map** (`/map`) - Interactive cannabis legal status map with real-time data
 - **Docs** (`/docs`) - Documentation and manifesto
 - **Partner Form** (`/partner`) - Partnership application
 - **Tokenomics** (`/tokenomics`) - Token economics information
@@ -51,6 +52,8 @@ BluntDAO is a decentralized autonomous organization (DAO) focused on onboarding 
 - **Web3Auth** 2.1.3 - Web3 authentication
 - **Solana Web3.js** 1.50.1 - Solana blockchain integration
 - **Metaplex** 0.14.0 - NFT marketplace integration
+- **Leaflet** 1.9.4 - Interactive mapping library
+- **React Leaflet** 5.0.0 - React wrapper for Leaflet maps
 
 ### Blockchain Integration
 - **Solana**: Primary blockchain with NFT marketplace
@@ -246,6 +249,16 @@ The app uses Web3Auth for social login integration. Configure your client ID in 
 - Event management
 - Partnership applications
 - Volunteer coordination
+
+### Interactive Cannabis Legal Map Features
+- **Real-time Legal Status**: Current cannabis laws for all 50 US states
+- **Color-coded Visualization**: Easy-to-understand status indicators
+- **Advanced Filtering**: Search by legal status, medical/recreational, state name
+- **Detailed State Information**: Penalties, laws, dispensary counts, major businesses
+- **Mobile Responsive**: Optimized for all devices and screen sizes
+- **SEO Optimized**: Structured data and meta tags for search engines
+- **Authoritative Sources**: Links to official legal resources and documentation
+- **Interactive Features**: Click states for detailed information panels
 
 ## 🤝 Contributing
 

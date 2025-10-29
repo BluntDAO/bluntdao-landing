@@ -1,0 +1,64 @@
+{
+  "title": "Cannabis Legal Status Map 2024 - Interactive US State Laws | BluntDAO",
+  "description": "Comprehensive interactive map showing cannabis legalization status across all US states. Explore recreational and medical marijuana laws, penalties, dispensary locations, and legal resources with real-time data.",
+  "keywords": "cannabis legal status, marijuana laws by state, cannabis legalization map, medical marijuana states, recreational cannabis laws, dispensary locations, cannabis penalties, marijuana legislation 2024",
+  "structuredData": {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cannabis Legal Status Map",
+    "description": "Interactive map showing current cannabis legalization status across all US states with detailed legal information, penalties, and dispensary data.",
+    "url": "https://bluntdao.com/map",
+    "applicationCategory": "Legal Information",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "BluntDAO",
+      "url": "https://bluntdao.com"
+    },
+    "dateModified": "2024-12-29",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Cannabis advocates, legal researchers, policy makers, general public"
+    }
+  },
+  "openGraph": {
+    "title": "Cannabis Legal Status Map 2024 - Interactive US State Laws",
+    "description": "Explore cannabis legalization across all US states with our interactive map. Get real-time legal status, penalties, and dispensary information.",
+    "type": "website",
+    "url": "https://bluntdao.com/map",
+    "image": "https://bluntdao.com/img/cannabis-map-preview.png",
+    "site_name": "BluntDAO"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Cannabis Legal Status Map 2024 - Interactive US State Laws",
+    "description": "Explore cannabis legalization across all US states with our interactive map. Real-time legal status and dispensary data.",
+    "image": "https://bluntdao.com/img/cannabis-map-preview.png",
+    "site": "@bluntdao"
+  },
+  "faq": [
+    {
+      "question": "How many US states have legalized recreational cannabis?",
+      "answer": "As of 2024, 24 states, three territories, and the District of Columbia have legalized cannabis for adult recreational use, while 41 states have medical cannabis programs."
+    },
+    {
+      "question": "Is cannabis legal at the federal level in the United States?",
+      "answer": "No, cannabis remains federally illegal under the Controlled Substances Act of 1970 as a Schedule I drug, despite state-level legalization in many states."
+    },
+    {
+      "question": "What states have the strictest cannabis laws?",
+      "answer": "Idaho, Wyoming, South Carolina, and Wisconsin have some of the strictest cannabis laws, with criminal penalties for simple possession and no comprehensive medical programs."
+    },
+    {
+      "question": "How accurate is the cannabis legal information on this map?",
+      "answer": "Our map is updated regularly using data from authoritative sources including NORML, Marijuana Policy Project, and official state government resources. Last updated: December 2024."
+    }
+  ]
+}
