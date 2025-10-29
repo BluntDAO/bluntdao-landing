@@ -20,6 +20,7 @@ import Links from "./Pages/Links/Links";
 import Schedule from "./Pages/Schedule/Schedule";
 import RPOS from "./Pages/RPOS/RPOS";
 import Map from "./Pages/Map/Map";
+import Brand from "./Pages/Brand/Brand";
 // styles
 import "./App.css";
 import "./styles/Slider.scss";
@@ -262,14 +263,7 @@ const App = () => {
               return null;
             }}
           ></Route>
-          <Route
-            exact
-            path="/brand"
-            component={() => {
-              window.location.replace("https://app.charmverse.io/bluntdao/brand-style-guide-template-7373151419465727");
-              return null;
-            }}
-          ></Route>
+          <Route exact path="/brand" component={Brand} />
           <Route
             exact
             path="/base-spec"

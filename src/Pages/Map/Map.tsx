@@ -81,17 +81,17 @@ const Map: React.FC = () => {
     loadGeoData();
   }, []);
 
-  // BluntDAO theme colors for legal status
+  // BluntDAO theme colors for legal status - More brand-focused palette
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'green': return '#00ff88'; // BluntDAO Green - Fully Legal
-      case 'lightgreen': return '#39ff14'; // Neon Green - Legal/Decriminalized  
-      case 'yellow': return '#ffff00'; // Bright Yellow - Medical Only
-      case 'orange': return '#ff8c00'; // Dark Orange - Limited Medical
-      case 'red': return '#ff4444'; // Bright Red - Illegal
-      case 'darkred': return '#cc0000'; // Dark Red - Strictly Illegal
-      case 'unknown': return '#2a2a2a'; // Dark Grey - Unknown
-      default: return '#2a2a2a'; // Dark Grey - Unknown
+      case 'green': return '#00ff88'; // BluntDAO Green - Fully Legal (reserved for best status)
+      case 'lightgreen': return '#00d4ff'; // BluntDAO Blue - Legal/Decriminalized  
+      case 'yellow': return '#ffd700'; // Gold - Medical Only
+      case 'orange': return '#ff6b35'; // Orange - Limited Medical
+      case 'red': return '#ff4757'; // Coral Red - Illegal
+      case 'darkred': return '#ff3838'; // Bright Red - Strictly Illegal
+      case 'unknown': return '#636e72'; // Neutral Grey - Unknown
+      default: return '#636e72'; // Neutral Grey - Unknown
     }
   };
 
@@ -158,22 +158,51 @@ const Map: React.FC = () => {
     const allRegions: any[] = [];
     
     if (showGlobalView) {
-      // Add countries
-      Object.entries(cannabisData.countries as any).forEach(([countryName, countryData]: [string, any]) => {
-        if (countryName !== "United States" || !countryData.states) {
-          allRegions.push([countryName, countryData]);
-        }
+      // Add countries in organized order - Legal first, then by region
+      const countries = cannabisData.countries as any;
+      const countryEntries = Object.entries(countries).filter(([name]) => name !== "United States");
+      
+      // Sort countries by legal status (legal first) then alphabetically
+      const sortedCountries = countryEntries.sort(([nameA, dataA]: [string, any], [nameB, dataB]: [string, any]) => {
+        const statusOrder = { 'green': 0, 'lightgreen': 1, 'yellow': 2, 'orange': 3, 'red': 4, 'darkred': 5, 'unknown': 6 };
+        const statusA = statusOrder[dataA.colorCode as keyof typeof statusOrder] ?? 6;
+        const statusB = statusOrder[dataB.colorCode as keyof typeof statusOrder] ?? 6;
+        
+        if (statusA !== statusB) return statusA - statusB;
+        return nameA.localeCompare(nameB);
       });
       
-      // Add US states if viewing globally
+      sortedCountries.forEach(([countryName, countryData]) => {
+        allRegions.push([countryName, countryData]);
+      });
+      
+      // Add US states separately, sorted by legal status then alphabetically
       const usStates = (cannabisData.countries["United States"]?.states as any) || {};
-      Object.entries(usStates).forEach(([stateName, stateData]) => {
+      const stateEntries = Object.entries(usStates).sort(([nameA, dataA]: [string, any], [nameB, dataB]: [string, any]) => {
+        const statusOrder = { 'green': 0, 'lightgreen': 1, 'yellow': 2, 'orange': 3, 'red': 4, 'darkred': 5, 'unknown': 6 };
+        const statusA = statusOrder[dataA.colorCode as keyof typeof statusOrder] ?? 6;
+        const statusB = statusOrder[dataB.colorCode as keyof typeof statusOrder] ?? 6;
+        
+        if (statusA !== statusB) return statusA - statusB;
+        return nameA.localeCompare(nameB);
+      });
+      
+      stateEntries.forEach(([stateName, stateData]) => {
         allRegions.push([`${stateName}, USA`, stateData]);
       });
     } else {
-      // US-only view
+      // US-only view - sorted by legal status then alphabetically
       const usStates = (cannabisData.countries["United States"]?.states as any) || {};
-      Object.entries(usStates).forEach(([stateName, stateData]) => {
+      const sortedStates = Object.entries(usStates).sort(([nameA, dataA]: [string, any], [nameB, dataB]: [string, any]) => {
+        const statusOrder = { 'green': 0, 'lightgreen': 1, 'yellow': 2, 'orange': 3, 'red': 4, 'darkred': 5, 'unknown': 6 };
+        const statusA = statusOrder[dataA.colorCode as keyof typeof statusOrder] ?? 6;
+        const statusB = statusOrder[dataB.colorCode as keyof typeof statusOrder] ?? 6;
+        
+        if (statusA !== statusB) return statusA - statusB;
+        return nameA.localeCompare(nameB);
+      });
+      
+      sortedStates.forEach(([stateName, stateData]) => {
         allRegions.push([stateName, stateData]);
       });
     }

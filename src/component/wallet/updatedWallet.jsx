@@ -158,12 +158,12 @@ function ConnectWallet() {
         //   Connect Wallet
         // </div>
         <a
-          href="https://blunts.wtf/"
+          href="https://discord.com/invite/e3cGSTzyWp"
           className={style.connect}
           target="_blank"
           rel="noreferrer"
         >
-          BUY $OUNCE
+          SESH WITH US
         </a>
       )}
     </>
