@@ -90,6 +90,7 @@ const Map: React.FC = () => {
       case 'orange': return '#ff8c00'; // Dark Orange - Limited Medical
       case 'red': return '#ff4444'; // Bright Red - Illegal
       case 'darkred': return '#cc0000'; // Dark Red - Strictly Illegal
+      case 'unknown': return '#2a2a2a'; // Dark Grey - Unknown
       default: return '#2a2a2a'; // Dark Grey - Unknown
     }
   };
@@ -114,15 +115,15 @@ const Map: React.FC = () => {
   // Get region color based on legal status
   const getRegionColor = (regionName: string): string => {
     const regionData = getRegionData(regionName);
-    if (!regionData) return '#2a2a2a';
+    if (!regionData) return '#2a2a2a'; // Grey for unknown, not red
     
     // For countries with states (like US), use overall status
     if (regionData.states) {
-      return getStatusColor(regionData.overallStatus || 'darkred');
+      return getStatusColor(regionData.overallStatus || 'unknown');
     }
     
     // For individual states/regions
-    return getStatusColor(regionData.colorCode || 'darkred');
+    return getStatusColor(regionData.colorCode || 'unknown');
   };
 
   // Handle card click to highlight map region

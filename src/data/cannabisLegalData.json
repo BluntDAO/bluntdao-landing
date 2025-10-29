@@ -766,6 +766,10 @@
     "darkred": {
       "label": "Strictly Illegal",
       "description": "Cannabis is strictly illegal with harsh penalties"
+    },
+    "unknown": {
+      "label": "Status Unknown",
+      "description": "Legal status not yet researched or unclear"
     }
   },
   "sources": [

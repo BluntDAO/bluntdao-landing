@@ -44,7 +44,7 @@
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-  padding: 60px 20px;
+  padding: 40px 20px;
   text-align: center;
   border-bottom: 2px solid #00ff88;
   position: relative;
@@ -70,7 +70,7 @@
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin: 0 0 20px 0;
   background: linear-gradient(135deg, #00ff88 0%, #39ff14 100%);
@@ -81,9 +81,9 @@
 }
 
 .heroDescription {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   max-width: 800px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 30px auto;
   line-height: 1.6;
   color: #cccccc;
 }
@@ -93,17 +93,17 @@
   display: flex;
   justify-content: center;
   gap: 0;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .toggleBtn {
-  padding: 15px 30px;
+  padding: 12px 25px;
   border: 2px solid #00ff88;
   background: transparent;
   color: #00ff88;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -131,25 +131,14 @@
   box-shadow: 0 5px 25px rgba(0, 255, 136, 0.5);
 }
 
-.toggleBtn.active::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #00ff88 0%, #39ff14 100%);
-  z-index: -1;
-}
-
 /* Filters Container */
 .filtersContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   align-items: center;
-  padding: 30px 20px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid #333;
   backdrop-filter: blur(10px);
@@ -157,18 +146,18 @@
 
 .searchBox {
   flex: 1;
-  min-width: 280px;
-  max-width: 400px;
+  min-width: 250px;
+  max-width: 350px;
 }
 
 .searchInput {
   width: 100%;
-  padding: 15px 20px;
+  padding: 12px 18px;
   border: 2px solid #333;
   border-radius: 25px;
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.95rem;
   outline: none;
   transition: all 0.3s ease;
 }
@@ -186,23 +175,23 @@
 .filterGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 200px;
+  gap: 6px;
+  min-width: 180px;
 }
 
 .filterGroup label {
   color: #00ff88;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .filterSelect {
-  padding: 12px 15px;
+  padding: 10px 12px;
   border: 2px solid #333;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   outline: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -216,16 +205,16 @@
 .checkboxGroup {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .checkboxGroup label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: #ffffff;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
@@ -234,14 +223,14 @@
 }
 
 .checkboxGroup input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   accent-color: #00ff88;
   cursor: pointer;
 }
 
 .resetButton {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: 2px solid #ff4444;
   background: transparent;
   color: #ff4444;
@@ -249,7 +238,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .resetButton:hover {
@@ -261,8 +250,8 @@
 
 /* Legend */
 .legend {
-  margin: 0 20px 30px 20px;
-  padding: 25px;
+  margin: 0 15px 25px 15px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.9);
   border-radius: 15px;
   border: 2px solid #00ff88;
@@ -271,24 +260,24 @@
 
 .legend h3 {
   color: #00ff88;
-  margin: 0 0 20px 0;
-  font-size: 1.4rem;
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
   text-align: center;
 }
 
 .legendItems {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
 }
 
 .legendItem {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 12px;
+  gap: 12px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
 }
@@ -300,8 +289,8 @@
 }
 
 .legendColor {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 2px solid #ffffff;
   flex-shrink: 0;
@@ -311,33 +300,33 @@
 .legendItem span {
   font-weight: bold;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .legendItem small {
   color: #cccccc;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 /* View Mode Toggle */
 .viewModeToggle {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 30px 20px;
-  padding: 0 20px;
+  gap: 8px;
+  margin: 20px 15px;
+  padding: 0 15px;
 }
 
 .viewModeBtn {
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: 2px solid #333;
   background: transparent;
   color: #ffffff;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .viewModeBtn:hover {
@@ -356,10 +345,10 @@
 
 /* Main Content Layout */
 .mainContent {
-  margin: 0 20px;
+  margin: 0 15px;
   display: grid;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 25px;
+  margin-bottom: 30px;
 }
 
 .mainContent.view-map {
@@ -377,8 +366,8 @@
 /* Map Container */
 .mapWrapper {
   position: relative;
-  height: 700px;
-  border-radius: 20px;
+  height: 600px;
+  border-radius: 15px;
   overflow: hidden;
   border: 3px solid #00ff88;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.3);
@@ -388,7 +377,7 @@
 .mapContainer {
   height: 100%;
   width: 100%;
-  border-radius: 17px;
+  border-radius: 12px;
 }
 
 /* Custom map controls */
@@ -430,26 +419,26 @@
 /* Cards Container */
 .cardsContainer {
   background: rgba(0, 0, 0, 0.9);
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 15px;
+  padding: 20px;
   border: 2px solid #00ff88;
-  max-height: 700px;
+  max-height: 600px;
   overflow-y: auto;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
 }
 
 .cardsContainer::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .cardsContainer::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .cardsContainer::-webkit-scrollbar-thumb {
   background: #00ff88;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .cardsContainer::-webkit-scrollbar-thumb:hover {
@@ -458,83 +447,73 @@
 
 .cardsContainer h2 {
   color: #00ff88;
-  margin: 0 0 25px 0;
+  margin: 0 0 20px 0;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .cardsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
 }
 
-/* Region Cards */
+/* Region Cards - Matching Home Page Style */
 .regionCard {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
-  border: 2px solid #333333;
-  border-radius: 15px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   position: relative;
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 14px;
+  color: #fff;
+  height: 320px;
   overflow: hidden;
-}
-
-.regionCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(57, 255, 20, 0.1) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.regionCard:hover::before,
-.regionCard.hovered::before {
-  opacity: 1;
+  transition: 0.4s all ease;
+  cursor: pointer;
+  margin-bottom: 2px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
 }
 
 .regionCard:hover,
 .regionCard.hovered {
-  border-color: #00ff88;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 8px 1px rgba(0, 255, 136, 0.81);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 255, 136, 0.81);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0, 255, 136, 0.81);
 }
 
 .regionCard.selected {
   border-color: #39ff14;
   background: linear-gradient(135deg, rgba(0, 255, 136, 0.2) 0%, rgba(57, 255, 20, 0.2) 100%);
-  box-shadow: 0 20px 50px rgba(0, 255, 136, 0.5);
+  box-shadow: 0px 0px 12px 2px rgba(0, 255, 136, 0.9);
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  min-height: 64.56px;
+  padding: 0.6rem 1rem 0;
 }
 
 .cardHeader h3 {
   color: #ffffff;
   margin: 0;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
+  text-align: left;
 }
 
 .statusIndicator {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: 2px solid #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .cardContent {
+  padding: 0 1rem;
   margin-bottom: 15px;
 }
 
@@ -542,21 +521,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 8px 0;
+  margin-bottom: 8px;
+  padding: 4px 0;
 }
 
 .label {
   color: #cccccc;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .status {
   font-weight: bold;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 
 .status.legal {
@@ -574,22 +553,27 @@
 .count {
   color: #00ff88;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .chapterBadge {
   background: linear-gradient(135deg, #00ff88 0%, #39ff14 100%);
   color: #000000;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 8px;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
 }
 
 .cardFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -597,12 +581,12 @@
   background: transparent;
   border: 2px solid #00ff88;
   color: #00ff88;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 8px 16px;
+  border-radius: 15px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   width: 100%;
 }
 
@@ -625,16 +609,16 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 15px;
   backdrop-filter: blur(10px);
 }
 
 .regionDetailsContent {
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   border: 3px solid #00ff88;
-  border-radius: 25px;
-  padding: 40px;
-  max-width: 700px;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
   max-height: 85vh;
   overflow-y: auto;
   position: relative;
@@ -642,31 +626,31 @@
 }
 
 .regionDetailsContent::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .regionDetailsContent::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .regionDetailsContent::-webkit-scrollbar-thumb {
   background: #00ff88;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .closeButton {
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 15px;
+  right: 20px;
   background: #ff4444;
   color: #ffffff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
@@ -683,26 +667,26 @@
 }
 
 .detailsHeader {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .detailsHeader h2 {
   color: #00ff88;
-  margin: 0 0 15px 0;
-  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 .statusBadges {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .badge {
   display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 16px;
+  border-radius: 20px;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .badge-green {
@@ -741,25 +725,31 @@
   border: 2px solid #cc0000;
 }
 
+.badge-unknown {
+  background: rgba(42, 42, 42, 0.2);
+  color: #888888;
+  border: 2px solid #888888;
+}
+
 .detailsGrid {
   display: grid;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .detailItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 12px;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
+  border-radius: 8px;
   border-left: 4px solid #00ff88;
 }
 
 .detailItem strong {
   color: #00ff88;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .detailItem .legal {
@@ -775,16 +765,16 @@
 .detailItem .count {
   color: #00ff88;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .lawsSection,
 .businessesSection,
 .notesSection {
-  margin-bottom: 25px;
-  padding: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
   background: rgba(0, 255, 136, 0.05);
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid rgba(0, 255, 136, 0.2);
 }
 
@@ -792,27 +782,27 @@
 .businessesSection h4,
 .notesSection h4 {
   color: #00ff88;
-  margin: 0 0 15px 0;
-  font-size: 1.2rem;
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
 }
 
 .businessesSection ul {
   margin: 0;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .businessesSection li {
   color: #cccccc;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.4;
 }
 
 /* Statistics */
 .statistics {
-  margin: 50px 20px;
-  padding: 40px;
+  margin: 40px 15px;
+  padding: 30px;
   background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(57, 255, 20, 0.1) 100%);
-  border-radius: 25px;
+  border-radius: 20px;
   border: 2px solid #00ff88;
   text-align: center;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
@@ -820,21 +810,21 @@
 
 .statistics h2 {
   color: #00ff88;
-  margin: 0 0 40px 0;
-  font-size: 2.2rem;
+  margin: 0 0 30px 0;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .statCard {
   background: rgba(0, 0, 0, 0.8);
-  padding: 30px;
-  border-radius: 20px;
+  padding: 25px;
+  border-radius: 15px;
   border: 2px solid #333333;
   transition: all 0.3s ease;
   position: relative;
@@ -859,35 +849,35 @@
 
 .statCard:hover {
   border-color: #00ff88;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0, 255, 136, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.3);
 }
 
 .statIcon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
 .statCard h3 {
   color: #00ff88;
-  font-size: 3rem;
-  margin: 15px 0;
+  font-size: 2.2rem;
+  margin: 10px 0;
   font-weight: bold;
 }
 
 .statCard p {
   color: #ffffff;
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 /* BluntDAO Chapters Section */
 .chaptersSection {
-  margin: 50px 20px;
-  padding: 40px;
+  margin: 40px 15px;
+  padding: 30px;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
-  border-radius: 25px;
+  border-radius: 20px;
   border: 2px solid #00ff88;
   text-align: center;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
@@ -895,84 +885,84 @@
 
 .chaptersSection h2 {
   color: #00ff88;
-  margin: 0 0 15px 0;
-  font-size: 2.2rem;
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 .chaptersSection p {
   color: #cccccc;
-  margin: 0 0 40px 0;
-  font-size: 1.2rem;
+  margin: 0 0 30px 0;
+  font-size: 1.1rem;
 }
 
 .chaptersGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .chapterCard {
   background: linear-gradient(135deg, #00ff88 0%, #39ff14 100%);
   color: #000000;
-  padding: 25px;
-  border-radius: 20px;
+  padding: 20px;
+  border-radius: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
 }
 
 .chapterCard:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0, 255, 136, 0.5);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(0, 255, 136, 0.5);
 }
 
 .chapterCard h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.4rem;
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
 .chapterCard p {
-  margin: 0 0 10px 0;
-  font-size: 1.1rem;
+  margin: 0 0 8px 0;
+  font-size: 1rem;
   color: #000000;
 }
 
 .chapterStatus {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #000000;
 }
 
 /* Resources Section */
 .resources {
-  margin: 50px 20px;
-  padding: 40px;
+  margin: 40px 15px;
+  padding: 30px;
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 25px;
+  border-radius: 20px;
   border: 2px solid #00ff88;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.2);
 }
 
 .resources h2 {
   color: #00ff88;
-  margin: 0 0 30px 0;
+  margin: 0 0 25px 0;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
 .resourcesList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .resourceCard {
   background: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 15px;
+  padding: 20px;
+  border-radius: 12px;
   border: 1px solid rgba(0, 255, 136, 0.2);
   transition: all 0.3s ease;
 }
@@ -980,12 +970,12 @@
 .resourceCard:hover {
   border-color: #00ff88;
   background: rgba(0, 255, 136, 0.1);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
 }
 
 .resourceCard h4 {
-  margin: 0 0 15px 0;
+  margin: 0 0 12px 0;
 }
 
 .resourceCard a {
@@ -993,7 +983,7 @@
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .resourceCard a:hover {
@@ -1003,7 +993,7 @@
 .resourceCard p {
   color: #cccccc;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Mobile Responsiveness */
@@ -1013,7 +1003,7 @@
   }
   
   .mapWrapper {
-    height: 600px;
+    height: 500px;
   }
 }
 
@@ -1023,49 +1013,52 @@
   }
   
   .hero {
-    padding: 40px 15px;
+    padding: 30px 15px;
   }
   
   .heroTitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .heroDescription {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .viewToggle {
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
   
   .toggleBtn {
-    width: 250px;
-    padding: 12px 25px;
-    font-size: 1rem;
+    width: 220px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
   
   .toggleBtn:first-child {
-    border-radius: 25px 25px 0 0;
+    border-radius: 20px 20px 0 0;
     border-right: 2px solid #00ff88;
     border-bottom: 1px solid #00ff88;
   }
   
   .toggleBtn:last-child {
-    border-radius: 0 0 25px 25px;
+    border-radius: 0 0 20px 20px;
     border-left: 2px solid #00ff88;
     border-top: 1px solid #00ff88;
   }
   
   .filtersContainer {
     flex-direction: column;
-    margin: 0 10px 20px 10px;
-    padding: 20px;
+    margin: 0 10px 15px 10px;
+    padding: 15px;
+    gap: 12px;
   }
   
   .searchBox {
     min-width: auto;
     width: 100%;
+    max-width: none;
   }
   
   .filterGroup {
@@ -1081,22 +1074,24 @@
   
   .legend {
     margin: 0 10px 20px 10px;
-    padding: 20px;
+    padding: 15px;
   }
   
   .legendItems {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
   
   .viewModeToggle {
     flex-direction: column;
     align-items: center;
+    gap: 8px;
   }
   
   .viewModeBtn {
-    width: 200px;
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    width: 180px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
   
   .mainContent {
@@ -1104,38 +1099,57 @@
   }
   
   .mapWrapper {
-    height: 500px;
+    height: 400px;
   }
   
   .cardsGrid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   
   .regionCard {
-    padding: 15px;
+    height: 280px;
+    padding: 0;
+  }
+  
+  .cardHeader {
+    padding: 0.5rem 0.8rem 0;
+    min-height: 50px;
+  }
+  
+  .cardHeader h3 {
+    font-size: 1.1rem;
+  }
+  
+  .cardContent {
+    padding: 0 0.8rem;
+  }
+  
+  .cardFooter {
+    padding: 0.8rem;
   }
   
   .regionDetailsContent {
     margin: 10px;
-    padding: 25px;
+    padding: 20px;
     max-height: 90vh;
   }
   
   .detailsHeader h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 15px;
   }
   
   .statCard {
-    padding: 25px;
+    padding: 20px;
   }
   
   .statCard h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
   
   .chaptersGrid {
@@ -1149,34 +1163,65 @@
   .statistics,
   .chaptersSection,
   .resources {
-    margin: 40px 10px;
-    padding: 25px;
+    margin: 30px 10px;
+    padding: 20px;
+  }
+  
+  .statistics h2,
+  .chaptersSection h2,
+  .resources h2 {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .heroTitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .heroDescription {
+    font-size: 0.95rem;
+  }
+  
+  .toggleBtn {
+    width: 200px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
   
   .mapWrapper {
-    height: 400px;
+    height: 350px;
+  }
+  
+  .regionCard {
+    height: 260px;
+  }
+  
+  .cardHeader h3 {
+    font-size: 1rem;
   }
   
   .statsGrid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
   
   .statCard h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .regionDetailsContent {
-    padding: 20px;
+    padding: 15px;
   }
   
   .detailsHeader h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .statistics h2,
+  .chaptersSection h2,
+  .resources h2 {
+    font-size: 1.3rem;
   }
 }
 
