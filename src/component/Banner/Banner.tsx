@@ -17,7 +17,7 @@ const Banner = () => {
             </div>
           </div>
           <div className={style.content}>
-            BluntDAO is the the biggest IRL onboarding movement to Web3 via Proof of Sesh through local IRL OGs. We are now introducing the unlimtted sesh fund, a regular re-up mechanism where anyone can request ETH to host a sesh from contributors. Onboarding the next million, 1 blunt/sesh at a time.
+            BluntDAO is the biggest IRL onboarding movement to Web3 via Proof of Sesh through local IRL OGs. We are now introducing the unlimtted sesh fund, a regular re-up mechanism where anyone can request crypto to host a sesh from contributors. Onboarding the next billion, 1 blunt/sesh at a time.
           </div>
 
           <div className={style.join}>

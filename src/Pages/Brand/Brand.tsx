@@ -296,7 +296,7 @@ const Brand: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer backgroundColor="#000000" />
     </div>
   );
 };
