@@ -108,7 +108,8 @@ const Map: React.FC = () => {
 
   // Color mapping for different legal statuses
   const getStateColor = (stateName: string): string => {
-    const stateData = cannabisData.countries["United States"]?.states?.[stateName];
+    const states = cannabisData.countries["United States"]?.states as any;
+    const stateData = states?.[stateName];
     if (!stateData) return '#cccccc';
     
     return getColor(stateData.colorCode);
@@ -116,9 +117,9 @@ const Map: React.FC = () => {
 
   // Filter states based on current filters
   const filteredStates = useMemo(() => {
-    const states = cannabisData.countries["United States"]?.states || {};
+    const states = (cannabisData.countries["United States"]?.states as any) || {};
     
-    return Object.entries(states).filter(([stateName, stateData]) => {
+    return Object.entries(states).filter(([stateName, stateData]: [string, any]) => {
       // Search term filter
       if (filters.searchTerm && !stateName.toLowerCase().includes(filters.searchTerm.toLowerCase())) {
         return false;
@@ -165,7 +166,8 @@ const Map: React.FC = () => {
   // Handle feature events
   const onEachFeature = (feature: any, layer: any) => {
     const stateName = feature.properties.NAME;
-    const stateData = cannabisData.countries["United States"]?.states?.[stateName];
+    const states = cannabisData.countries["United States"]?.states as any;
+    const stateData = states?.[stateName];
     
     if (stateData) {
       layer.on({
@@ -323,7 +325,7 @@ const Map: React.FC = () => {
       <div className={style.legend}>
         <h3>🏷️ Legal Status Legend</h3>
         <div className={style.legendItems}>
-          {Object.entries(cannabisData.legalCategories).map(([colorCode, category]) => (
+          {Object.entries(cannabisData.legalCategories as any).map(([colorCode, category]: [string, any]) => (
             <div key={colorCode} className={style.legendItem}>
               <div 
                 className={style.legendColor}
@@ -370,7 +372,7 @@ const Map: React.FC = () => {
           <div className={style.cardsContainer}>
             <h2>🌍 Cannabis Legal Status by Region</h2>
             <div className={style.cardsGrid}>
-              {filteredStates.map(([stateName, stateData]) => (
+              {filteredStates.map(([stateName, stateData]: [string, any]) => (
                 <div
                   key={stateName}
                   className={`${style.stateCard} ${selectedCard === stateName ? style.selected : ''} ${hoveredRegion === stateName ? style.hovered : ''}`}
@@ -449,22 +451,22 @@ const Map: React.FC = () => {
         <div className={style.statsGrid}>
           <div className={style.statCard}>
             <div className={style.statIcon}>🎯</div>
-            <h3>{filteredStates.filter(([_, data]) => data.recreational === 'Legal').length}</h3>
+            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.recreational === 'Legal').length}</h3>
             <p>Recreational Legal</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🏥</div>
-            <h3>{filteredStates.filter(([_, data]) => data.medical === 'Legal').length}</h3>
+            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.medical === 'Legal').length}</h3>
             <p>Medical Legal</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🏪</div>
-            <h3>{filteredStates.reduce((sum, [_, data]) => sum + (data.stores || 0), 0)}</h3>
+            <h3>{filteredStates.reduce((sum, [_, data]: [string, any]) => sum + (data.stores || 0), 0)}</h3>
             <p>Total Dispensaries</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🌿</div>
-            <h3>{filteredStates.filter(([_, data]) => data.bluntdaoChapter).length}</h3>
+            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.bluntdaoChapter).length}</h3>
             <p>BluntDAO Chapters</p>
           </div>
         </div>
@@ -476,8 +478,8 @@ const Map: React.FC = () => {
         <p>Connect with local BluntDAO communities worldwide</p>
         <div className={style.chaptersGrid}>
           {filteredStates
-            .filter(([_, data]) => data.bluntdaoChapter)
-            .map(([stateName, stateData]) => (
+            .filter(([_, data]: [string, any]) => data.bluntdaoChapter)
+            .map(([stateName, stateData]: [string, any]) => (
               <div key={stateName} className={style.chapterCard}>
                 <h4>{stateData.bluntdaoChapter}</h4>
                 <p>{stateName}</p>
@@ -513,7 +515,8 @@ const Map: React.FC = () => {
 
 // State Details Panel Component
 const StateDetailsPanel: React.FC<{ stateName: string }> = ({ stateName }) => {
-  const stateData = cannabisData.countries["United States"]?.states?.[stateName];
+  const states = cannabisData.countries["United States"]?.states as any;
+  const stateData = states?.[stateName];
   
   if (!stateData) return null;
 
@@ -530,7 +533,7 @@ const StateDetailsPanel: React.FC<{ stateName: string }> = ({ stateName }) => {
       
       <div className={style.statusBadges}>
         <span className={`${style.badge} ${style[`badge-${stateData.colorCode}`]}`}>
-          {cannabisData.legalCategories[stateData.colorCode as keyof typeof cannabisData.legalCategories]?.label}
+          {(cannabisData.legalCategories as any)[stateData.colorCode]?.label}
         </span>
       </div>
 
@@ -570,7 +573,7 @@ const StateDetailsPanel: React.FC<{ stateName: string }> = ({ stateName }) => {
         <div className={style.businessesSection}>
           <h4>🏢 Major Cannabis Businesses</h4>
           <ul>
-            {stateData.businesses.map((business, index) => (
+            {stateData.businesses.map((business: string, index: number) => (
               <li key={index}>{business}</li>
             ))}
           </ul>
