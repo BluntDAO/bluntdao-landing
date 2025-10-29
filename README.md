@@ -53,7 +53,7 @@ BluntDAO is a decentralized autonomous organization (DAO) focused on onboarding 
 - **Solana Web3.js** 1.50.1 - Solana blockchain integration
 - **Metaplex** 0.14.0 - NFT marketplace integration
 - **Leaflet** 1.9.4 - Interactive mapping library
-- **React Leaflet** 5.0.0 - React wrapper for Leaflet maps
+- **React Leaflet** 4.2.1 - React wrapper for Leaflet maps
 
 ### Blockchain Integration
 - **Solana**: Primary blockchain with NFT marketplace
