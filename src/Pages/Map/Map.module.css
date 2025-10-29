@@ -414,6 +414,190 @@
   color: #ffffff;
 }
 
+/* Custom Zoom Controls */
+.customZoomControls {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zoomButton {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00ff88;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.zoomButton:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.zoomButton:active {
+  transform: scale(0.95);
+}
+
+/* Map Legend Overlay */
+.mapLegendOverlay {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid #00ff88;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 180px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.mapLegendOverlay:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: scale(1.02);
+}
+
+.legendHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #333;
+}
+
+.legendHeader h4 {
+  color: #00ff88;
+  margin: 0;
+  font-size: 0.9rem;
+  font-family: 'Londrina Solid', cursive;
+}
+
+.legendToggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.legendToggle:hover {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+.legendItems {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.legendItem:hover {
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateX(2px);
+}
+
+.legendColorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Mobile responsiveness for legend and controls */
+@media (max-width: 768px) {
+  .mapLegendOverlay {
+    bottom: 10px;
+    left: 10px;
+    min-width: 160px;
+    padding: 10px;
+  }
+  
+  .legendHeader h4 {
+    font-size: 0.8rem;
+  }
+  
+  .legendLabel {
+    font-size: 0.7rem;
+  }
+  
+  .legendColorDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .customZoomControls {
+    top: 10px;
+    left: 10px;
+  }
+
+  .zoomButton {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .clearFiltersOverlay {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapLegendOverlay {
+    bottom: 8px;
+    left: 8px;
+    min-width: 140px;
+    padding: 8px;
+  }
+  
+  .legendItems {
+    gap: 4px;
+  }
+  
+  .legendItem {
+    padding: 3px 4px;
+    gap: 6px;
+  }
+}
+
 .mapContainer {
   height: 100%;
   width: 100%;

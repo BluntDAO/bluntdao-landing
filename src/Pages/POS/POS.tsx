@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import style from "./POS.module.css";
 import Capture from "../../component/Capture/Capture";
 import StickSelect from "../../component/stick-select/stickSelect";
@@ -6,6 +6,7 @@ import ScanQR from "../../component/ScanQR/ScanQR";
 import Navbar from "../../component/Navbar/Navbar";
 import { GenContext } from "../../gen-state/gen.context";
 import { setNotification } from "../../gen-state/gen.actions";
+import SEOHead from "../../components/SEO/SEOHead";
 
 const POS = () => {
   const { dispatch, account, web3auth } = useContext(GenContext);
@@ -37,8 +38,35 @@ const POS = () => {
     setState((state) => ({ ...state, ...payload }));
   };
 
+  const posStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Proof of Sesh - BluntDAO",
+    "description": "Get your BluntDAO Soul Bound NFT by verifying your cannabis consumption through our Proof of Sesh system",
+    "provider": {
+      "@type": "Organization",
+      "name": "BluntDAO",
+      "url": "https://bluntdao.org"
+    },
+    "serviceType": "Blockchain Verification",
+    "areaServed": "Worldwide",
+    "url": "https://bluntdao.org/pos",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bluntdao.org/pos"
+    }
+  };
+
   return (
     <>
+      <SEOHead
+        title="Proof of Sesh - BluntDAO | Verify Cannabis Consumption & Earn NFTs"
+        description="Get your BluntDAO Soul Bound NFT by verifying your cannabis consumption through our innovative Proof of Sesh system. Join the global cannabis community verification network."
+        keywords="proof of sesh, BluntDAO, cannabis verification, soul bound NFT, blockchain verification, cannabis community, Web3, NFT rewards"
+        url="https://bluntdao.org/pos"
+        canonical="https://bluntdao.org/pos"
+        structuredData={posStructuredData}
+      />
       <Navbar />
       <div className={style.container}>
         <div className="section">

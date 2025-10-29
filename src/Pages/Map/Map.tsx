@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import L from 'leaflet';
@@ -7,6 +7,8 @@ import style from './Map.module.css';
 import cannabisData from '../../data/cannabisLegalData.json';
 import Navbar from '../../component/Navbar/Navbar';
 import Footer from '../../component/Footer/Footer';
+import MapPerformanceOptimizer from '../../components/Map/MapPerformanceOptimizer';
+import { mapPerformanceMonitor } from '../../utils/mapPerformanceMonitor';
 
 // Fix for default markers in react-leaflet
 delete (L.Icon.Default.prototype as any)._getIconUrl;
@@ -34,6 +36,16 @@ const Map: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>({ mode: 'both' });
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
   const mapRef = useRef<any>(null);
+  
+  // Initialize performance monitoring
+  useEffect(() => {
+    mapPerformanceMonitor.startMonitoring();
+    return () => {
+      // Log final performance summary on unmount
+      mapPerformanceMonitor.logPerformanceSummary();
+    };
+  }, []);
+
   const [filters, setFilters] = useState<FilterState>({
     legalStatus: 'all',
     searchTerm: '',
@@ -155,32 +167,64 @@ const Map: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Load global GeoJSON data
+  // Load global GeoJSON data with caching and performance monitoring
   useEffect(() => {
+    const loadStartTime = performance.now();
+    
     const loadGeoData = async () => {
       try {
-        // Load world countries data
-        const worldResponse = await fetch('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson');
-        const worldData = await worldResponse.json();
-        setWorldGeoData(worldData);
-
-        // Load US states data
-        const usResponse = await fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json');
-        const usData = await usResponse.json();
-        setUsGeoData(usData);
+        // Check if data is cached in localStorage
+        const cachedWorldData = localStorage.getItem('bluntdao_world_geojson');
+        const cachedUsData = localStorage.getItem('bluntdao_us_geojson');
+        const cacheTimestamp = localStorage.getItem('bluntdao_geojson_timestamp');
+        const cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours
         
+        const isCacheValid = cacheTimestamp && 
+          (Date.now() - parseInt(cacheTimestamp)) < cacheExpiry;
+
+        if (cachedWorldData && cachedUsData && isCacheValid) {
+          // Use cached data
+          mapPerformanceMonitor.trackCacheHit();
+          setWorldGeoData(JSON.parse(cachedWorldData));
+          setUsGeoData(JSON.parse(cachedUsData));
+          setLoading(false);
+          mapPerformanceMonitor.trackLoadTime(loadStartTime);
+          return;
+        }
+
+        // Load fresh data
+        mapPerformanceMonitor.trackCacheMiss();
+        const [worldResponse, usResponse] = await Promise.all([
+          fetch('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson'),
+          fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json')
+        ]);
+
+        const [worldData, usData] = await Promise.all([
+          worldResponse.json(),
+          usResponse.json()
+        ]);
+
+        // Cache the data
+        localStorage.setItem('bluntdao_world_geojson', JSON.stringify(worldData));
+        localStorage.setItem('bluntdao_us_geojson', JSON.stringify(usData));
+        localStorage.setItem('bluntdao_geojson_timestamp', Date.now().toString());
+
+        setWorldGeoData(worldData);
+        setUsGeoData(usData);
         setLoading(false);
+        mapPerformanceMonitor.trackLoadTime(loadStartTime);
       } catch (error) {
         console.error('Error loading geo data:', error);
         setLoading(false);
+        mapPerformanceMonitor.trackLoadTime(loadStartTime);
       }
     };
 
     loadGeoData();
   }, []);
 
-  // BluntDAO theme colors for legal status - More brand-focused palette
-  const getStatusColor = (status: string) => {
+  // Memoized color function for better performance
+  const getStatusColor = useCallback((status: string) => {
     switch (status) {
       case 'green': return '#00ff88'; // BluntDAO Green - Fully Legal (reserved for best status)
       case 'lightgreen': return '#00d4ff'; // BluntDAO Blue - Legal/Decriminalized  
@@ -191,7 +235,7 @@ const Map: React.FC = () => {
       case 'unknown': return '#636e72'; // Neutral Grey - Unknown
       default: return '#636e72'; // Neutral Grey - Unknown
     }
-  };
+  }, []);
 
   // Get region data (countries or US states)
   const getRegionData = (regionName: string) => {
@@ -210,8 +254,8 @@ const Map: React.FC = () => {
     return null;
   };
 
-  // Get region color based on legal status
-  const getRegionColor = (regionName: string): string => {
+  // Memoized region color function
+  const getRegionColor = useCallback((regionName: string): string => {
     const regionData = getRegionData(regionName);
     if (!regionData) return '#2a2a2a'; // Grey for unknown, not red
     
@@ -222,7 +266,7 @@ const Map: React.FC = () => {
     
     // For individual states/regions
     return getStatusColor(regionData.colorCode || 'unknown');
-  };
+  }, [getRegionData, getStatusColor]);
 
   // Handle card click to highlight map region
   const handleCardClick = (regionName: string) => {
@@ -333,8 +377,8 @@ const Map: React.FC = () => {
     });
   }, [filters, showGlobalView]);
 
-  // GeoJSON style function
-  const geoJsonStyle = (feature: any) => {
+  // Memoized GeoJSON style function for better performance
+  const geoJsonStyle = useCallback((feature: any) => {
     const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
     const color = getRegionColor(regionName);
     const isHovered = hoveredRegion === regionName;
@@ -345,13 +389,13 @@ const Map: React.FC = () => {
       weight: isSelected ? 3 : isHovered ? 2 : 1,
       opacity: 1,
       color: isSelected ? '#00ff88' : isHovered ? '#ffffff' : '#666666',
-      dashArray: isSelected ? '' : '',
+      dashArray: isSelected ? '5, 5' : undefined,
       fillOpacity: isSelected ? 0.9 : isHovered ? 0.8 : 0.7
     };
-  };
+  }, [hoveredRegion, selectedRegion, getRegionColor]);
 
-  // Handle feature events
-  const onEachFeature = (feature: any, layer: any) => {
+  // Memoized feature event handler for better performance
+  const onEachFeature = useCallback((feature: any, layer: any) => {
     const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
     const regionData = getRegionData(regionName);
     
@@ -402,7 +446,7 @@ const Map: React.FC = () => {
         </div>
       `);
     }
-  };
+  }, [getRegionData, geoJsonStyle, setHoveredRegion, setSelectedRegion, setSelectedCard, style.popupContent, style.closeButton]);
 
   const handleFilterChange = (key: keyof FilterState, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
@@ -553,6 +597,37 @@ const Map: React.FC = () => {
                 <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
+
+            {/* Custom Zoom Controls */}
+            <div className={style.customZoomControls}>
+              <button 
+                className={style.zoomButton}
+                onClick={() => mapRef.current?.setZoom(mapRef.current.getZoom() + 1)}
+                title="Zoom In"
+              >
+                +
+              </button>
+              <button 
+                className={style.zoomButton}
+                onClick={() => mapRef.current?.setZoom(mapRef.current.getZoom() - 1)}
+                title="Zoom Out"
+              >
+                −
+              </button>
+              <button 
+                className={style.zoomButton}
+                onClick={() => {
+                  if (showGlobalView) {
+                    mapRef.current?.setView([20, 0], isMobile ? 1 : 2);
+                  } else {
+                    mapRef.current?.setView([39.8283, -98.5795], isMobile ? 3 : 4);
+                  }
+                }}
+                title="Reset View"
+              >
+                🏠
+              </button>
+            </div>
             
             <MapContainer
               center={showGlobalView ? [20, 0] : [39.8283, -98.5795]}
@@ -561,10 +636,23 @@ const Map: React.FC = () => {
               scrollWheelZoom={true}
               ref={mapRef}
               key={showGlobalView ? 'global' : 'us'} // Force re-render when switching views
+              preferCanvas={true} // Use Canvas for better performance
+              zoomControl={false} // We'll add custom controls
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Cannabis data by <a href="https://bluntdao.org">BluntDAO</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                maxZoom={18}
+                tileSize={256}
+                updateWhenIdle={true}
+                updateWhenZooming={false}
+                keepBuffer={2}
+              />
+              
+              {/* Performance Optimizer Component */}
+              <MapPerformanceOptimizer 
+                showGlobalView={showGlobalView} 
+                isMobile={isMobile} 
               />
               
               {showGlobalView && worldGeoData && (
@@ -583,6 +671,38 @@ const Map: React.FC = () => {
                 />
               )}
             </MapContainer>
+            
+            {/* Map Legend/Key Overlay */}
+            <div className={style.mapLegendOverlay}>
+              <div className={style.legendHeader}>
+                <h4>Legal Status</h4>
+                <button 
+                  className={style.legendToggle}
+                  onClick={() => {/* Toggle legend details */}}
+                  title="Double-click for details"
+                >
+                  ℹ️
+                </button>
+              </div>
+              <div className={style.legendItems}>
+                {Object.entries(cannabisData.legalCategories as any).map(([colorCode, category]: [string, any]) => (
+                  <div 
+                    key={colorCode} 
+                    className={style.legendItem}
+                    onDoubleClick={() => {
+                      alert(`${category.label}\n\n${category.description}`);
+                    }}
+                    title="Double-click for details"
+                  >
+                    <div 
+                      className={style.legendColorDot}
+                      style={{ backgroundColor: getStatusColor(colorCode) }}
+                    />
+                    <span className={style.legendLabel}>{category.label.split(' ')[0]}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
