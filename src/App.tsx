@@ -21,6 +21,7 @@ import Schedule from "./Pages/Schedule/Schedule";
 import RPOS from "./Pages/RPOS/RPOS";
 import Map from "./Pages/Map/Map";
 import Brand from "./Pages/Brand/Brand";
+import CountryDetail from "./Pages/CountryDetail/CountryDetail";
 // styles
 import "./App.css";
 import "./styles/Slider.scss";
@@ -175,6 +176,8 @@ const App = () => {
           <Route exact path="/links" component={Links} />
           <Route exact path="/schedule" component={Schedule} />
           <Route exact path="/map" component={Map} />
+          <Route exact path="/map/:country/:state" component={CountryDetail} />
+          <Route exact path="/map/:country" component={CountryDetail} />
           <Route
             exact
             path="/market"

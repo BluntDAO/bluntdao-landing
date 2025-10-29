@@ -378,6 +378,42 @@
   background: #000000;
 }
 
+/* Clear Filters Overlay */
+.clearFiltersOverlay {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00ff88;
+  border-radius: 8px;
+  padding: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.clearFiltersOverlay:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: #ffffff;
+  transform: scale(1.05);
+}
+
+.clearFiltersOverlay svg {
+  color: #00ff88;
+  transition: color 0.3s ease;
+}
+
+.clearFiltersOverlay:hover svg {
+  color: #ffffff;
+}
+
 .mapContainer {
   height: 100%;
   width: 100%;

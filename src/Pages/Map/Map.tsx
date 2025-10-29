@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -45,6 +46,103 @@ const Map: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [showGlobalView, setShowGlobalView] = useState(true);
+
+  // SEO optimization
+  useEffect(() => {
+    // Set page title and meta description
+    document.title = 'Global Cannabis Legal Status Map | BluntDAO - Interactive Cannabis Laws Worldwide';
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Explore cannabis legalization worldwide with BluntDAO\'s interactive map. Real-time legal status, dispensary locations, and comprehensive cannabis laws for every country and US state.');
+    }
+
+    // Add structured data for SEO
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BluntDAO Global Cannabis Legal Status Map",
+      "description": "Interactive map showing cannabis legal status, dispensary locations, and comprehensive cannabis laws worldwide",
+      "url": "https://bluntdao.org/map",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "BluntDAO",
+        "url": "https://bluntdao.org"
+      },
+      "keywords": "cannabis laws, marijuana legalization, dispensary map, cannabis legal status, BluntDAO, global cannabis, medical marijuana, recreational cannabis",
+      "inLanguage": "en-US",
+      "dateModified": "2024-12-29",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Cannabis Legalization",
+          "description": "Legal status of cannabis around the world"
+        },
+        {
+          "@type": "Thing", 
+          "name": "Medical Marijuana",
+          "description": "Medical cannabis laws and regulations"
+        },
+        {
+          "@type": "Thing",
+          "name": "Recreational Cannabis",
+          "description": "Recreational marijuana laws and policies"
+        }
+      ]
+    };
+
+    // Add structured data to page
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+
+    // Add Open Graph meta tags
+    const ogTags = [
+      { property: 'og:title', content: 'Global Cannabis Legal Status Map | BluntDAO' },
+      { property: 'og:description', content: 'Explore cannabis legalization worldwide with BluntDAO\'s interactive map. Real-time legal status and comprehensive cannabis laws.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://bluntdao.org/map' },
+      { property: 'og:image', content: 'https://bluntdao.org/img/BluntDAO.png' },
+      { property: 'og:site_name', content: 'BluntDAO' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Global Cannabis Legal Status Map | BluntDAO' },
+      { name: 'twitter:description', content: 'Interactive cannabis legalization map with real-time legal status worldwide' },
+      { name: 'twitter:image', content: 'https://bluntdao.org/img/BluntDAO.png' }
+    ];
+
+    ogTags.forEach(tag => {
+      const meta = document.createElement('meta');
+      if (tag.property) meta.setAttribute('property', tag.property);
+      if (tag.name) meta.setAttribute('name', tag.name);
+      meta.setAttribute('content', tag.content);
+      document.head.appendChild(meta);
+    });
+
+    return () => {
+      // Cleanup structured data and meta tags
+      const structuredDataScript = document.querySelector('script[type="application/ld+json"]');
+      if (structuredDataScript) {
+        document.head.removeChild(structuredDataScript);
+      }
+      
+      ogTags.forEach(tag => {
+        const selector = tag.property ? `meta[property="${tag.property}"]` : `meta[name="${tag.name}"]`;
+        const meta = document.querySelector(selector);
+        if (meta) {
+          document.head.removeChild(meta);
+        }
+      });
+    };
+  }, []);
 
   // Check if mobile device
   useEffect(() => {
@@ -414,27 +512,8 @@ const Map: React.FC = () => {
           </label>
         </div>
 
-        <button onClick={resetFilters} className={style.resetButton}>
-          🔄 Reset Filters
-        </button>
       </div>
 
-      {/* Legend */}
-      <div className={style.legend}>
-        <h3>🏷️ Legal Status Legend</h3>
-        <div className={style.legendItems}>
-          {Object.entries(cannabisData.legalCategories as any).map(([colorCode, category]: [string, any]) => (
-            <div key={colorCode} className={style.legendItem}>
-              <div 
-                className={style.legendColor}
-                style={{ backgroundColor: getStatusColor(colorCode) }}
-              />
-              <span>{category.label}</span>
-              <small>({category.description})</small>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* View Mode Toggle */}
       <div className={style.viewModeToggle}>
@@ -464,6 +543,17 @@ const Map: React.FC = () => {
         {/* Map Container */}
         {(viewMode.mode === 'map' || viewMode.mode === 'both') && (
           <div className={style.mapWrapper}>
+            {/* Clear Filters Overlay */}
+            <button 
+              onClick={resetFilters} 
+              className={style.clearFiltersOverlay}
+              title="Clear all filters"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            
             <MapContainer
               center={showGlobalView ? [20, 0] : [39.8283, -98.5795]}
               zoom={showGlobalView ? (isMobile ? 1 : 2) : (isMobile ? 3 : 4)}
@@ -545,9 +635,16 @@ const Map: React.FC = () => {
                   </div>
                   
                   <div className={style.cardFooter}>
-                    <button className={style.detailsBtn}>
+                    <Link 
+                      to={regionName.includes(', USA') 
+                        ? `/map/United States/${regionName.replace(', USA', '')}` 
+                        : `/map/${regionName}`
+                      } 
+                      className={style.detailsBtn}
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       View Details →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}

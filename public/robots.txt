@@ -1,3 +1,27 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://bluntdao.org/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all cannabis-related content
+Allow: /map/
+Allow: /brand/
+Allow: /pos/
+Allow: /rpos/
+
+# Block admin areas
+Disallow: /dashboard/
+Disallow: /admin/
+
+# Block API endpoints
+Disallow: /api/
+
+# Allow search engines to index cannabis legal information
+Allow: /map/*
+
+# BluntDAO - Global Cannabis Legal Status Information
+# Educational content about cannabis laws worldwide

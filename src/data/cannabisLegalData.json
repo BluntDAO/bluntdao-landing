@@ -20,7 +20,7 @@
       "stores": 573,
       "colorCode": "lightgreen",
       "notes": "Famous coffeeshop culture, technically illegal but tolerated",
-      "bluntdaoChapter": "BluntDAO Amsterdam"
+      "bluntdaoChapter": "BluntDAO Amsterdam, BluntDAO Rotterdam"
     },
     "Germany": {
       "recreational": "Legal",
@@ -38,7 +38,8 @@
       "laws": "Decriminalized all drugs in 2001, medical legal since 2018",
       "stores": 50,
       "colorCode": "lightgreen",
-      "notes": "Pioneered decriminalization approach, focus on harm reduction"
+      "notes": "Pioneered decriminalization approach, focus on harm reduction",
+      "bluntdaoChapter": "BluntDAO Lisbon"
     },
     "Spain": {
       "recreational": "Decriminalized",
@@ -144,7 +145,8 @@
           "stores": 1023,
           "businesses": ["Green Dot Labs", "Wana Brands", "WYLD", "LivWell"],
           "notes": "First state (tied with WA) to legalize adult use. Allows home delivery and hospitality lounges. Lacks employment protections.",
-          "colorCode": "green"
+          "colorCode": "green",
+          "bluntdaoChapter": "BluntDAO Denver"
         },
         "Connecticut": {
           "recreational": "Legal",
@@ -466,7 +468,8 @@
           "stores": 177,
           "businesses": [],
           "notes": "Surrounded by legal states. Gov. Shapiro supports legalization. Bills to decriminalize to a summary offense have been introduced.",
-          "colorCode": "yellow"
+          "colorCode": "yellow",
+          "bluntdaoChapter": "BluntDAO Philadelphia"
         },
         "Rhode Island": {
           "recreational": "Legal",
@@ -516,7 +519,8 @@
           "stores": 23,
           "businesses": ["Goodblend", "Texas Original", "Caprock Family Farms (Hemp)"],
           "notes": "Most restrictive medical program among comprehensive states. Leads the US in annual cannabis arrests (>23,000 in 2023). Several cities have passed local decriminalization ordinances.",
-          "colorCode": "yellow"
+          "colorCode": "yellow",
+          "bluntdaoChapter": "BluntDAO Austin, BluntDAO San Antonio, BluntDAO Dallas"
         },
         "Utah": {
           "recreational": "Illegal",
@@ -596,7 +600,8 @@
           "stores": 7,
           "businesses": ["Takoma Wellness Center", "National Holistic Healing Center"],
           "notes": "Federal \"Harris Rider\" has blocked the District from regulating and taxing adult-use sales since 2014. Allows self-certification for medical patients.",
-          "colorCode": "lightgreen"
+          "colorCode": "lightgreen",
+          "bluntdaoChapter": "BluntDAO Washington D.C."
         }
       }
     },
@@ -720,7 +725,8 @@
         "stores": "Thousands of dispensaries adapting to medical-only model",
         "businesses": ["Green House Thailand"],
         "notes": "Rapid policy shift highlights volatility in emerging markets. Government supporting legitimate medicinal businesses through transition.",
-        "colorCode": "yellow"
+        "colorCode": "yellow",
+        "bluntdaoChapter": "BluntDAO Bangkok"
       }
     },
     "South Africa": {
@@ -740,6 +746,26 @@
         "notes": "High barriers to entry for legal medicinal market (R3-5 million). Automatic expungement of past minor possession offenses.",
         "colorCode": "lightgreen"
       }
+    },
+    "Brazil": {
+      "recreational": "Decriminalized",
+      "medical": "Legal",
+      "penalties": "Personal use decriminalized, trafficking penalties vary",
+      "laws": "Medical cannabis legal since 2019, personal use decriminalized",
+      "stores": 15,
+      "colorCode": "lightgreen",
+      "notes": "Growing medical market, personal use tolerance varies by region",
+      "bluntdaoChapter": "BluntDAO Sao Paulo"
+    },
+    "India": {
+      "recreational": "Illegal",
+      "medical": "Limited",
+      "penalties": "Possession and use illegal, penalties vary by state",
+      "laws": "Traditional use in some regions, limited medical research permitted",
+      "stores": 0,
+      "colorCode": "red",
+      "notes": "Traditional cannabis culture in some regions, but legally restricted",
+      "bluntdaoChapter": "BluntDAO Bangalore"
     }
   },
   "legalCategories": {
