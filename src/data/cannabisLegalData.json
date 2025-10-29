@@ -2,7 +2,84 @@
   "lastUpdated": "2024-12-29",
   "dataSource": "The Global Cannabis Index: A Comprehensive Analysis of Legalization, Markets, and Policy",
   "countries": {
+    "Canada": {
+      "recreational": "Legal",
+      "medical": "Legal",
+      "penalties": "N/A - Fully Legal",
+      "laws": "Cannabis Act legalized recreational cannabis nationwide in 2018",
+      "stores": 3500,
+      "colorCode": "green",
+      "notes": "First G7 nation to fully legalize cannabis. Provincial regulations vary.",
+      "bluntdaoChapter": "BluntDAO Toronto"
+    },
+    "Netherlands": {
+      "recreational": "Decriminalized",
+      "medical": "Legal",
+      "penalties": "Possession up to 5g tolerated, sales through licensed coffeeshops",
+      "laws": "Gedoogbeleid (tolerance policy) since 1976, medical legal since 2003",
+      "stores": 573,
+      "colorCode": "lightgreen",
+      "notes": "Famous coffeeshop culture, technically illegal but tolerated",
+      "bluntdaoChapter": "BluntDAO Amsterdam"
+    },
+    "Germany": {
+      "recreational": "Legal",
+      "medical": "Legal", 
+      "penalties": "N/A - Legal as of April 2024",
+      "laws": "Cannabis legalization law passed in 2024, medical since 2017",
+      "stores": 800,
+      "colorCode": "green",
+      "notes": "Recently legalized, still implementing regulations"
+    },
+    "Portugal": {
+      "recreational": "Decriminalized",
+      "medical": "Legal",
+      "penalties": "Possession up to 25g decriminalized, treatment over punishment",
+      "laws": "Decriminalized all drugs in 2001, medical legal since 2018",
+      "stores": 50,
+      "colorCode": "lightgreen",
+      "notes": "Pioneered decriminalization approach, focus on harm reduction"
+    },
+    "Spain": {
+      "recreational": "Decriminalized",
+      "medical": "Legal",
+      "penalties": "Private use legal, public use fined, cannabis clubs tolerated",
+      "laws": "Private cultivation legal, medical legal since 2017",
+      "stores": 300,
+      "colorCode": "lightgreen",
+      "notes": "Cannabis social clubs operate in legal grey area"
+    },
+    "United Kingdom": {
+      "recreational": "Illegal",
+      "medical": "Legal",
+      "penalties": "Class B drug, up to 5 years prison for possession",
+      "laws": "Medical legal since 2018, recreational remains illegal",
+      "stores": 3,
+      "colorCode": "orange",
+      "notes": "Very limited medical program, strict recreational laws"
+    },
+    "France": {
+      "recreational": "Illegal",
+      "medical": "Limited",
+      "penalties": "Up to 1 year prison and €3,750 fine",
+      "laws": "Very limited medical pilot program, strict recreational laws",
+      "stores": 0,
+      "colorCode": "red",
+      "notes": "Some of the strictest cannabis laws in Europe"
+    },
+    "Australia": {
+      "recreational": "Illegal",
+      "medical": "Legal",
+      "penalties": "Varies by state, ACT has decriminalized personal use",
+      "laws": "Medical legal federally since 2016, ACT decriminalized 2019",
+      "stores": 150,
+      "colorCode": "orange",
+      "notes": "Medical program expanding, some states considering decriminalization"
+    },
     "United States": {
+      "overallStatus": "orange",
+      "recreational": "Varies by State",
+      "medical": "Varies by State", 
       "federalStatus": {
         "recreational": "Illegal",
         "medical": "Illegal",

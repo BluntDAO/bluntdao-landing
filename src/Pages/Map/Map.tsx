@@ -20,6 +20,7 @@ interface FilterState {
   searchTerm: string;
   showMedicalOnly: boolean;
   showRecreationalOnly: boolean;
+  region: 'all' | 'north-america' | 'europe' | 'asia' | 'oceania' | 'south-america' | 'africa';
 }
 
 interface ViewMode {
@@ -27,7 +28,7 @@ interface ViewMode {
 }
 
 const Map: React.FC = () => {
-  const [selectedState, setSelectedState] = useState<string | null>(null);
+  const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>({ mode: 'both' });
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
@@ -37,10 +38,13 @@ const Map: React.FC = () => {
     searchTerm: '',
     showMedicalOnly: false,
     showRecreationalOnly: false,
+    region: 'all'
   });
-  const [geoData, setGeoData] = useState<any>(null);
+  const [worldGeoData, setWorldGeoData] = useState<any>(null);
+  const [usGeoData, setUsGeoData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [showGlobalView, setShowGlobalView] = useState(true);
 
   // Check if mobile device
   useEffect(() => {
@@ -53,14 +57,20 @@ const Map: React.FC = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Load US states GeoJSON data
+  // Load global GeoJSON data
   useEffect(() => {
     const loadGeoData = async () => {
       try {
-        // Using a more reliable US states GeoJSON source
-        const response = await fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json');
-        const data = await response.json();
-        setGeoData(data);
+        // Load world countries data
+        const worldResponse = await fetch('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson');
+        const worldData = await worldResponse.json();
+        setWorldGeoData(worldData);
+
+        // Load US states data
+        const usResponse = await fetch('https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json');
+        const usData = await usResponse.json();
+        setUsGeoData(usData);
+        
         setLoading(false);
       } catch (error) {
         console.error('Error loading geo data:', error);
@@ -72,31 +82,67 @@ const Map: React.FC = () => {
   }, []);
 
   // BluntDAO theme colors for legal status
-  const getColor = (status: string) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'green': return '#00ff88'; // BluntDAO Green - Fully Legal
-      case 'lightgreen': return '#39ff14'; // Neon Green - Legal/Decriminalized
+      case 'lightgreen': return '#39ff14'; // Neon Green - Legal/Decriminalized  
       case 'yellow': return '#ffff00'; // Bright Yellow - Medical Only
       case 'orange': return '#ff8c00'; // Dark Orange - Limited Medical
       case 'red': return '#ff4444'; // Bright Red - Illegal
       case 'darkred': return '#cc0000'; // Dark Red - Strictly Illegal
-      default: return '#708090'; // Slate Grey - Unknown
+      default: return '#2a2a2a'; // Dark Grey - Unknown
     }
+  };
+
+  // Get region data (countries or US states)
+  const getRegionData = (regionName: string) => {
+    // Check US states first
+    const states = (cannabisData.countries["United States"]?.states as any) || {};
+    if (states[regionName]) {
+      return states[regionName];
+    }
+    
+    // Check other countries
+    const countries = cannabisData.countries as any;
+    if (countries[regionName]) {
+      return countries[regionName];
+    }
+    
+    return null;
+  };
+
+  // Get region color based on legal status
+  const getRegionColor = (regionName: string): string => {
+    const regionData = getRegionData(regionName);
+    if (!regionData) return '#2a2a2a';
+    
+    // For countries with states (like US), use overall status
+    if (regionData.states) {
+      return getStatusColor(regionData.overallStatus || 'darkred');
+    }
+    
+    // For individual states/regions
+    return getStatusColor(regionData.colorCode || 'darkred');
   };
 
   // Handle card click to highlight map region
   const handleCardClick = (regionName: string) => {
     setSelectedCard(regionName);
-    setSelectedState(regionName);
+    setSelectedRegion(regionName);
     
     // Find and zoom to the region on map
-    if (mapRef.current && geoData) {
-      const feature = geoData.features.find((f: any) => 
-        f.properties.NAME === regionName || f.properties.name === regionName
-      );
-      if (feature && feature.geometry) {
-        const bounds = L.geoJSON(feature).getBounds();
-        mapRef.current.fitBounds(bounds, { padding: [20, 20] });
+    if (mapRef.current) {
+      const currentGeoData = showGlobalView ? worldGeoData : usGeoData;
+      if (currentGeoData) {
+        const feature = currentGeoData.features.find((f: any) => 
+          f.properties.NAME === regionName || 
+          f.properties.name === regionName ||
+          f.properties.NAME_EN === regionName
+        );
+        if (feature && feature.geometry) {
+          const bounds = L.geoJSON(feature).getBounds();
+          mapRef.current.fitBounds(bounds, { padding: [20, 20] });
+        }
       }
     }
   };
@@ -106,78 +152,89 @@ const Map: React.FC = () => {
     setHoveredRegion(regionName);
   };
 
-  // Color mapping for different legal statuses
-  const getStateColor = (stateName: string): string => {
-    const states = cannabisData.countries["United States"]?.states as any;
-    const stateData = states?.[stateName];
-    if (!stateData) return '#cccccc';
+  // Filter regions based on current filters
+  const filteredRegions = useMemo(() => {
+    const allRegions: any[] = [];
     
-    return getColor(stateData.colorCode);
-  };
-
-  // Filter states based on current filters
-  const filteredStates = useMemo(() => {
-    const states = (cannabisData.countries["United States"]?.states as any) || {};
+    if (showGlobalView) {
+      // Add countries
+      Object.entries(cannabisData.countries as any).forEach(([countryName, countryData]: [string, any]) => {
+        if (countryName !== "United States" || !countryData.states) {
+          allRegions.push([countryName, countryData]);
+        }
+      });
+      
+      // Add US states if viewing globally
+      const usStates = (cannabisData.countries["United States"]?.states as any) || {};
+      Object.entries(usStates).forEach(([stateName, stateData]) => {
+        allRegions.push([`${stateName}, USA`, stateData]);
+      });
+    } else {
+      // US-only view
+      const usStates = (cannabisData.countries["United States"]?.states as any) || {};
+      Object.entries(usStates).forEach(([stateName, stateData]) => {
+        allRegions.push([stateName, stateData]);
+      });
+    }
     
-    return Object.entries(states).filter(([stateName, stateData]: [string, any]) => {
+    return allRegions.filter(([regionName, regionData]: [string, any]) => {
       // Search term filter
-      if (filters.searchTerm && !stateName.toLowerCase().includes(filters.searchTerm.toLowerCase())) {
+      if (filters.searchTerm && !regionName.toLowerCase().includes(filters.searchTerm.toLowerCase())) {
         return false;
       }
 
       // Legal status filter
       if (filters.legalStatus !== 'all') {
-        if (filters.legalStatus !== stateData.colorCode) {
+        const colorCode = regionData.colorCode || regionData.overallStatus;
+        if (filters.legalStatus !== colorCode) {
           return false;
         }
       }
 
       // Medical only filter
-      if (filters.showMedicalOnly && stateData.recreational === 'Legal') {
+      if (filters.showMedicalOnly && regionData.recreational === 'Legal') {
         return false;
       }
 
       // Recreational only filter
-      if (filters.showRecreationalOnly && stateData.recreational !== 'Legal') {
+      if (filters.showRecreationalOnly && regionData.recreational !== 'Legal') {
         return false;
       }
 
       return true;
     });
-  }, [filters]);
+  }, [filters, showGlobalView]);
 
   // GeoJSON style function
   const geoJsonStyle = (feature: any) => {
-    const stateName = feature.properties.NAME;
-    const color = getStateColor(stateName);
-    const isHovered = hoveredRegion === stateName;
-    const isSelected = selectedState === stateName;
+    const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
+    const color = getRegionColor(regionName);
+    const isHovered = hoveredRegion === regionName;
+    const isSelected = selectedRegion === regionName;
     
     return {
       fillColor: color,
-      weight: isSelected ? 4 : isHovered ? 3 : 2,
+      weight: isSelected ? 3 : isHovered ? 2 : 1,
       opacity: 1,
-      color: isSelected ? '#00ff88' : isHovered ? '#ffffff' : '#333333',
-      dashArray: isSelected ? '' : '3',
+      color: isSelected ? '#00ff88' : isHovered ? '#ffffff' : '#666666',
+      dashArray: isSelected ? '' : '',
       fillOpacity: isSelected ? 0.9 : isHovered ? 0.8 : 0.7
     };
   };
 
   // Handle feature events
   const onEachFeature = (feature: any, layer: any) => {
-    const stateName = feature.properties.NAME;
-    const states = cannabisData.countries["United States"]?.states as any;
-    const stateData = states?.[stateName];
+    const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
+    const regionData = getRegionData(regionName);
     
-    if (stateData) {
+    if (regionData) {
       layer.on({
         mouseover: (e: any) => {
           const layer = e.target;
-          setHoveredRegion(stateName);
+          setHoveredRegion(regionName);
           layer.setStyle({
-            weight: 3,
+            weight: 2,
             color: '#ffffff',
-            dashArray: '',
             fillOpacity: 0.8
           });
         },
@@ -187,20 +244,33 @@ const Map: React.FC = () => {
           layer.setStyle(geoJsonStyle(feature));
         },
         click: () => {
-          setSelectedState(stateName);
-          setSelectedCard(stateName);
+          setSelectedRegion(regionName);
+          setSelectedCard(regionName);
         }
       });
 
-      // Bind popup with state information
+      // Create popup content
+      const recreational = regionData.recreational || 'Unknown';
+      const medical = regionData.medical || 'Unknown';
+      const stores = regionData.stores || 0;
+      const chapter = regionData.bluntdaoChapter || null;
+
       layer.bindPopup(`
         <div class="${style.popupContent}">
-          <h3 style="color: #00ff88; margin: 0 0 10px 0;">${stateName}</h3>
-          <p><strong>Recreational:</strong> <span style="color: ${stateData.recreational === 'Legal' ? '#00ff88' : '#ff4444'}">${stateData.recreational}</span></p>
-          <p><strong>Medical:</strong> <span style="color: ${stateData.medical === 'Legal' ? '#00ff88' : '#ff4444'}">${stateData.medical}</span></p>
-          <p><strong>Dispensaries:</strong> ${stateData.stores || 0}</p>
-          ${stateData.notes ? `<p><small style="color: #666;">${stateData.notes}</small></p>` : ''}
-          <button onclick="document.querySelector('.${style.closeButton}')?.click()" style="background: #00ff88; color: black; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-top: 10px;">View Details</button>
+          <h3 style="color: #00ff88; margin: 0 0 10px 0; font-size: 1.1rem;">${regionName}</h3>
+          <div style="margin-bottom: 8px;">
+            <strong>🎯 Recreational:</strong> 
+            <span style="color: ${recreational === 'Legal' ? '#00ff88' : '#ff4444'}; margin-left: 5px;">${recreational}</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>🏥 Medical:</strong> 
+            <span style="color: ${medical === 'Legal' ? '#00ff88' : '#ff4444'}; margin-left: 5px;">${medical}</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>🏪 Dispensaries:</strong> <span style="color: #00ff88; margin-left: 5px;">${stores}</span>
+          </div>
+          ${chapter ? `<div style="background: linear-gradient(135deg, #00ff88, #39ff14); color: black; padding: 5px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; text-align: center; margin-top: 8px;">🌿 ${chapter}</div>` : ''}
+          <button onclick="document.querySelector('.${style.closeButton}')?.click()" style="background: #00ff88; color: black; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; width: 100%;">View Details</button>
         </div>
       `);
     }
@@ -216,8 +286,9 @@ const Map: React.FC = () => {
       searchTerm: '',
       showMedicalOnly: false,
       showRecreationalOnly: false,
+      region: 'all'
     });
-    setSelectedState(null);
+    setSelectedRegion(null);
     setSelectedCard(null);
   };
 
@@ -226,7 +297,7 @@ const Map: React.FC = () => {
       <div className={style.loadingContainer}>
         <div className={style.loadingSpinner}>
           <div className={style.spinner}></div>
-          <p>Loading Cannabis Legal Status Map...</p>
+          <p>Loading Global Cannabis Legal Status Map...</p>
         </div>
       </div>
     );
@@ -236,36 +307,33 @@ const Map: React.FC = () => {
     <div className={style.container}>
       <Navbar />
       
-      {/* SEO-optimized header */}
-      <div className={style.header}>
-        <h1>🌿 Cannabis Legal Status Map - Global 2024</h1>
-        <p className={style.description}>
-          Interactive map showing current cannabis legalization status worldwide. 
-          Explore recreational and medical marijuana laws, penalties, and dispensary information 
-          with real-time data and official sources. Powered by BluntDAO community research.
-        </p>
-      </div>
-
-      {/* View Mode Toggle */}
-      <div className={style.viewModeToggle}>
-        <button 
-          className={`${style.viewModeBtn} ${viewMode.mode === 'map' ? style.active : ''}`}
-          onClick={() => setViewMode({ mode: 'map' })}
-        >
-          🗺️ Map View
-        </button>
-        <button 
-          className={`${style.viewModeBtn} ${viewMode.mode === 'cards' ? style.active : ''}`}
-          onClick={() => setViewMode({ mode: 'cards' })}
-        >
-          📋 Card View
-        </button>
-        <button 
-          className={`${style.viewModeBtn} ${viewMode.mode === 'both' ? style.active : ''}`}
-          onClick={() => setViewMode({ mode: 'both' })}
-        >
-          🔄 Both Views
-        </button>
+      {/* Hero Section */}
+      <div className={style.hero}>
+        <div className={style.heroContent}>
+          <h1 className={style.heroTitle}>
+            🌍 Global Cannabis Legal Status Map
+          </h1>
+          <p className={style.heroDescription}>
+            Explore cannabis legalization worldwide with real-time data, BluntDAO chapters, 
+            and comprehensive legal information. Navigate the global cannabis landscape with confidence.
+          </p>
+          
+          {/* Global/US Toggle */}
+          <div className={style.viewToggle}>
+            <button 
+              className={`${style.toggleBtn} ${showGlobalView ? style.active : ''}`}
+              onClick={() => setShowGlobalView(true)}
+            >
+              🌍 Global View
+            </button>
+            <button 
+              className={`${style.toggleBtn} ${!showGlobalView ? style.active : ''}`}
+              onClick={() => setShowGlobalView(false)}
+            >
+              🇺🇸 United States
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Filters and Search */}
@@ -273,7 +341,7 @@ const Map: React.FC = () => {
         <div className={style.searchBox}>
           <input
             type="text"
-            placeholder="🔍 Search states/countries..."
+            placeholder={`🔍 Search ${showGlobalView ? 'countries/states' : 'states'}...`}
             value={filters.searchTerm}
             onChange={(e) => handleFilterChange('searchTerm', e.target.value)}
             className={style.searchInput}
@@ -329,13 +397,35 @@ const Map: React.FC = () => {
             <div key={colorCode} className={style.legendItem}>
               <div 
                 className={style.legendColor}
-                style={{ backgroundColor: getColor(colorCode) }}
+                style={{ backgroundColor: getStatusColor(colorCode) }}
               />
               <span>{category.label}</span>
               <small>({category.description})</small>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* View Mode Toggle */}
+      <div className={style.viewModeToggle}>
+        <button 
+          className={`${style.viewModeBtn} ${viewMode.mode === 'map' ? style.active : ''}`}
+          onClick={() => setViewMode({ mode: 'map' })}
+        >
+          🗺️ Map View
+        </button>
+        <button 
+          className={`${style.viewModeBtn} ${viewMode.mode === 'cards' ? style.active : ''}`}
+          onClick={() => setViewMode({ mode: 'cards' })}
+        >
+          📋 Card View
+        </button>
+        <button 
+          className={`${style.viewModeBtn} ${viewMode.mode === 'both' ? style.active : ''}`}
+          onClick={() => setViewMode({ mode: 'both' })}
+        >
+          🔄 Both Views
+        </button>
       </div>
 
       {/* Main Content Area */}
@@ -345,20 +435,29 @@ const Map: React.FC = () => {
         {(viewMode.mode === 'map' || viewMode.mode === 'both') && (
           <div className={style.mapWrapper}>
             <MapContainer
-              center={[39.8283, -98.5795]} // Center of US
-              zoom={isMobile ? 3 : 4}
+              center={showGlobalView ? [20, 0] : [39.8283, -98.5795]}
+              zoom={showGlobalView ? (isMobile ? 1 : 2) : (isMobile ? 3 : 4)}
               className={style.mapContainer}
               scrollWheelZoom={true}
               ref={mapRef}
+              key={showGlobalView ? 'global' : 'us'} // Force re-render when switching views
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Cannabis data by <a href="https://bluntdao.org">BluntDAO</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               
-              {geoData && (
+              {showGlobalView && worldGeoData && (
                 <GeoJSON
-                  data={geoData}
+                  data={worldGeoData}
+                  style={geoJsonStyle}
+                  onEachFeature={onEachFeature}
+                />
+              )}
+              
+              {!showGlobalView && usGeoData && (
+                <GeoJSON
+                  data={usGeoData}
                   style={geoJsonStyle}
                   onEachFeature={onEachFeature}
                 />
@@ -372,45 +471,45 @@ const Map: React.FC = () => {
           <div className={style.cardsContainer}>
             <h2>🌍 Cannabis Legal Status by Region</h2>
             <div className={style.cardsGrid}>
-              {filteredStates.map(([stateName, stateData]: [string, any]) => (
+              {filteredRegions.map(([regionName, regionData]: [string, any]) => (
                 <div
-                  key={stateName}
-                  className={`${style.stateCard} ${selectedCard === stateName ? style.selected : ''} ${hoveredRegion === stateName ? style.hovered : ''}`}
-                  onClick={() => handleCardClick(stateName)}
-                  onMouseEnter={() => handleCardHover(stateName)}
+                  key={regionName}
+                  className={`${style.regionCard} ${selectedCard === regionName ? style.selected : ''} ${hoveredRegion === regionName ? style.hovered : ''}`}
+                  onClick={() => handleCardClick(regionName)}
+                  onMouseEnter={() => handleCardHover(regionName)}
                   onMouseLeave={() => handleCardHover(null)}
                 >
                   <div className={style.cardHeader}>
-                    <h3>{stateName}</h3>
+                    <h3>{regionName}</h3>
                     <div 
                       className={style.statusIndicator}
-                      style={{ backgroundColor: getColor(stateData.colorCode) }}
+                      style={{ backgroundColor: getStatusColor(regionData.colorCode || regionData.overallStatus || 'darkred') }}
                     />
                   </div>
                   
                   <div className={style.cardContent}>
                     <div className={style.statusRow}>
                       <span className={style.label}>🎯 Recreational:</span>
-                      <span className={`${style.status} ${stateData.recreational === 'Legal' ? style.legal : style.illegal}`}>
-                        {stateData.recreational}
+                      <span className={`${style.status} ${(regionData.recreational === 'Legal') ? style.legal : style.illegal}`}>
+                        {regionData.recreational || 'Unknown'}
                       </span>
                     </div>
                     
                     <div className={style.statusRow}>
                       <span className={style.label}>🏥 Medical:</span>
-                      <span className={`${style.status} ${stateData.medical === 'Legal' ? style.legal : style.illegal}`}>
-                        {stateData.medical}
+                      <span className={`${style.status} ${(regionData.medical === 'Legal') ? style.legal : style.illegal}`}>
+                        {regionData.medical || 'Unknown'}
                       </span>
                     </div>
                     
                     <div className={style.statusRow}>
                       <span className={style.label}>🏪 Dispensaries:</span>
-                      <span className={style.count}>{stateData.stores || 0}</span>
+                      <span className={style.count}>{regionData.stores || 0}</span>
                     </div>
                     
-                    {stateData.bluntdaoChapter && (
+                    {regionData.bluntdaoChapter && (
                       <div className={style.chapterBadge}>
-                        🌿 BluntDAO Chapter: {stateData.bluntdaoChapter}
+                        🌿 {regionData.bluntdaoChapter}
                       </div>
                     )}
                   </div>
@@ -427,46 +526,46 @@ const Map: React.FC = () => {
         )}
       </div>
 
-      {/* State Details Panel */}
-      {selectedState && (
-        <div className={style.stateDetails}>
-          <div className={style.stateDetailsContent}>
+      {/* Region Details Panel */}
+      {selectedRegion && (
+        <div className={style.regionDetails}>
+          <div className={style.regionDetailsContent}>
             <button 
               className={style.closeButton}
               onClick={() => {
-                setSelectedState(null);
+                setSelectedRegion(null);
                 setSelectedCard(null);
               }}
             >
               ✕
             </button>
-            <StateDetailsPanel stateName={selectedState} />
+            <RegionDetailsPanel regionName={selectedRegion} />
           </div>
         </div>
       )}
 
       {/* Statistics */}
       <div className={style.statistics}>
-        <h2>📊 Cannabis Legalization Statistics</h2>
+        <h2>📊 Global Cannabis Legalization Statistics</h2>
         <div className={style.statsGrid}>
           <div className={style.statCard}>
             <div className={style.statIcon}>🎯</div>
-            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.recreational === 'Legal').length}</h3>
+            <h3>{filteredRegions.filter(([_, data]: [string, any]) => data.recreational === 'Legal').length}</h3>
             <p>Recreational Legal</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🏥</div>
-            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.medical === 'Legal').length}</h3>
+            <h3>{filteredRegions.filter(([_, data]: [string, any]) => data.medical === 'Legal').length}</h3>
             <p>Medical Legal</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🏪</div>
-            <h3>{filteredStates.reduce((sum, [_, data]: [string, any]) => sum + (data.stores || 0), 0)}</h3>
+            <h3>{filteredRegions.reduce((sum, [_, data]: [string, any]) => sum + (data.stores || 0), 0)}</h3>
             <p>Total Dispensaries</p>
           </div>
           <div className={style.statCard}>
             <div className={style.statIcon}>🌿</div>
-            <h3>{filteredStates.filter(([_, data]: [string, any]) => data.bluntdaoChapter).length}</h3>
+            <h3>{filteredRegions.filter(([_, data]: [string, any]) => data.bluntdaoChapter).length}</h3>
             <p>BluntDAO Chapters</p>
           </div>
         </div>
@@ -477,14 +576,14 @@ const Map: React.FC = () => {
         <h2>🌿 BluntDAO Global Chapters</h2>
         <p>Connect with local BluntDAO communities worldwide</p>
         <div className={style.chaptersGrid}>
-          {filteredStates
+          {filteredRegions
             .filter(([_, data]: [string, any]) => data.bluntdaoChapter)
-            .map(([stateName, stateData]: [string, any]) => (
-              <div key={stateName} className={style.chapterCard}>
-                <h4>{stateData.bluntdaoChapter}</h4>
-                <p>{stateName}</p>
+            .map(([regionName, regionData]: [string, any]) => (
+              <div key={regionName} className={style.chapterCard}>
+                <h4>{regionData.bluntdaoChapter}</h4>
+                <p>{regionName}</p>
                 <div className={style.chapterStatus}>
-                  Status: {stateData.recreational === 'Legal' ? '🟢 Legal' : '🟡 Medical Only'}
+                  Status: {regionData.recreational === 'Legal' ? '🟢 Legal' : '🟡 Medical Only'}
                 </div>
               </div>
             ))}
@@ -495,7 +594,7 @@ const Map: React.FC = () => {
       <div className={style.resources}>
         <h2>📚 Legal Resources & Sources</h2>
         <div className={style.resourcesList}>
-          {cannabisData.sources.map((source, index) => (
+          {cannabisData.sources.map((source: any, index: number) => (
             <div key={index} className={style.resourceCard}>
               <h4>
                 <a href={source.url} target="_blank" rel="noopener noreferrer">
@@ -513,77 +612,83 @@ const Map: React.FC = () => {
   );
 };
 
-// State Details Panel Component
-const StateDetailsPanel: React.FC<{ stateName: string }> = ({ stateName }) => {
-  const states = cannabisData.countries["United States"]?.states as any;
-  const stateData = states?.[stateName];
+// Region Details Panel Component
+const RegionDetailsPanel: React.FC<{ regionName: string }> = ({ regionName }) => {
+  // Check if it's a US state or country
+  const states = (cannabisData.countries["United States"]?.states as any) || {};
+  const countries = cannabisData.countries as any;
   
-  if (!stateData) return null;
+  let regionData = states[regionName] || states[regionName.replace(', USA', '')];
+  if (!regionData) {
+    regionData = countries[regionName];
+  }
+  
+  if (!regionData) return null;
 
   return (
-    <div className={style.stateDetailsPanel}>
+    <div className={style.regionDetailsPanel}>
       <div className={style.detailsHeader}>
-        <h2>🌿 {stateName}</h2>
-        {stateData.bluntdaoChapter && (
+        <h2>🌿 {regionName}</h2>
+        {regionData.bluntdaoChapter && (
           <div className={style.chapterBadge}>
-            BluntDAO Chapter: {stateData.bluntdaoChapter}
+            BluntDAO Chapter: {regionData.bluntdaoChapter}
           </div>
         )}
       </div>
       
       <div className={style.statusBadges}>
-        <span className={`${style.badge} ${style[`badge-${stateData.colorCode}`]}`}>
-          {(cannabisData.legalCategories as any)[stateData.colorCode]?.label}
+        <span className={`${style.badge} ${style[`badge-${regionData.colorCode || regionData.overallStatus || 'darkred'}`]}`}>
+          {(cannabisData.legalCategories as any)[regionData.colorCode || regionData.overallStatus || 'darkred']?.label || 'Unknown Status'}
         </span>
       </div>
 
       <div className={style.detailsGrid}>
         <div className={style.detailItem}>
           <strong>🎯 Recreational Status:</strong>
-          <span className={stateData.recreational === 'Legal' ? style.legal : style.illegal}>
-            {stateData.recreational}
+          <span className={(regionData.recreational === 'Legal') ? style.legal : style.illegal}>
+            {regionData.recreational || 'Unknown'}
           </span>
         </div>
         <div className={style.detailItem}>
           <strong>🏥 Medical Status:</strong>
-          <span className={stateData.medical === 'Legal' ? style.legal : style.illegal}>
-            {stateData.medical}
+          <span className={(regionData.medical === 'Legal') ? style.legal : style.illegal}>
+            {regionData.medical || 'Unknown'}
           </span>
         </div>
-        {stateData.penalties && (
+        {regionData.penalties && (
           <div className={style.detailItem}>
             <strong>⚖️ Penalties:</strong>
-            <span>{stateData.penalties}</span>
+            <span>{regionData.penalties}</span>
           </div>
         )}
         <div className={style.detailItem}>
           <strong>🏪 Licensed Dispensaries:</strong>
-          <span className={style.count}>{stateData.stores || 0}</span>
+          <span className={style.count}>{regionData.stores || 0}</span>
         </div>
       </div>
 
-      {stateData.laws && (
+      {regionData.laws && (
         <div className={style.lawsSection}>
           <h4>📜 Legal History & Current Laws</h4>
-          <p>{stateData.laws}</p>
+          <p>{regionData.laws}</p>
         </div>
       )}
 
-      {stateData.businesses && stateData.businesses.length > 0 && (
+      {regionData.businesses && regionData.businesses.length > 0 && (
         <div className={style.businessesSection}>
           <h4>🏢 Major Cannabis Businesses</h4>
           <ul>
-            {stateData.businesses.map((business: string, index: number) => (
+            {regionData.businesses.map((business: string, index: number) => (
               <li key={index}>{business}</li>
             ))}
           </ul>
         </div>
       )}
 
-      {stateData.notes && (
+      {regionData.notes && (
         <div className={style.notesSection}>
           <h4>📝 Additional Notes</h4>
-          <p>{stateData.notes}</p>
+          <p>{regionData.notes}</p>
         </div>
       )}
     </div>
