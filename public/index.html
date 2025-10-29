@@ -10,6 +10,23 @@
       content="BluntDAO is the IRL onboarding movement to Web3 via proof of sesh. The longest continous sesh via OG Blunt Validators in the Blunt Network."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="%PUBLIC_URL%/img/BluntDAO.png" as="image" type="image/png">
+    <link rel="preload" href="%PUBLIC_URL%/img/banner.gif" as="image" type="image/gif">
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap"></noscript>
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//discord.com">
+    <link rel="dns-prefetch" href="//t.me">
+    <link rel="dns-prefetch" href="//blunts.wtf">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

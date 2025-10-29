@@ -44,7 +44,13 @@ const Banner = () => {
         </div>
 
         {/* <img className={style.img2} src="/img/BluntAnimated.gif" alt="BluntDAO animated" /> */}
-        <img className={style.img2} src="/img/banner.gif" alt="BluntDAO" />
+        <img 
+          className={style.img2} 
+          src="/img/banner.gif" 
+          alt="BluntDAO" 
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       {/* <div className={`${style.section} section`}></div> */}
       <div className={style.separateRough}></div>

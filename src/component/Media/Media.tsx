@@ -99,7 +99,9 @@ const Media = () => {
                       (e.currentTarget.src = element.imgInactive)
                     }
                     src={element.imgInactive}
-                    alt=""
+                    alt={`BluntDAO featured in ${element.url}`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
               </div>

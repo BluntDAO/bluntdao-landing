@@ -1,18 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import Navbar from "../component/Navbar/Navbar";
 import Banner from "../component/Banner/Banner";
-import FAQ from "../component/FAQ/FAQ";
-import Gallery from "../component/Gallery/Gallery";
-import POS from "../component/ProofOfSesh/POS";
-import Roadmap from "../component/Roadmap/Roadmap";
-import Partner from "../component/Partner/Partner";
 import { Element } from "react-scroll";
-import Events from "../component/Events/Events.jsx";
-import BuiltWith from "../component/Built-With/BuiltWith";
-import Review from "../component/Review/Review";
 import Footer from "../component/Footer/Footer";
-import Medium from "../component/Meduim/Medium";
-import RPOS from "./RPOS/RPOS";
+
+// Lazy load components that are below the fold
+const FAQ = lazy(() => import("../component/FAQ/FAQ"));
+const Gallery = lazy(() => import("../component/Gallery/Gallery"));
+const POS = lazy(() => import("../component/ProofOfSesh/POS"));
+const BuiltWith = lazy(() => import("../component/Built-With/BuiltWith"));
+const Review = lazy(() => import("../component/Review/Review"));
+const RPOS = lazy(() => import("./RPOS/RPOS"));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '200px',
+    color: '#F1592A'
+  }}>
+    <div style={{ 
+      fontSize: '1.2rem',
+      fontFamily: 'Londrina Solid, cursive'
+    }}>
+      Loading... 💨
+    </div>
+  </div>
+);
 
 const Home = () => {
   const scrollToComment = () => {
@@ -51,36 +67,43 @@ const Home = () => {
       <Element id="banner" name="banner">
         <Banner />
       </Element>
-      <Element id="pos" name="pos">
-        <POS />
-      </Element>
-      <Element id="rpos" name="rpos">
-        <RPOS />
-      </Element>
-      <div id="gallery">
-        <Gallery />
-      </div>
-      {/* <div id="roadmap">
-        <Roadmap />
-      </div> */}
-      {/* <div id="events">
-        <Events />
-      </div> */}
-      {/* <Element name="Partner">
-        <Partner />
-      </Element> */}
-      <Element name="testimonial">
-        <Review />
-      </Element>
-      <div id="buildwith">
-        <BuiltWith />
-      </div>
-      {/* <div id="medium">
-        <Medium />
-      </div> */}
-      <Element id="faq" name="faq">
-        <FAQ />
-      </Element>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <Element id="pos" name="pos">
+          <POS />
+        </Element>
+      </Suspense>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <Element id="rpos" name="rpos">
+          <RPOS />
+        </Element>
+      </Suspense>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <div id="gallery">
+          <Gallery />
+        </div>
+      </Suspense>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <Element name="testimonial">
+          <Review />
+        </Element>
+      </Suspense>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <div id="buildwith">
+          <BuiltWith />
+        </div>
+      </Suspense>
+      
+      <Suspense fallback={<LoadingSpinner />}>
+        <Element id="faq" name="faq">
+          <FAQ />
+        </Element>
+      </Suspense>
+      
       <Footer {...footerProps} />
     </>
   );

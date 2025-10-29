@@ -24,7 +24,12 @@ const BuiltWith = () => {
                 rel="noreferrer"
                 className={style.techCard}
               >
-                <img src={tech.img} alt="" />
+                <img 
+                  src={tech.img} 
+                  alt={tech.url} 
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
             ))}
           </div>

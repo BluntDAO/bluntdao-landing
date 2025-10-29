@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./userCSS.css";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import { reportWebVitals } from "./utils/reportWebVitals";
 import GenContextProvider from "./gen-state/gen.context";
 
 ReactDOM.render(

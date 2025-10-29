@@ -54,7 +54,12 @@ const CardSlider = () => {
               <div key={item.title} className={style.item}>
                 <div className={style.title}>{item.title}</div>
                 <div className={style.img}>
-                  <img src={item.img} alt="" />
+                  <img 
+                    src={item.img} 
+                    alt={item.title || "BluntDAO NFT"} 
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className={style.description}>{item.description}</div>
               </div>
