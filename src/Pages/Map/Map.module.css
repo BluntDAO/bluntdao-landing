@@ -376,6 +376,7 @@
   border: 3px solid #00ff88;
   box-shadow: 0 15px 50px rgba(0, 255, 136, 0.3);
   background: #000000;
+  z-index: 0; /* Keep below navbar */
 }
 
 /* Clear Filters Overlay */
@@ -602,6 +603,12 @@
   height: 100%;
   width: 100%;
   border-radius: 12px;
+  z-index: 0; /* Keep below navbar */
+}
+
+/* Ensure Leaflet canvas stays beneath the fixed navbar (navbar z-index = 9999) */
+.leaflet-container {
+  z-index: 0 !important;
 }
 
 /* Custom map controls */
@@ -791,6 +798,30 @@
   text-align: center;
   margin-top: 6px;
   box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapterLink {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000000;
+  padding: 4px 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.chapterLink:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cardFooter {

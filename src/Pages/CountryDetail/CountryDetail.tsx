@@ -202,7 +202,24 @@ const CountryDetail: React.FC = () => {
           
           {regionData.bluntdaoChapter && (
             <div className={styles.chapterBadge}>
-              🌿 {regionData.bluntdaoChapter}
+              {regionData.chapterLinks ? (
+                regionData.bluntdaoChapter.split(', ').map((chapterName: string, index: number) => {
+                  const link = regionData.chapterLinks[chapterName.trim()];
+                  return (
+                    <a
+                      key={index}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.chapterLink}
+                    >
+                      🌿 {chapterName.trim()}
+                    </a>
+                  );
+                })
+              ) : (
+                <span>🌿 {regionData.bluntdaoChapter}</span>
+              )}
             </div>
           )}
         </div>
@@ -327,9 +344,31 @@ const CountryDetail: React.FC = () => {
             )}
             
             {regionData.bluntdaoChapter && (
-              <a href="https://discord.com/invite/e3cGSTzyWp" target="_blank" rel="noopener noreferrer" className={styles.relatedLink}>
-                💬 Join {regionData.bluntdaoChapter}
-              </a>
+              <div className={styles.chapterSection}>
+                <h3>🌿 BluntDAO Chapters</h3>
+                <div className={styles.chapterButtons}>
+                  {regionData.chapterLinks ? (
+                    regionData.bluntdaoChapter.split(', ').map((chapterName: string, index: number) => {
+                      const link = regionData.chapterLinks[chapterName.trim()];
+                      return (
+                        <a
+                          key={index}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.chapterButton}
+                        >
+                          💬 Join {chapterName.trim()}
+                        </a>
+                      );
+                    })
+                  ) : (
+                    <a href="https://discord.com/invite/e3cGSTzyWp" target="_blank" rel="noopener noreferrer" className={styles.chapterButton}>
+                      💬 Join {regionData.bluntdaoChapter}
+                    </a>
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </section>

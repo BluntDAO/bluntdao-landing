@@ -394,6 +394,23 @@ const Map: React.FC = () => {
     };
   }, [hoveredRegion, selectedRegion, getRegionColor]);
 
+  // Special world style: make the United States country polygon transparent in Global view
+  const geoJsonStyleWorld = useCallback((feature: any) => {
+    const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
+    // If this is the US polygon and we're in global view, make it transparent so state overlay is visible
+    if (showGlobalView && (regionName === 'United States' || regionName === 'United States of America')) {
+      return {
+        fillColor: 'transparent',
+        weight: 1,
+        opacity: 1,
+        color: '#444444',
+        dashArray: undefined,
+        fillOpacity: 0
+      };
+    }
+    return geoJsonStyle(feature);
+  }, [showGlobalView, geoJsonStyle]);
+
   // Memoized feature event handler for better performance
   const onEachFeature = useCallback((feature: any, layer: any) => {
     const regionName = feature.properties.NAME || feature.properties.name || feature.properties.NAME_EN;
@@ -427,6 +444,19 @@ const Map: React.FC = () => {
       const stores = regionData.stores || 0;
       const chapter = regionData.bluntdaoChapter || null;
 
+      // Create chapter links if they exist
+      let chapterHTML = '';
+      if (chapter && regionData.chapterLinks) {
+        const chapters = chapter.split(', ');
+        const chapterButtons = chapters.map((chapterName: string) => {
+          const link = regionData.chapterLinks[chapterName.trim()];
+          return `<a href="${link}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #00ff88, #39ff14); color: black; padding: 4px 8px; border-radius: 8px; font-size: 0.75rem; font-weight: bold; text-decoration: none; margin: 2px; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🌿 ${chapterName.trim()}</a>`;
+        }).join('');
+        chapterHTML = `<div style="margin-top: 8px; text-align: center;">${chapterButtons}</div>`;
+      } else if (chapter) {
+        chapterHTML = `<div style="background: linear-gradient(135deg, #00ff88, #39ff14); color: black; padding: 5px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; text-align: center; margin-top: 8px;">🌿 ${chapter}</div>`;
+      }
+
       layer.bindPopup(`
         <div class="${style.popupContent}">
           <h3 style="color: #00ff88; margin: 0 0 10px 0; font-size: 1.1rem;">${regionName}</h3>
@@ -441,7 +471,7 @@ const Map: React.FC = () => {
           <div style="margin-bottom: 8px;">
             <strong>🏪 Dispensaries:</strong> <span style="color: #00ff88; margin-left: 5px;">${stores}</span>
           </div>
-          ${chapter ? `<div style="background: linear-gradient(135deg, #00ff88, #39ff14); color: black; padding: 5px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; text-align: center; margin-top: 8px;">🌿 ${chapter}</div>` : ''}
+          ${chapterHTML}
           <button onclick="document.querySelector('.${style.closeButton}')?.click()" style="background: #00ff88; color: black; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; margin-top: 10px; font-weight: bold; width: 100%;">View Details</button>
         </div>
       `);
@@ -656,11 +686,22 @@ const Map: React.FC = () => {
               />
               
               {showGlobalView && worldGeoData && (
-                <GeoJSON
-                  data={worldGeoData}
-                  style={geoJsonStyle}
-                  onEachFeature={onEachFeature}
-                />
+                <>
+                  {/* World countries layer */}
+                  <GeoJSON
+                    data={worldGeoData}
+                    style={geoJsonStyleWorld}
+                    onEachFeature={onEachFeature}
+                  />
+                  {/* Overlay US states on top in global view so state legality overrides US overall */}
+                  {usGeoData && (
+                    <GeoJSON
+                      data={usGeoData}
+                      style={geoJsonStyle}
+                      onEachFeature={onEachFeature}
+                    />
+                  )}
+                </>
               )}
               
               {!showGlobalView && usGeoData && (
@@ -747,14 +788,44 @@ const Map: React.FC = () => {
                       <span className={style.count}>{regionData.stores || 0}</span>
                     </div>
                     
-                    {regionData.bluntdaoChapter && (
-                      <div className={style.chapterBadge}>
-                        🌿 {regionData.bluntdaoChapter}
-                      </div>
-                    )}
+                  {regionData.bluntdaoChapter && (
+                    <div className={style.chapterBadge}>
+                      {regionData.chapterLinks ? (
+                        regionData.bluntdaoChapter.split(', ').map((chapterName: string, index: number) => {
+                          const link = regionData.chapterLinks[chapterName.trim()];
+                          return (
+                            <a
+                              key={index}
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={style.chapterLink}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              🌿 {chapterName.trim()}
+                            </a>
+                          );
+                        })
+                      ) : (
+                        <span>🌿 {regionData.bluntdaoChapter}</span>
+                      )}
+                    </div>
+                  )}
                   </div>
                   
                   <div className={style.cardFooter}>
+                    {/* Quick switch to US-only view from the United States card */}
+                    {regionName === 'United States' && showGlobalView && (
+                      <button
+                        className={style.detailsBtn}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setShowGlobalView(false);
+                        }}
+                      >
+                        🇺🇸 Switch to US-Only View
+                      </button>
+                    )}
                     <Link 
                       to={regionName.includes(', USA') 
                         ? `/map/United States/${regionName.replace(', USA', '')}` 

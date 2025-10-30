@@ -10,7 +10,10 @@
       "stores": 3500,
       "colorCode": "green",
       "notes": "First G7 nation to fully legalize cannabis. Provincial regulations vary.",
-      "bluntdaoChapter": "BluntDAO Toronto"
+      "bluntdaoChapter": "Toronto",
+      "chapterLinks": {
+        "Toronto": "https://discord.com/invite/e3cGSTzyWp"
+      }
     },
     "Netherlands": {
       "recreational": "Decriminalized",
@@ -20,7 +23,11 @@
       "stores": 573,
       "colorCode": "lightgreen",
       "notes": "Famous coffeeshop culture, technically illegal but tolerated",
-      "bluntdaoChapter": "BluntDAO Amsterdam, BluntDAO Rotterdam"
+      "bluntdaoChapter": "Amsterdam, Rotterdam",
+      "chapterLinks": {
+        "Amsterdam": "https://discord.com/invite/e3cGSTzyWp",
+        "Rotterdam": "https://discord.com/invite/e3cGSTzyWp"
+      }
     },
     "Germany": {
       "recreational": "Legal",
@@ -39,7 +46,10 @@
       "stores": 50,
       "colorCode": "lightgreen",
       "notes": "Pioneered decriminalization approach, focus on harm reduction",
-      "bluntdaoChapter": "BluntDAO Lisbon"
+      "bluntdaoChapter": "Lisbon",
+      "chapterLinks": {
+        "Lisbon": "https://discord.com/invite/e3cGSTzyWp"
+      }
     },
     "Spain": {
       "recreational": "Decriminalized",
@@ -135,7 +145,11 @@
           "businesses": ["Eaze", "STIIIZY", "Glass House Farms", "Papa & Barkley", "Kiva Confections"],
           "notes": "First state to legalize medical cannabis. Enacted strong employment protections (AB 2188, SB 700) in 2024.",
           "colorCode": "green",
-          "bluntdaoChapter": "BluntDAO LA, BluntDAO SF"
+          "bluntdaoChapter": "LA, SF",
+          "chapterLinks": {
+            "LA": "https://discord.com/invite/e3cGSTzyWp",
+            "SF": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "Colorado": {
           "recreational": "Legal",
@@ -146,7 +160,10 @@
           "businesses": ["Green Dot Labs", "Wana Brands", "WYLD", "LivWell"],
           "notes": "First state (tied with WA) to legalize adult use. Allows home delivery and hospitality lounges. Lacks employment protections.",
           "colorCode": "green",
-          "bluntdaoChapter": "BluntDAO Denver"
+          "bluntdaoChapter": "Denver",
+          "chapterLinks": {
+            "Denver": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "Connecticut": {
           "recreational": "Legal",
@@ -177,7 +194,10 @@
           "businesses": ["Trulieve", "Verano (MÜV)", "Curaleaf", "Surterra Wellness"],
           "notes": "Lacks decriminalization. 2026 adult-use ballot initiative underway. Medical program is robust but does not allow home grow.",
           "colorCode": "yellow",
-          "bluntdaoChapter": "BluntDAO Miami"
+          "bluntdaoChapter": "Miami",
+          "chapterLinks": {
+            "Miami": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "Georgia": {
           "recreational": "Illegal",
@@ -408,7 +428,10 @@
           "businesses": ["Curaleaf", "Green Thumb Industries (GTI)", "Vireo Health"],
           "notes": "Law includes automatic expungement and strong social equity provisions. Adults can possess up to 3 oz and grow 6 plants (household cap of 12).",
           "colorCode": "green",
-          "bluntdaoChapter": "BluntDAO NYC"
+          "bluntdaoChapter": "NYC",
+          "chapterLinks": {
+            "NYC": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "North Carolina": {
           "recreational": "Decriminalized",
@@ -469,7 +492,10 @@
           "businesses": [],
           "notes": "Surrounded by legal states. Gov. Shapiro supports legalization. Bills to decriminalize to a summary offense have been introduced.",
           "colorCode": "yellow",
-          "bluntdaoChapter": "BluntDAO Philadelphia"
+          "bluntdaoChapter": "Philadelphia",
+          "chapterLinks": {
+            "Philadelphia": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "Rhode Island": {
           "recreational": "Legal",
@@ -520,7 +546,12 @@
           "businesses": ["Goodblend", "Texas Original", "Caprock Family Farms (Hemp)"],
           "notes": "Most restrictive medical program among comprehensive states. Leads the US in annual cannabis arrests (>23,000 in 2023). Several cities have passed local decriminalization ordinances.",
           "colorCode": "yellow",
-          "bluntdaoChapter": "BluntDAO Austin, BluntDAO San Antonio, BluntDAO Dallas"
+          "bluntdaoChapter": "Austin, San Antonio, Dallas",
+          "chapterLinks": {
+            "Austin": "https://discord.com/invite/e3cGSTzyWp",
+            "San Antonio": "https://discord.com/invite/e3cGSTzyWp",
+            "Dallas": "https://discord.com/invite/e3cGSTzyWp"
+          }
         },
         "Utah": {
           "recreational": "Illegal",
@@ -601,7 +632,10 @@
           "businesses": ["Takoma Wellness Center", "National Holistic Healing Center"],
           "notes": "Federal \"Harris Rider\" has blocked the District from regulating and taxing adult-use sales since 2014. Allows self-certification for medical patients.",
           "colorCode": "lightgreen",
-          "bluntdaoChapter": "BluntDAO Washington D.C."
+          "bluntdaoChapter": "Washington D.C.",
+          "chapterLinks": {
+            "Washington D.C.": "https://discord.com/invite/e3cGSTzyWp"
+          }
         }
       }
     },
@@ -726,7 +760,10 @@
         "businesses": ["Green House Thailand"],
         "notes": "Rapid policy shift highlights volatility in emerging markets. Government supporting legitimate medicinal businesses through transition.",
         "colorCode": "yellow",
-        "bluntdaoChapter": "BluntDAO Bangkok"
+        "bluntdaoChapter": "Bangkok",
+        "chapterLinks": {
+          "Bangkok": "https://discord.com/invite/e3cGSTzyWp"
+        }
       }
     },
     "South Africa": {
@@ -755,7 +792,10 @@
       "stores": 15,
       "colorCode": "lightgreen",
       "notes": "Growing medical market, personal use tolerance varies by region",
-      "bluntdaoChapter": "BluntDAO Sao Paulo"
+      "bluntdaoChapter": "Sao Paulo",
+      "chapterLinks": {
+        "Sao Paulo": "https://discord.com/invite/e3cGSTzyWp"
+      }
     },
     "India": {
       "recreational": "Illegal",
@@ -765,7 +805,10 @@
       "stores": 0,
       "colorCode": "red",
       "notes": "Traditional cannabis culture in some regions, but legally restricted",
-      "bluntdaoChapter": "BluntDAO Bangalore"
+      "bluntdaoChapter": "Bangalore",
+      "chapterLinks": {
+        "Bangalore": "https://discord.com/invite/e3cGSTzyWp"
+      }
     }
   },
   "legalCategories": {

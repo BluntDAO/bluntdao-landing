@@ -149,13 +149,69 @@
 }
 
 .chapterBadge {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
   padding: 10px 20px;
   background: linear-gradient(135deg, #00ff88, #00d4ff);
   color: #000000;
   border-radius: 20px;
   font-weight: bold;
   margin-top: 20px;
+}
+
+.chapterLink {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000000;
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.chapterLink:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chapterSection {
+  margin-top: 20px;
+}
+
+.chapterSection h3 {
+  color: #00ff88;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.chapterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chapterButton {
+  background: linear-gradient(135deg, #00ff88, #39ff14);
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+.chapterButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
 }
 
 /* Main Content */
