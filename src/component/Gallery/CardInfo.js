@@ -6,6 +6,13 @@ const cardInfo = [
     img: "https://www.blunts.wtf/_next/image?url=%2Fblunts-3.jpg&w=1080&q=75",
     url: "https://blunts.wtf",
   },
+  {
+    title: "WenToken DevConnect 2025",
+    description:
+      "Proof of Sesh / Wen Token' Dev Connect 2025 Buenos AIres Sesh",
+    img: "/img/bluntdaowentoken.webp",
+    url: "https://collectors.poap.xyz/token/7511499",
+  },
    {
     title: "SpliffDAO Proof of Sesh",
     description:
